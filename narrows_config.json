@@ -43,8 +43,44 @@
         "Handymax"
       ]
     },
+    "1005": {
+      "label": "Maize / corn (HS 1005)",
+      "vessels": [
+        "Handymax"
+      ]
+    },
+    "1201": {
+      "label": "Soybeans (HS 1201)",
+      "vessels": [
+        "Handymax"
+      ]
+    },
+    "1511": {
+      "label": "Palm oil (HS 1511)",
+      "vessels": [
+        "Aframax"
+      ]
+    },
     "2601": {
       "label": "Iron ores (HS 2601)",
+      "vessels": [
+        "Capesize"
+      ]
+    },
+    "2603": {
+      "label": "Copper concentrates (HS 2603)",
+      "vessels": [
+        "Capesize"
+      ]
+    },
+    "2606": {
+      "label": "Bauxite / aluminium ore (HS 2606)",
+      "vessels": [
+        "Capesize"
+      ]
+    },
+    "2701": {
+      "label": "Coal (HS 2701)",
       "vessels": [
         "Capesize"
       ]
@@ -59,6 +95,18 @@
       "label": "Refined petroleum (HS 2710)",
       "vessels": [
         "Aframax"
+      ]
+    },
+    "2814": {
+      "label": "Ammonia (HS 2814)",
+      "vessels": [
+        "Handymax"
+      ]
+    },
+    "3102": {
+      "label": "Nitrogen fertilizers (HS 3102)",
+      "vessels": [
+        "Handymax"
       ]
     },
     "6109": {
@@ -94,6 +142,12 @@
         "RoRo",
         "Handymax",
         "Container"
+      ]
+    },
+    "lpg": {
+      "label": "LPG (HS 271112–271119)",
+      "vessels": [
+        "VLCC"
       ]
     }
   },
