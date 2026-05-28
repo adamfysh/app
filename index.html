@@ -656,6 +656,7 @@ table.n-accordion-table{width:100%;border-collapse:collapse;font-size:11px;}
   </div>
 </div>
 
+<script src="NARROWS-RATES.js"></script>
 <script>
 /* ============================================================
    NARROWS SIMULATOR — Data-driven build
@@ -831,7 +832,9 @@ function getAssumptions() {
    VESSEL RATES
    ============================================================ */
 function buildVR(A) {
-  const vr = JSON.parse(JSON.stringify(CFG.vesselRates));
+  // Fall back to NARROWS-RATES.js if narrows_config.json has not yet loaded
+  const _baseRates = (CFG && CFG.vesselRates) || (window.NARROWS_RATES && window.NARROWS_RATES.vesselRates) || {};
+  const vr = JSON.parse(JSON.stringify(_baseRates));
   vr.VLCC.bunkerPerDay      = A.vlccBunker;
   vr.VLCC.charterPerDay     = A.vlccCharter;
   vr.Capesize.bunkerPerDay  = A.capeBunker;

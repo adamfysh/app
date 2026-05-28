@@ -1,0 +1,59 @@
+# update-rates.yml
+# Fetches Brent crude (BZ=F) and Baltic Dry Index (^BDI) from Yahoo Finance daily,
+# estimates vessel day rates using calibrated regression coefficients, and commits
+# updated narrows_config.json and NARROWS-RATES.js to the repo.
+#
+# Coefficients (last calibrated May 2026 against Baltic Exchange / broker data):
+#   VLCC bunker/day   ≈ 0.85 × Brent × 165 + 6000   (165 mt/day VLSFO consumption)
+#   VLCC charter/day  ≈ Brent × 850 + 5000           (tanker earnings track oil)
+#   Capesize bunker   ≈ 0.85 × Brent × 55 + 2500    (55 mt/day)
+#   Capesize charter  ≈ BDI × 8.5                    (BDI → TC5 proxy)
+#   Container bunker  ≈ 0.85 × Brent × 75 + 3000    (75 mt/day)
+#   Container charter ≈ fixed 25000 (less BDI-correlated)
+#   Aframax bunker    ≈ 0.85 × Brent × 55 + 2500
+#   Aframax charter   ≈ Brent × 320 + 3000
+#
+# All outputs are clamped to plausible floor/ceiling values to prevent
+# nonsense figures during data outages or extreme market moves.
+
+name: Update vessel rates
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 06:00 UTC daily (Baltic Exchange publishes ~05:30 UTC)
+  workflow_dispatch:        # allow manual trigger from Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-rates:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install yfinance requests
+
+      - name: Fetch rates and update files
+        run: python3 .github/workflows/fetch_rates.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "narrows-rates-bot"
+          git config user.email "bot@narrows.io"
+          git add narrows_config.json NARROWS-RATES.js
+          if git diff --cached --quiet; then
+            echo "No rate changes — skipping commit"
+          else
+            DATE=$(date -u +"%Y-%m-%d")
+            git commit -m "rates: auto-update ${DATE} (Brent/BDI)"
+            git push
+          fi
