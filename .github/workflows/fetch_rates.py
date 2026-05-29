@@ -87,6 +87,28 @@ else:
     cape_charter  = fallback("Capesize", "charterPerDay")
     handy_charter = fallback("Handymax", "charterPerDay")
 
+# Suezmax: tracks between VLCC and Aframax (Baltic TD20). Scales with Brent.
+if brent and brent > 20:
+    suez_bunker  = clamp(0.85 * brent * 60 + 3_000,   18_000,  70_000)
+    suez_charter = clamp(brent * 400 + 4_000,          12_000, 100_000)
+else:
+    suez_bunker  = fallback("Suezmax", "bunkerPerDay")
+    suez_charter = fallback("Suezmax", "charterPerDay")
+
+# LPG/VLGC: lower consumption than VLCC; charter held (BLPG1 not freely available).
+if brent and brent > 20:
+    lpg_bunker   = clamp(0.85 * brent * 40 + 2_000,   12_000,  50_000)
+else:
+    lpg_bunker   = fallback("LPG", "bunkerPerDay")
+lpg_charter = fallback("LPG", "charterPerDay")   # held
+
+# Neopanamax container: high fuel burn (~100 mt/day); charter held (illiquid proxy).
+if brent and brent > 20:
+    neo_bunker   = clamp(0.85 * brent * 100 + 4_000,  22_000,  80_000)
+else:
+    neo_bunker   = fallback("Neopanamax", "bunkerPerDay")
+neo_charter = fallback("Neopanamax", "charterPerDay")  # held
+
 # Container, RoRo, LNG charter held — no reliable public proxy
 cont_charter = fallback("Container",   "charterPerDay")
 roro_charter = fallback("RoRo",        "charterPerDay")
@@ -100,6 +122,9 @@ new_rates = {
     "RoRo":        {"bunkerPerDay": roro_bunker,  "charterPerDay": roro_charter,  "cargoValueM": existing.get("RoRo",        {}).get("cargoValueM",  55)},
     "LNG_Carrier": {"bunkerPerDay": lng_bunker,   "charterPerDay": lng_charter,   "cargoValueM": existing.get("LNG_Carrier", {}).get("cargoValueM", 180)},
     "Container":   {"bunkerPerDay": cont_bunker,  "charterPerDay": cont_charter,  "cargoValueM": existing.get("Container",   {}).get("cargoValueM",  80)},
+    "Suezmax":     {"bunkerPerDay": suez_bunker,  "charterPerDay": suez_charter,  "cargoValueM": existing.get("Suezmax",     {}).get("cargoValueM",  90)},
+    "LPG":         {"bunkerPerDay": lpg_bunker,   "charterPerDay": lpg_charter,   "cargoValueM": existing.get("LPG",         {}).get("cargoValueM",  55)},
+    "Neopanamax":  {"bunkerPerDay": neo_bunker,   "charterPerDay": neo_charter,   "cargoValueM": existing.get("Neopanamax",  {}).get("cargoValueM", 100)},
 }
 
 today     = datetime.now(timezone.utc).strftime("%Y-%m-%d")
