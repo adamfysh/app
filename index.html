@@ -477,6 +477,12 @@ table.n-accordion-table{width:100%;border-collapse:collapse;font-size:11px;}
       <div class="n-assume-row"><label>Capesize charter</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-cape-charter" type="number" value="18" min="1" max="200">k</div></div>
       <div class="n-assume-row"><label>Container bunker</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-cont-bunker" type="number" value="30" min="1" max="200">k</div></div>
       <div class="n-assume-row"><label>Container charter</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-cont-charter" type="number" value="25" min="1" max="200">k</div></div>
+      <div class="n-assume-row"><label>Aframax bunker</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-afra-bunker" type="number" value="28" min="1" max="200">k</div></div>
+      <div class="n-assume-row"><label>Aframax charter</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-afra-charter" type="number" value="22" min="1" max="200">k</div></div>
+      <div class="n-assume-row"><label>Handymax bunker</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-handy-bunker" type="number" value="18" min="1" max="200">k</div></div>
+      <div class="n-assume-row"><label>Handymax charter</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-handy-charter" type="number" value="16" min="1" max="200">k</div></div>
+      <div class="n-assume-row"><label>RoRo bunker</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-roro-bunker" type="number" value="22" min="1" max="200">k</div></div>
+      <div class="n-assume-row"><label>RoRo charter</label><div class="n-assume-input-wrap">$<input class="n-assume-input" id="a-roro-charter" type="number" value="20" min="1" max="200">k</div></div>
       <div class="n-assume-section-label" style="margin-top:10px">Carrying cost</div>
       <div class="n-assume-row"><label>Rate (% p.a.)</label><div class="n-assume-input-wrap"><input class="n-assume-input" id="a-carry-rate" type="number" value="5" min="0" max="30" step="0.5">%</div></div>
       <div class="n-assume-section-label" style="margin-top:10px">Sensitivity overrides</div>
@@ -797,6 +803,9 @@ function applyAssumptionsFromConfig() {
   document.getElementById('a-cape-charter').value = Math.round(vr.Capesize.charterPerDay / 1000);
   document.getElementById('a-cont-bunker').value  = Math.round(vr.Container.bunkerPerDay / 1000);
   document.getElementById('a-cont-charter').value = Math.round(vr.Container.charterPerDay / 1000);
+  if (vr.Aframax)  { document.getElementById('a-afra-bunker').value  = Math.round(vr.Aframax.bunkerPerDay  / 1000); document.getElementById('a-afra-charter').value = Math.round(vr.Aframax.charterPerDay  / 1000); }
+  if (vr.Handymax) { document.getElementById('a-handy-bunker').value = Math.round(vr.Handymax.bunkerPerDay / 1000); document.getElementById('a-handy-charter').value = Math.round(vr.Handymax.charterPerDay / 1000); }
+  if (vr.RoRo)     { document.getElementById('a-roro-bunker').value  = Math.round(vr.RoRo.bunkerPerDay    / 1000); document.getElementById('a-roro-charter').value  = Math.round(vr.RoRo.charterPerDay    / 1000); }
 }
 
 /* ============================================================
@@ -820,6 +829,12 @@ function getAssumptions() {
     capeCharter:   g('a-cape-charter') * 1000,
     contBunker:    g('a-cont-bunker') * 1000,
     contCharter:   g('a-cont-charter') * 1000,
+    afraBunker:    g('a-afra-bunker')  * 1000,
+    afraCharter:   g('a-afra-charter') * 1000,
+    handyBunker:   g('a-handy-bunker') * 1000,
+    handyCharter:  g('a-handy-charter') * 1000,
+    roroBunker:    g('a-roro-bunker')  * 1000,
+    roroCharter:   g('a-roro-charter') * 1000,
     carryRate:     g('a-carry-rate') / 100,
     hormuzSens:    g('a-hormuz-sens'),
     malaccaSens:   g('a-malacca-sens'),
@@ -841,6 +856,9 @@ function buildVR(A) {
   vr.Capesize.charterPerDay = A.capeCharter;
   vr.Container.bunkerPerDay  = A.contBunker;
   vr.Container.charterPerDay = A.contCharter;
+  if (vr.Aframax && A.afraBunker)  { vr.Aframax.bunkerPerDay  = A.afraBunker;  vr.Aframax.charterPerDay  = A.afraCharter;  }
+  if (vr.Handymax && A.handyBunker){ vr.Handymax.bunkerPerDay = A.handyBunker; vr.Handymax.charterPerDay = A.handyCharter; }
+  if (vr.RoRo && A.roroBunker)     { vr.RoRo.bunkerPerDay     = A.roroBunker;  vr.RoRo.charterPerDay     = A.roroCharter;  }
   return vr;
 }
 
