@@ -5,62 +5,62 @@
     "jsonKeyField": "jsonKey maps each chokepoint to its key in simulator_data.json. null = no bilateral data yet.",
     "terminal_straitField": "terminal_strait: true marks chokepoints where the enclosed basin has no maritime exit except through this strait. Closure is an export halt, not a rerouting event. Detour costs represent supply substitution premiums, not vessel diversion costs.",
     "ratesUpdated": "2026-05-29",
-    "ratesSource": "Yahoo Finance auto-update 2026-05-29 (Brent n/a USD/bbl, BDI n/a)",
+    "ratesSource": "Yahoo Finance auto-update 2026-05-29 (Brent 90.9 USD/bbl, BDI n/a)",
     "ratesNote": "Capesize charter updated to reflect BCI ~35k/d (May 2026). VLCC charter reflects mid-May TD3C TCE ~122k/d net bunker. All rates are defaults; override in simulator assumptions panel.",
     "rateBaselines": {
       "bdi": 2000,
-      "brent": 70.0,
+      "brent": 90.9,
       "_note": "Approximate market levels when vesselRates were last set (May 2026). Simulator scales charter + bunker rates proportionally from these baselines using 30d trailing averages fetched from Yahoo Finance."
     }
   },
   "vesselRates": {
     "VLCC": {
-      "bunkerPerDay": 55000,
-      "charterPerDay": 65000,
+      "bunkerPerDay": 30000,
+      "charterPerDay": 82256,
       "cargoValueM": 120
     },
     "Aframax": {
-      "bunkerPerDay": 28000,
-      "charterPerDay": 22000,
+      "bunkerPerDay": 15000,
+      "charterPerDay": 32084,
       "cargoValueM": 65
     },
     "Capesize": {
-      "bunkerPerDay": 32000,
+      "bunkerPerDay": 15000,
       "charterPerDay": 35000,
       "cargoValueM": 40
     },
     "Handymax": {
-      "bunkerPerDay": 18000,
+      "bunkerPerDay": 10000,
       "charterPerDay": 16000,
       "cargoValueM": 18
     },
     "RoRo": {
-      "bunkerPerDay": 22000,
+      "bunkerPerDay": 12000,
       "charterPerDay": 20000,
       "cargoValueM": 55
     },
     "LNG_Carrier": {
-      "bunkerPerDay": 38000,
+      "bunkerPerDay": 25000,
       "charterPerDay": 60000,
       "cargoValueM": 180
     },
     "Container": {
-      "bunkerPerDay": 30000,
+      "bunkerPerDay": 18000,
       "charterPerDay": 25000,
       "cargoValueM": 80
     },
     "Suezmax": {
-      "bunkerPerDay": 36000,
-      "charterPerDay": 28000,
+      "bunkerPerDay": 18000,
+      "charterPerDay": 40355,
       "cargoValueM": 90
     },
     "LPG": {
-      "bunkerPerDay": 25000,
+      "bunkerPerDay": 12000,
       "charterPerDay": 20000,
       "cargoValueM": 55
     },
     "Neopanamax": {
-      "bunkerPerDay": 35000,
+      "bunkerPerDay": 22000,
       "charterPerDay": 20000,
       "cargoValueM": 100
     }
