@@ -1074,10 +1074,13 @@ function runSim() {
   }
 
   /* ---- rerouting section ---- */
+  // canReroute: false for terminal straits (Hormuz, Bosporus) where no maritime bypass exists.
+  // Belt-and-suspenders: also checked via detourDays=0 in narrows_config.json.
+  const canReroute = cfg ? (cfg.detourDays && Object.values(cfg.detourDays).some(v => v > 0)) : false;
   const vessels  = (CFG.commodities[comId] ? CFG.commodities[comId].vessels : null) || CFG.commodities['all'].vessels;
   const pv_name  = vessels[0];
   const pv       = VR[pv_name];
-  const pd       = cfg ? (cfg.detourDays[pv_name] || 0) : 0;
+  const pd       = (cfg && canReroute) ? (cfg.detourDays[pv_name] || 0) : 0;
 
   document.getElementById('reroute-vessel-label').textContent = 'Primary vessel: ' + pv_name;
   document.getElementById('reroute-desc').textContent         = cfg ? cfg.altRoute : '—';

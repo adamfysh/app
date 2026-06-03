@@ -194,14 +194,14 @@
       "sensitivity": 1.0,
       "terminal_strait": true,
       "terminal_strait_note": "Hormuz is a terminal strait. All Persian Gulf export terminals (Ras Tanura, Ruwais, Basra, Qatar offshore berths) sit inside the enclosed basin. If the Strait closes, no laden vessel can exit by any alternative maritime route. Closure is a supply halt, not a rerouting event. Detour costs in this model represent the supply substitution premium: the additional shipping cost for importers sourcing non-Gulf cargo from alternative origins (e.g. Atlantic Basin crude reaching Asian buyers via Cape of Good Hope). Crude pipeline bypasses exist: Saudi East-West Pipeline to Yanbu on the Red Sea (~3 mbd, onward routing via Bab-el-Mandeb or Suez), and UAE ADCOP to Fujairah in the Gulf of Oman (~1.5 mbd, outside Hormuz). No pipeline bypass exists for LNG or LPG.",
-      "altRoute": "No maritime bypass for Gulf cargo. Importers must substitute with non-Gulf supply. For Asian buyers, Atlantic Basin crude travels via Cape of Good Hope, adding the detour premium shown. Crude pipeline bypasses: Saudi Yanbu (Red Sea, faces Bab-el-Mandeb/Suez) and UAE Fujairah (Gulf of Oman, clean bypass).",
+      "altRoute": "Terminal strait \u2014 no maritime rerouting option. Gulf cargo cannot bypass Hormuz by sea. Importers must substitute with non-Gulf supply or absorb the halt. Pipeline partial bypasses: Saudi Yanbu (Red Sea, downstream Bab-el-Mandeb/Suez exposure) and UAE Fujairah (Gulf of Oman, clean bypass for UAE crude only).",
       "detourDays": {
-        "VLCC": 12,
-        "Aframax": 14,
-        "Capesize": 13,
-        "Handymax": 11,
-        "RoRo": 16,
-        "Container": 13
+        "VLCC": 0,
+        "Aframax": 0,
+        "Capesize": 0,
+        "Handymax": 0,
+        "RoRo": 0,
+        "Container": 0
       },
       "dailyTransits": {
         "VLCC": 8,
@@ -211,7 +211,7 @@
         "RoRo": 2,
         "Container": 5
       },
-      "note": "No maritime bypass for Gulf cargo. Detour costs reflect supply substitution from non-Gulf origins, not vessel diversion. Sensitivity 1.00: every percentage point of closure is fully effective."
+      "note": "Terminal strait. Rerouting cost: not applicable. Sensitivity 1.00: every percentage point of closure is fully effective. All exposed vessels are captive regardless of CII rating."
     },
     "malacca": {
       "label": "Strait of Malacca",
@@ -292,7 +292,7 @@
       "sensitivity": 1.0,
       "terminal_strait": true,
       "terminal_strait_note": "Bosphorus is a terminal strait. All Black Sea export terminals (Novorossiysk, Constanta, Batumi, Odessa) sit inside the enclosed basin. If the strait closes, no laden vessel can exit by any alternative maritime route. Closure is a supply halt, not a rerouting event. Detour costs are zero because there is no detour available. Crude pipeline bypasses exist for some volumes: BTC (Baku-Tbilisi-Ceyhan) delivers Caspian crude to Ceyhan on the Mediterranean (~1.2 mbd). Russian Baltic terminals (Primorsk, Ust-Luga) bypass Bosphorus for Baltic-originated volumes.",
-      "altRoute": "No viable maritime alternative. Black Sea exports are landlocked without Bosporus. Pipeline bypasses for crude only: BTC to Ceyhan (Mediterranean), Russian Baltic terminals.",
+      "altRoute": "Terminal strait \u2014 no maritime rerouting option. Black Sea exports are landlocked without Bosporus. Pipeline partial bypasses for crude only: BTC to Ceyhan (Mediterranean), Russian Baltic terminals.",
       "detourDays": {
         "VLCC": 0,
         "Aframax": 0,
