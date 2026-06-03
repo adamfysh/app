@@ -553,7 +553,7 @@ table.n-accordion-table{width:100%;border-collapse:collapse;font-size:11px;}
     </div>
 
     <div class="n-kpi-grid">
-      <div class="n-kpi"><div class="n-kpi-label">Value at risk</div><div class="n-kpi-value" id="kpi-var">—</div><div class="n-kpi-unit">USD, annualised</div></div>
+      <div class="n-kpi"><div class="n-kpi-label">Value at risk</div><div class="n-kpi-value" id="kpi-var">—</div><div class="n-kpi-unit">USD at risk, window-scaled</div></div>
       <div class="n-kpi"><div class="n-kpi-label">Countries exposed</div><div class="n-kpi-value" id="kpi-countries">—</div><div class="n-kpi-unit">importing nations</div></div>
       <div class="n-kpi"><div class="n-kpi-label">Effective severity</div><div class="n-kpi-value" id="kpi-eff">—</div><div class="n-kpi-unit">after capacity adj.</div></div>
     </div>
@@ -1161,6 +1161,7 @@ function runSim() {
   document.getElementById('methodology-note').textContent =
     `Source: UN Comtrade ${SIM_DATA.model_year} bilateral data. ${SIM_DATA.coverage_note} ` +
     `Data quality: Tier 1 = real bilateral pairs; Tier 2 = proxy from exporter statistics; Tier 3 = national totals allocated by corridor logic. ` +
+    `Dependency % reflects transit-weighted allocation from origin-destination bilateral pairs; terminal strait values (Hormuz, Bosporus) represent share of imports sourced from the enclosed basin. ` +
     `${Object.keys(SIM_DATA.chokepoints).length} chokepoints active, ${Object.keys(CFG.chokepoints).length} defined. ` +
     `◦ in chokepoint list = no bilateral data yet. narrows.io`;
 
