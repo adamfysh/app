@@ -1161,7 +1161,7 @@ function runSim() {
   document.getElementById('methodology-note').textContent =
     `Source: UN Comtrade ${SIM_DATA.model_year} bilateral data. ${SIM_DATA.coverage_note} ` +
     `Data quality: Tier 1 = real bilateral pairs; Tier 2 = proxy from exporter statistics; Tier 3 = national totals allocated by corridor logic. ` +
-    `Dependency % reflects transit-weighted allocation from origin-destination bilateral pairs; terminal strait values (Hormuz, Bosporus) represent share of imports sourced from the enclosed basin. ` +
+    `Dependency % = share of that commodity's total imports exposed to the chokepoint (commodity-specific denominator from UN Comtrade bilateral pairs). ` +
     `${Object.keys(SIM_DATA.chokepoints).length} chokepoints active, ${Object.keys(CFG.chokepoints).length} defined. ` +
     `◦ in chokepoint list = no bilateral data yet. narrows.io`;
 
