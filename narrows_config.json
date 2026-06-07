@@ -4,8 +4,8 @@
     "note": "Hand-maintained structural config. Edit this file to add chokepoints, update routes, vessel rates, or commodity mappings. Never auto-generated — safe to edit between data runs.",
     "jsonKeyField": "jsonKey maps each chokepoint to its key in simulator_data.json. null = no bilateral data yet.",
     "terminal_straitField": "terminal_strait: true marks chokepoints where the enclosed basin has no maritime exit except through this strait. Closure is an export halt, not a rerouting event. Detour costs represent supply substitution premiums, not vessel diversion costs.",
-    "ratesUpdated": "2026-06-05",
-    "ratesSource": "Yahoo Finance auto-update 2026-06-05 (Brent 94.5 USD/bbl, BDI n/a)",
+    "ratesUpdated": "2026-06-06",
+    "ratesSource": "Yahoo Finance auto-update 2026-06-06 (Brent n/a USD/bbl, BDI n/a)",
     "ratesNote": "Capesize charter updated to reflect BCI ~35k/d (May 2026). VLCC charter reflects mid-May TD3C TCE ~122k/d net bunker. All rates are defaults; override in simulator assumptions panel.",
     "rateBaselines": {
       "bdi": 2000,
