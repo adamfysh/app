@@ -26,8 +26,8 @@
 window.NARROWS_RATES = Object.freeze({
 
   version:      '1.0',
-  last_updated: '2026-06-12',
-  source:       'Yahoo Finance auto-update 2026-06-12 (Brent 86.7 USD/bbl, BDI n/a)',
+  last_updated: '2026-06-13',
+  source:       'Yahoo Finance auto-update 2026-06-13 (Brent 87.3 USD/bbl, BDI n/a)',
 
   // ---------------------------------------------------------------------------
   // Vessel day rates
@@ -36,14 +36,14 @@ window.NARROWS_RATES = Object.freeze({
   // Authoritative source at runtime: narrows_config.json vesselRates.
   // ---------------------------------------------------------------------------
   vesselRates: Object.freeze({
-    VLCC:       Object.freeze({ bunkerPerDay: 30000, charterPerDay: 78720, cargoValueM: 120 }),
-    Aframax:    Object.freeze({ bunkerPerDay: 15000, charterPerDay: 30753, cargoValueM: 65 }),
+    VLCC:       Object.freeze({ bunkerPerDay: 30000, charterPerDay: 79230, cargoValueM: 120 }),
+    Aframax:    Object.freeze({ bunkerPerDay: 15000, charterPerDay: 30945, cargoValueM: 65 }),
     Capesize:   Object.freeze({ bunkerPerDay: 15000, charterPerDay: 35000, cargoValueM: 40 }),
     Handymax:  Object.freeze({ bunkerPerDay: 10000, charterPerDay: 16000, cargoValueM: 18 }),
     RoRo:        Object.freeze({ bunkerPerDay: 12000, charterPerDay: 20000, cargoValueM: 55 }),
     LNG_Carrier:Object.freeze({ bunkerPerDay: 25000, charterPerDay: 60000, cargoValueM: 180 }),
     Container:  Object.freeze({ bunkerPerDay: 18000, charterPerDay: 25000, cargoValueM: 80 }),
-    Suezmax:Object.freeze({ bunkerPerDay: 18000, charterPerDay: 38692, cargoValueM: 90 }),
+    Suezmax:Object.freeze({ bunkerPerDay: 18000, charterPerDay: 38932, cargoValueM: 90 }),
     LPG:Object.freeze({ bunkerPerDay: 12000, charterPerDay: 20000, cargoValueM: 55 }),
     Neopanamax:Object.freeze({ bunkerPerDay: 22000, charterPerDay: 20000, cargoValueM: 100 })
   }),
