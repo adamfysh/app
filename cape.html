@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAPE — Narrows | Corridor Accumulation and Portfolio Exposure</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1698 948'%3E%3Cpath fill='%23F0B429' d='M906.75 759.29 l-50.35 -0.37 0 -260.50 c0 -178.93 -0.37 -260.38 -1.23 -260.01 -0.74 0.25 -4.07 6.54 -7.28 13.94 -67.01 151.04 -91.32 207.19 -133.27 307.89 -7.40 18.02 -29.12 69.97 -48.13 115.38 l-34.55 82.68 -63.06 0.37 -63.06 0.25 0.74 -2.71 c0.49 -1.60 4.94 -12.59 9.87 -24.43 4.94 -11.85 20.48 -49.36 34.55 -83.30 31.59 -76.26 94.03 -224.59 152.65 -362.18 8.88 -20.73 21.60 -50.72 28.26 -66.64 6.79 -15.92 12.71 -29.86 13.33 -30.85 0.86 -1.60 9.63 -1.85 64.79 -2.22 l63.67 -0.25 0.25 239.65 0.37 239.65 4.20 -10.98 c11.35 -30.48 124.88 -313.44 175.23 -436.84 l12.09 -29.62 66.76 -0.37 c36.77 -0.12 66.88 0.12 66.88 0.49 0 0.49 -7.77 18.88 -17.15 41.09 -39.49 92.55 -76.51 180.17 -105.38 249.39 -7.77 18.63 -23.08 55.04 -33.81 80.83 -38.38 91.07 -55.16 131.18 -68.73 164.12 -14.31 34.80 -15.18 36.65 -16.54 36.16 -0.49 -0.25 -23.45 -0.49 -51.09 -0.62z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#F4F7FB;
+      --surface:#FFFFFF;
+      --surface2:#EEF2F8;
+      --surface3:#E2E8F2;
+      --navy:#0A2540;
+      --navy-mid:#0d304f;
+      --gold:#F0B429;
+      --gold-dark:#dea020;
+      --gold-pale:#FEF9EC;
+      --gold-ring:rgba(240,180,41,.30);
+      --blue:#1565A8;
+      --blue-soft:rgba(21,101,168,.10);
+      --green:#166534;
+      --green-soft:rgba(22,101,52,.10);
+      --red:#B91C1C;
+      --red-soft:rgba(185,28,28,.09);
+      --amber-text:#92400E;
+      --purple:#5B21B6;
+      --purple-soft:rgba(91,33,182,.09);
+      --text:#0A2540;
+      --text-muted:#4A6078;
+      --text-dim:#8FA5BB;
+      --border:#DDE4EF;
+      --border-mid:#C0CEDF;
+      --rule:1px solid #DDE4EF;
+      --header-h:68px;
+      --strip-h:60px;
+      --r:8px;
+    }
+    html{font-size:16px;scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.6;min-height:100vh}
+    .serif{font-family:'Instrument Serif',serif}
+    .mono{font-family:'DM Mono',monospace}
+
+    /* ── HEADER ── */
+    .hdr{
+      height:var(--header-h);display:flex;align-items:center;justify-content:space-between;
+      padding:0 36px;border-bottom:3px solid var(--gold);background:var(--navy);
+      position:sticky;top:0;z-index:100;
+    }
+    .hdr-logo{display:flex;align-items:center;gap:10px}
+    .hdr-sep{color:rgba(255,255,255,.25);font-size:13px}
+    .hdr-sub{font-size:13px;color:rgba(255,255,255,.50);font-weight:300}
+    .hdr-right{display:flex;align-items:center;gap:12px;font-size:12px;color:rgba(255,255,255,.40);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+    .alert-pill{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+      padding:4px 11px;border-radius:20px;font-family:'DM Mono',monospace;
+    }
+    .alert-pill .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .pill-alert{background:rgba(185,28,28,.18);color:#fca5a5}.pill-alert .dot{background:#fca5a5}
+    .pill-elevated{background:rgba(240,180,41,.18);color:var(--gold)}.pill-elevated .dot{background:var(--gold)}
+    .pill-ok{background:rgba(22,101,52,.18);color:#86efac}.pill-ok .dot{background:#86efac}
+
+    /* ── SCENARIO STRIP ── */
+    .strip{
+      min-height:var(--strip-h);display:flex;align-items:center;flex-wrap:wrap;gap:0;
+      padding:10px 36px;background:var(--surface);border-bottom:var(--rule);
+      position:sticky;top:var(--header-h);z-index:90;
+      box-shadow:0 2px 6px rgba(10,37,64,.06);
+    }
+    .sg{display:flex;align-items:center;gap:8px;padding:4px 0;flex-shrink:0}
+    .sl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-right:2px;white-space:nowrap}
+    .chips{display:flex;flex-wrap:wrap;gap:4px}
+    .chip{
+      background:transparent;border:1px solid var(--border-mid);border-radius:5px;
+      padding:5px 13px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;
+      color:var(--text-muted);cursor:pointer;transition:all .12s;white-space:nowrap;
+    }
+    .chip:hover{border-color:var(--navy);color:var(--navy)}
+    .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+    /* T3 corridors use same solid border as T1: data tier shown in output panels only */
+    .ssep{width:1px;height:26px;background:var(--border);margin:0 18px;flex-shrink:0}
+
+    /* Duration slider */
+    .dur-wrap{display:flex;align-items:center;gap:10px}
+    .dur-slider{
+      -webkit-appearance:none;appearance:none;width:120px;height:3px;
+      background:var(--border);border-radius:2px;outline:none;cursor:pointer;
+    }
+    .dur-slider::-webkit-slider-thumb{
+      -webkit-appearance:none;appearance:none;width:16px;height:16px;
+      border-radius:50%;background:var(--navy);cursor:pointer;
+      box-shadow:0 0 0 3px rgba(10,37,64,.15);
+    }
+    .dur-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--navy);border:none;cursor:pointer}
+    .dur-num{
+      width:52px;background:var(--surface);border:1px solid var(--border-mid);
+      border-radius:5px;padding:5px 8px;font-family:'DM Mono',monospace;font-size:13px;
+      color:var(--navy);text-align:center;
+    }
+    .dur-num:focus{outline:none;border-color:var(--navy)}
+
+    /* Severity with info */
+    .sev-wrap{display:flex;gap:4px;align-items:center}
+    .sev-chip{
+      background:transparent;border:1px solid var(--border-mid);border-radius:5px;
+      padding:5px 13px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;
+      color:var(--text-muted);cursor:pointer;transition:all .12s;white-space:nowrap;position:relative;
+    }
+    .sev-chip:hover{border-color:var(--navy);color:var(--navy)}
+    .sev-chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+    .sev-info{
+      display:none;position:absolute;top:calc(100% + 8px);left:0;z-index:300;
+      background:var(--navy);border-radius:var(--r);
+      padding:14px 18px;font-size:13px;color:rgba(255,255,255,.78);width:320px;line-height:1.75;
+      box-shadow:0 10px 36px rgba(10,37,64,.22);pointer-events:none;font-weight:400;
+    }
+    .sev-chip:hover .sev-info{display:block}
+
+    /* Strip readout */
+    .strip-readout{margin-left:auto;text-align:right;flex-shrink:0;padding-left:20px}
+    .strip-readout-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px}
+    .strip-readout-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--navy);letter-spacing:-.01em}
+
+    /* ── MAIN ── */
+    .main{max-width:980px;margin:0 auto;padding:40px 36px 80px}
+
+    /* ── HERO STATS ── */
+    .hero{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:1px;background:var(--border);border-radius:var(--r);overflow:hidden;
+      border:var(--rule);margin-bottom:36px;
+    }
+    .hstat{background:var(--navy);padding:22px 22px 18px}
+    .hstat-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+    .hstat-val{
+      font-family:'Instrument Serif',serif;font-size:36px;font-weight:400;
+      color:var(--gold);letter-spacing:-.02em;line-height:1;margin-bottom:5px;
+    }
+    .hstat-val.warn{color:#fca5a5}
+    .hstat-val.muted{color:rgba(255,255,255,.22)}
+    .hstat-sub{font-size:12px;color:rgba(255,255,255,.40)}
+    @media(max-width:640px){.hero{grid-template-columns:repeat(2,1fr)}}
+
+    /* ── PORTFOLIO SECTION ── */
+    .port-section{margin-bottom:36px}
+    .port-head{display:flex;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+    .port-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+    .port-title{
+      font-family:'Instrument Serif',serif;font-style:italic;
+      font-size:22px;font-weight:400;color:var(--text);
+    }
+    .port-title em{font-style:normal;color:var(--navy)}
+    .port-tabs{display:flex;gap:0;border:1px solid var(--border-mid);border-radius:6px;overflow:hidden;width:fit-content}
+    .ptab{
+      padding:7px 18px;font-size:13px;font-weight:500;color:var(--text-muted);
+      cursor:pointer;background:var(--surface);border:none;border-right:1px solid var(--border);
+      transition:all .12s;font-family:'DM Sans',sans-serif;
+    }
+    .ptab:last-child{border-right:none}
+    .ptab.on{background:var(--navy);color:#fff}
+
+    /* Upload / add toolbar */
+    .port-toolbar{display:flex;gap:8px;align-items:center;margin-bottom:16px}
+    .btn-sm{
+      display:inline-flex;align-items:center;gap:5px;background:transparent;
+      color:var(--text-muted);border:1px solid var(--border-mid);border-radius:5px;
+      padding:7px 14px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;
+      cursor:pointer;transition:all .12s;
+    }
+    .btn-sm:hover{border-color:var(--navy);color:var(--navy)}
+    .btn-sm.amber{border-color:var(--gold-ring);color:var(--navy);background:var(--gold-pale)}
+    .btn-sm.amber:hover{background:rgba(240,180,41,.22)}
+
+    /* Empty state */
+    .empty-state{
+      border:1.5px dashed var(--border-mid);border-radius:var(--r);
+      padding:48px 32px;text-align:center;background:var(--surface);
+    }
+    .empty-title{font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--text-muted);margin-bottom:8px}
+    .empty-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.7}
+
+    /* ── VESSEL CARDS ── */
+    .vcard{
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+      margin-bottom:8px;overflow:hidden;transition:border-color .15s;
+    }
+    .vcard:hover{border-color:var(--border-mid)}
+    .vcard.exposed{border-left:3px solid var(--navy)}
+    .vcard.multi{border-left:3px solid var(--blue)}
+    .vcard.nil{opacity:.42}
+    .vcard.nil:hover{opacity:.65}
+
+    .vhead{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 20px 13px;cursor:pointer;align-items:start}
+    .vname{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:5px}
+    .vmeta{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .cls-tag{font-size:11px;font-weight:500;color:var(--blue);background:var(--blue-soft);padding:3px 8px;border-radius:3px;font-family:'DM Mono',monospace}
+    .cii-tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:3px;font-family:'DM Mono',monospace}
+    .cii-A{background:rgba(22,101,52,.11);color:#166534}
+    .cii-B{background:rgba(21,101,168,.10);color:#1565A8}
+    .cii-C{background:rgba(146,64,14,.10);color:#92400E}
+    .cii-D{background:rgba(185,28,28,.10);color:#B91C1C}
+    .cii-E{background:rgba(91,33,182,.10);color:#5B21B6}
+    .vroute{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;margin-top:4px}
+    .vstatus{font-size:12px;color:#92400E;font-weight:500;margin-top:2px}
+
+    .vvar{text-align:right}
+    .vvar-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:3px}
+    .vvar-val{font-family:'Instrument Serif',serif;font-size:27px;color:var(--navy);line-height:1}
+    .vvar-pct{font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace}
+    .vvar-nil{font-family:'DM Mono',monospace;font-size:13px;color:var(--text-dim)}
+
+    /* Vessel expanded body */
+    .vbody{border-top:var(--rule);display:none}
+    .vbody.open{display:grid;grid-template-columns:1fr 1fr}
+    @media(max-width:560px){.vbody.open{grid-template-columns:1fr}}
+    .vcol{padding:16px 20px;border-right:var(--rule)}
+    .vcol:last-child{border-right:none}
+    .vcol-head{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+    .vrow{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:var(--rule);font-size:13px}
+    .vrow:last-child{border-bottom:none}
+    .vk{color:var(--text-muted)}
+    .vv{color:var(--text);font-family:'DM Mono',monospace;font-size:12px;text-align:right;max-width:58%}
+    .vv.hi{color:var(--navy);font-weight:600}
+    .vv.wa{color:var(--red)}
+    .vnote{grid-column:1/-1;padding:14px 20px;border-top:var(--rule);font-size:13px;color:var(--text-muted);line-height:1.75;font-style:italic}
+    .vjwc{grid-column:1/-1;padding:12px 20px;background:var(--gold-pale);border-top:1px solid var(--gold-ring);font-size:12px;color:var(--amber-text);line-height:1.6}
+
+    /* Flag chips */
+    .flag-chip{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 8px;border-radius:3px;font-family:'DM Mono',monospace;white-space:nowrap}
+    .fc-listed{background:rgba(240,180,41,.14);color:#92400E}
+    .fc-divert{background:rgba(185,28,28,.09);color:#B91C1C}
+    .fc-clear{background:rgba(22,101,52,.10);color:#166534}
+
+    /* ── OUTPUT PANELS ── */
+    .panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+    .phead{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 24px;background:var(--surface2);border-bottom:var(--rule);cursor:pointer;user-select:none;
+    }
+    .phead-left{display:flex;align-items:center;gap:14px}
+    .pnum{font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;color:var(--navy);line-height:1;width:32px;flex-shrink:0;opacity:.35}
+    .ptitle{font-size:14px;font-weight:600;color:var(--text)}
+    .ptitle em{font-style:normal;color:var(--navy);font-family:'Instrument Serif',serif;font-size:16px}
+    .ptog{font-size:12px;color:var(--text-dim);transition:transform .2s}
+    .ptog.c{transform:rotate(-90deg)}
+    .pbody{padding:24px}
+    .pbody.c{display:none}
+
+    /* Panel 01 -- VaR */
+    .var-blocks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+    .var-block{background:var(--navy);border-radius:8px;padding:20px 22px}
+    .var-block-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px}
+    .var-block-val{font-family:'Instrument Serif',serif;font-size:36px;color:var(--gold);letter-spacing:-.02em;line-height:1;margin-bottom:6px}
+    .var-block-sub{font-size:12px;color:rgba(255,255,255,.42)}
+    .conc-row{display:grid;grid-template-columns:120px 1fr 90px;gap:12px;align-items:center;margin-bottom:10px}
+    .conc-name{font-size:12px;font-weight:500;color:var(--text-muted);font-family:'DM Mono',monospace}
+    .conc-track{height:5px;background:var(--surface3);border-radius:3px;overflow:hidden}
+    .conc-fill{height:100%;border-radius:3px;background:var(--navy);transition:width .5s cubic-bezier(.16,1,.3,1)}
+    .conc-fill.dim{background:var(--border-mid)}
+    .conc-val{font-family:'DM Mono',monospace;font-size:12px;color:var(--text);text-align:right}
+    .chart-wrap{margin-top:24px;padding-top:20px;border-top:var(--rule)}
+    .chart-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+
+    /* Panel 02 -- JWC */
+    .risk-state{
+      display:flex;align-items:flex-start;gap:14px;padding:16px 18px;
+      border-radius:8px;margin-bottom:20px;border:1px solid var(--border);
+    }
+    .risk-state.elevated{background:rgba(240,180,41,.07);border-color:var(--gold-ring)}
+    .risk-state.alert{background:rgba(185,28,28,.06);border-color:rgba(185,28,28,.20)}
+    .risk-state.normal{background:rgba(22,101,52,.07);border-color:rgba(22,101,52,.20)}
+    .risk-state-icon{font-size:18px;line-height:1;margin-top:2px;flex-shrink:0}
+    .risk-state-text{font-size:13px;color:var(--text-muted);line-height:1.75}
+    .risk-state-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+
+    .jwc-table{width:100%;border-collapse:collapse;font-size:13px}
+    .jwc-table th{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:0 14px 10px 0;text-align:left;border-bottom:2px solid var(--border)}
+    .jwc-table td{padding:11px 14px 11px 0;border-bottom:var(--rule);color:var(--text-muted);vertical-align:top}
+    .jwc-table tr:last-child td{border-bottom:none}
+    .jwc-table td.vn{color:var(--text);font-weight:600;font-size:13px}
+
+    .unpriced-note{
+      background:rgba(185,28,28,.05);border:1px solid rgba(185,28,28,.18);
+      border-radius:8px;padding:16px 18px;margin-top:18px;
+      font-size:13px;color:var(--text-muted);line-height:1.75;
+    }
+
+    /* Panel 03 -- CII */
+    .cii-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:8px;overflow:hidden;margin-bottom:22px}
+    .cii-cell{background:var(--navy);padding:18px 20px}
+    .cii-table{width:100%;border-collapse:collapse;font-size:13px}
+    .cii-table th{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:0 14px 10px 0;text-align:left;border-bottom:2px solid var(--border)}
+    .cii-table td{padding:11px 14px 11px 0;border-bottom:var(--rule);color:var(--text-muted);vertical-align:middle}
+    .cii-table tr:last-child td{border-bottom:none}
+    .cii-table td.vn{color:var(--text);font-weight:600;font-size:13px}
+    .cii-table td.r{text-align:right;font-family:'DM Mono',monospace;font-size:12px}
+    .cii-note{font-size:13px;color:var(--text-muted);line-height:1.8;padding-top:18px;border-top:var(--rule);margin-top:18px}
+
+    /* Tooltip -- ? icon */
+    .tip{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:16px;height:16px;border-radius:50%;background:var(--surface2);
+      border:1px solid var(--border-mid);font-size:9px;color:var(--text-muted);
+      cursor:help;font-weight:700;font-family:'DM Mono',monospace;
+      position:relative;margin-left:4px;vertical-align:middle;
+    }
+    .tip-body{
+      display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+      z-index:400;background:var(--navy);border-radius:8px;
+      padding:12px 14px;font-size:12px;color:rgba(255,255,255,.75);width:250px;line-height:1.7;
+      box-shadow:0 10px 36px rgba(10,37,64,.22);pointer-events:none;font-style:normal;font-weight:400;
+    }
+    .tip:hover .tip-body{display:block}
+
+    /* Panel 04 -- Bilateral */
+    .bil-table{width:100%;border-collapse:collapse;font-size:13px}
+    .bil-table th{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:0 14px 10px 0;text-align:left;border-bottom:2px solid var(--border)}
+    .bil-table th.r{text-align:right}
+    .bil-table td{padding:11px 14px 11px 0;border-bottom:var(--rule);color:var(--text-muted)}
+    .bil-table tr:last-child td{border-bottom:none}
+    .bil-table .comm-head td{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:14px 0 6px;background:transparent;border-bottom:var(--rule)}
+    .bil-table td.country{color:var(--text);font-weight:600;font-size:13px}
+    .bil-table td.r{text-align:right;font-family:'DM Mono',monospace;font-size:12px}
+    .bil-table td.hi{color:var(--navy);font-weight:600}
+    .dep-bar{display:inline-block;height:3px;background:var(--navy);border-radius:2px;vertical-align:middle;margin-right:6px;opacity:.28}
+
+    /* Tier pills */
+    .t1p,.t2p,.t3p{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:3px;font-family:'DM Mono',monospace}
+    .t1p{background:rgba(22,101,52,.10);color:#166534}
+    .t2p{background:var(--blue-soft);color:#1565A8}
+    .t3p{background:rgba(146,64,14,.09);color:#92400E;cursor:help}
+
+    /* ── ADD VESSEL MODAL ── */
+    .modal-overlay{
+      display:none;position:fixed;inset:0;background:rgba(10,37,64,.45);
+      z-index:500;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;
+      backdrop-filter:blur(2px);
+    }
+    .modal-overlay.open{display:flex}
+    .modal{
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+      width:100%;max-width:640px;flex-shrink:0;
+      box-shadow:0 24px 64px rgba(10,37,64,.20);
+    }
+    .modal-head{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 24px;border-bottom:var(--rule);background:var(--navy);
+      border-radius:var(--r) var(--r) 0 0;
+    }
+    .modal-title{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#fff}
+    .modal-close{background:transparent;border:none;color:rgba(255,255,255,.45);font-size:22px;cursor:pointer;line-height:1;padding:0}
+    .modal-close:hover{color:#fff}
+    .modal-body{padding:24px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-grid.full{grid-template-columns:1fr}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+    .field input,.field select,.field textarea{
+      background:var(--bg);border:1px solid var(--border-mid);border-radius:5px;
+      padding:9px 12px;font-size:13px;color:var(--text);font-family:'DM Sans',sans-serif;
+      transition:border-color .12s;
+    }
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy)}
+    .field textarea{resize:vertical;min-height:60px}
+    .corridor-checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+    .ccbox{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);cursor:pointer}
+    .ccbox input{accent-color:var(--navy);width:14px;height:14px}
+    .modal-foot{
+      display:flex;gap:10px;justify-content:flex-end;
+      padding:16px 24px;border-top:var(--rule);background:var(--surface2);
+      border-radius:0 0 var(--r) var(--r);
+    }
+    .btn-primary{
+      display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;
+      border:none;border-radius:5px;padding:10px 22px;font-size:13px;font-weight:600;
+      font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .12s;
+    }
+    .btn-primary:hover{background:var(--navy-mid)}
+    .form-section{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:18px 0 8px;grid-column:1/-1;border-top:var(--rule);padding-top:16px}
+    .form-section:first-of-type{border-top:none;padding-top:0;margin-top:0}
+
+    /* ── EXPORT ── */
+    .export-bar{display:flex;gap:8px;align-items:center;padding:20px 0 0;border-top:var(--rule);margin-top:14px;flex-wrap:wrap}
+    .export-label{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-right:4px}
+    .btn-ghost{
+      display:inline-flex;align-items:center;gap:5px;background:transparent;
+      color:var(--text-muted);border:1px solid var(--border-mid);border-radius:5px;
+      padding:8px 14px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;
+      cursor:pointer;transition:all .12s;
+    }
+    .btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+
+    .divider{border:none;border-top:var(--rule);margin:32px 0}
+
+    /* ── HEADER LOGO ── */
+    .hdr-n{height:42px;width:auto;fill:var(--gold);flex-shrink:0;margin-right:10px}
+    .hdr-brand{display:flex;flex-direction:column;gap:1px;margin-right:10px}
+    .hdr-narrows{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:rgba(255,255,255,.42);letter-spacing:.22em;line-height:1}
+    .hdr-cape{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--gold);letter-spacing:.10em;line-height:1.1}
+
+    /* ── PROBABILITY INPUT ── */
+    .prob-wrap{display:flex;align-items:center;gap:6px}
+    .prob-num{
+      width:70px;background:var(--surface);border:1px solid var(--border-mid);
+      border-radius:5px;padding:5px 8px;font-family:'DM Mono',monospace;font-size:13px;
+      color:var(--navy);text-align:right;font-weight:600;
+    }
+    .prob-num:focus{outline:none;border-color:var(--navy)}
+    .prob-frac{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace;min-width:64px;white-space:nowrap}
+
+    /* ── SEVERITY SLIDER ── */
+    .sev-wrap{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .sev-preset{
+      background:transparent;border:1px solid var(--border-mid);border-radius:5px;
+      padding:4px 10px;font-size:11px;font-weight:500;font-family:'DM Sans',sans-serif;
+      color:var(--text-muted);cursor:pointer;transition:all .12s;white-space:nowrap;
+    }
+    .sev-preset:hover{border-color:var(--navy);color:var(--navy)}
+    .sev-preset.on{background:var(--navy);border-color:var(--navy);color:#fff}
+    .sev-slider{
+      -webkit-appearance:none;appearance:none;width:110px;height:3px;
+      background:var(--border);border-radius:2px;outline:none;cursor:pointer;
+    }
+    .sev-slider::-webkit-slider-thumb{
+      -webkit-appearance:none;appearance:none;width:16px;height:16px;
+      border-radius:50%;background:var(--navy);cursor:pointer;
+      box-shadow:0 0 0 3px rgba(10,37,64,.15);
+    }
+    .sev-slider::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--navy);border:none;cursor:pointer}
+    .sev-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:600;color:var(--navy);min-width:38px}
+
+    /* ── ASSUMPTIONS DRAWER ── */
+    .assm-bar{
+      background:var(--surface2);border-bottom:var(--rule);
+      padding:0 36px;overflow:hidden;transition:max-height .25s cubic-bezier(.16,1,.3,1);
+      max-height:0;
+    }
+    .assm-bar.open{max-height:360px}
+    .assm-rate-table{display:grid;grid-template-columns:auto repeat(2,1fr);gap:4px 12px;align-items:center}
+    .rate-head{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);padding-bottom:2px}
+    .rate-cls{font-size:11px;font-weight:600;color:var(--navy);white-space:nowrap}
+    .rate-input{width:56px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;
+      font-family:"DM Mono",monospace;font-size:12px;color:var(--navy);background:var(--white);text-align:right}
+    .rate-input:focus{outline:none;border-color:var(--blue)}
+    .rate-unit{font-size:10px;color:var(--text-muted)}
+    .assm-inner{display:flex;gap:32px;align-items:center;padding:14px 0;flex-wrap:wrap}
+    .assm-field{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .assm-label{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap}
+    .assm-slider{
+      -webkit-appearance:none;appearance:none;width:100px;height:3px;
+      background:var(--border);border-radius:2px;outline:none;cursor:pointer;
+    }
+    .assm-slider::-webkit-slider-thumb{
+      -webkit-appearance:none;appearance:none;width:14px;height:14px;
+      border-radius:50%;background:var(--blue);cursor:pointer;
+    }
+    .assm-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--navy);min-width:56px;font-weight:500}
+    .assm-note{font-size:11px;color:var(--text-muted);margin-left:auto}
+    .assm-toggle{
+      display:inline-flex;align-items:center;gap:5px;background:transparent;
+      border:1px solid var(--border-mid);border-radius:5px;padding:4px 10px;
+      font-size:11px;font-weight:500;color:var(--text-muted);cursor:pointer;
+      font-family:'DM Sans',sans-serif;transition:all .12s;white-space:nowrap;
+    }
+    .assm-toggle:hover{border-color:var(--navy);color:var(--navy)}
+    .assm-toggle.on{background:var(--surface2);border-color:var(--border-mid);color:var(--navy)}
+
+    /* ── PORT RISK CHIP ── */
+    .port-risk{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;
+      padding:2px 8px;border-radius:3px;font-family:'DM Mono',monospace}
+    .port-risk.high{background:rgba(185,28,28,.09);color:#B91C1C}
+    .port-risk.med{background:rgba(146,64,14,.09);color:#92400E}
+    .port-risk.low{background:rgba(22,101,52,.09);color:#166534}
+    .port-risk.jwc{background:rgba(240,180,41,.12);color:#92400E}
+
+    @media(max-width:580px){
+      .hdr{padding:0 16px}.strip{padding:8px 16px}.main{padding:24px 16px 60px}
+      .hdr-sub{display:none}.var-blocks{grid-template-columns:1fr}
+      .cii-summary{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}
+      .assm-bar{padding:0 16px}
+    }
+  
+/* ── Access modal ── */
+.access-overlay{display:none;position:fixed;inset:0;background:rgba(10,37,64,.72);
+  z-index:2000;align-items:center;justify-content:center}
+.access-overlay.open{display:flex}
+.access-box{background:#fff;border-radius:10px;max-width:440px;width:90%;overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,.25)}
+.access-head{background:var(--navy);padding:20px 24px;display:flex;align-items:center;
+  justify-content:space-between}
+.access-title{font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:#fff}
+.access-close{background:transparent;border:none;color:rgba(255,255,255,.45);font-size:22px;
+  cursor:pointer;line-height:1;padding:0}
+.access-close:hover{color:#fff}
+.access-body{padding:24px}
+.access-body p{font-size:13.5px;color:#374151;line-height:1.6;margin:0 0 16px}
+.access-body p.privacy{font-size:11.5px;color:#9ca3af;margin-top:12px;margin-bottom:0}
+.access-form{display:flex;flex-direction:column;gap:10px;margin-bottom:4px}
+.access-form input,.access-form select,.access-form textarea{
+  border:1px solid #d1d5db;border-radius:6px;padding:8px 10px;
+  font-size:13px;font-family:inherit;color:#111;outline:none;width:100%;box-sizing:border-box}
+.access-form input:focus,.access-form select:focus,.access-form textarea:focus{border-color:var(--navy)}
+.access-form textarea{resize:vertical;min-height:64px}
+.access-foot{padding:16px 24px;border-top:1px solid #f3f4f6;display:flex;gap:10px;justify-content:flex-end}
+
+/* ── TIDE panel ── */
+.tide-panel{background:var(--navy);border-radius:8px;padding:18px 20px;margin-top:20px}
+.tide-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.tide-label{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.tide-sub{font-size:11px;color:rgba(255,255,255,.45)}
+.tide-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tide-cell{background:rgba(255,255,255,.06);border-radius:6px;padding:10px 12px}
+.tide-cell-label{font-size:10px;color:rgba(255,255,255,.45);text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:3px}
+.tide-cell-value{font-size:18px;font-weight:700;color:#fff}
+.tide-cell-note{font-size:10px;color:rgba(255,255,255,.35);margin-top:2px}
+.tide-cell.accent .tide-cell-value{color:var(--gold)}
+.tide-cta{margin-top:14px;text-align:center;font-size:11.5px;color:rgba(255,255,255,.45)}
+.tide-cta a{color:var(--gold);text-decoration:none}
+.tide-cta a:hover{text-decoration:underline}
+.tide-cascade{margin-top:10px;background:rgba(240,180,41,.10);border-radius:6px;
+  padding:8px 12px;font-size:11.5px;color:rgba(255,255,255,.65);line-height:1.5}
+.tide-cascade strong{color:var(--gold)}
+
+/* ── Demo banner ── */
+.demo-banner{background:var(--gold);color:var(--navy);font-size:11.5px;font-weight:600;
+  text-align:center;padding:7px 16px;letter-spacing:.03em}
+.demo-banner a{color:var(--navy);text-decoration:underline;cursor:pointer}
+
+/* ── Privacy note ── */
+.privacy-note{font-size:11px;color:#9ca3af;margin-top:6px;padding:0 2px}
+.privacy-note svg{vertical-align:middle;margin-right:3px}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-logo">
+    <svg class="hdr-n" viewBox="0 0 1698 948" xmlns="http://www.w3.org/2000/svg" aria-label="Narrows">
+      <path d="M906.75 759.29 l-50.35 -0.37 0 -260.50 c0 -178.93 -0.37 -260.38 -1.23 -260.01 -0.74 0.25 -4.07 6.54 -7.28 13.94 -67.01 151.04 -91.32 207.19 -133.27 307.89 -7.40 18.02 -29.12 69.97 -48.13 115.38 l-34.55 82.68 -63.06 0.37 -63.06 0.25 0.74 -2.71 c0.49 -1.60 4.94 -12.59 9.87 -24.43 4.94 -11.85 20.48 -49.36 34.55 -83.30 31.59 -76.26 94.03 -224.59 152.65 -362.18 8.88 -20.73 21.60 -50.72 28.26 -66.64 6.79 -15.92 12.71 -29.86 13.33 -30.85 0.86 -1.60 9.63 -1.85 64.79 -2.22 l63.67 -0.25 0.25 239.65 0.37 239.65 4.20 -10.98 c11.35 -30.48 124.88 -313.44 175.23 -436.84 l12.09 -29.62 66.76 -0.37 c36.77 -0.12 66.88 0.12 66.88 0.49 0 0.49 -7.77 18.88 -17.15 41.09 -39.49 92.55 -76.51 180.17 -105.38 249.39 -7.77 18.63 -23.08 55.04 -33.81 80.83 -38.38 91.07 -55.16 131.18 -68.73 164.12 -14.31 34.80 -15.18 36.65 -16.54 36.16 -0.49 -0.25 -23.45 -0.49 -51.09 -0.62z"/>
+    </svg>
+    <div class="hdr-brand">
+      <span class="hdr-narrows">NARROWS</span>
+      <span class="hdr-cape">CAPE</span>
+    </div>
+    <span class="hdr-sep">/</span>
+    <span class="hdr-sub">Corridor Accumulation and Portfolio Exposure</span>
+  </div>
+  <div class="hdr-right" id="hdrRight"><span>narrows.io</span></div>
+</header>
+
+<!-- SCENARIO STRIP -->
+<div class="strip" id="strip">
+
+  <div class="sg">
+    <span class="sl">Corridor</span>
+    <div class="chips" id="corrChips">
+      <button class="chip on" data-c="hormuz">Hormuz</button>
+      <button class="chip" data-c="bab_el_mandeb">Bab-el-Mandeb</button>
+      <button class="chip" data-c="malacca">Malacca</button>
+      <button class="chip" data-c="panama">Panama</button>
+      <button class="chip t3-corr" data-c="suez">Suez</button>
+      <button class="chip t3-corr" data-c="lombok">Lombok</button>
+      <button class="chip t3-corr" data-c="bosphorus">Bosphorus</button>
+      <button class="chip t3-corr" data-c="danish_straits">Danish Straits</button>
+    </div>
+  </div>
+
+  <div class="ssep"></div>
+
+  <div class="sg">
+    <span class="sl">Duration</span>
+    <div class="dur-wrap">
+      <input type="range" id="durSlider" class="dur-slider" min="1" max="365" value="30">
+      <input type="number" id="durNum" class="dur-num" min="1" max="365" value="30">
+      <span class="sl">days</span>
+    </div>
+  </div>
+
+  <div class="ssep"></div>
+
+  <div class="sg">
+    <span class="sl">Closure rate</span>
+    <div class="sev-wrap">
+      <button class="sev-preset on" data-p="100" title="Complete cessation. No vessels transit.">Full closure</button>
+      <button class="sev-preset" data-p="50" title="Capacity halved. Delays and escort requirements.">Partial</button>
+      <button class="sev-preset" data-p="30" title="Corridor open but slot auction required. Cost impact only.">Slot auction</button>
+      <input type="range" id="sevSlider" class="sev-slider" min="0" max="100" step="0.1" value="100">
+      <input type="number" id="sevNum" class="prob-num" min="0" max="100" step="0.1" value="100" style="width:58px" title="Closure rate (%)">
+      <span class="sl">%</span>
+      <span id="sevFrac" class="prob-frac"></span>
+    </div>
+  </div>
+
+  <div class="ssep"></div>
+
+  <button class="assm-toggle" id="assmToggle" onclick="toggleAssm()">&#9881; Assumptions</button>
+
+  <div class="strip-readout">
+    <div class="strip-readout-label" id="stripLabel">Expected VaR</div>
+    <div class="strip-readout-val" id="stripVal">--</div>
+  </div>
+
+</div><!-- /strip -->
+
+<!-- ASSUMPTIONS DRAWER -->
+<div class="assm-bar" id="assmBar">
+  <div class="assm-inner">
+    <!-- Per-class vessel day rates sourced from NARROWS-RATES.js; override inline -->
+    <div class="assm-rate-table">
+      <span class="rate-head">Class</span><span class="rate-head">Bunker&thinsp;$/d</span><span class="rate-head">Charter&thinsp;$/d</span>
+      <span class="rate-cls">VLCC</span>
+        <div><input class="rate-input" id="r-VLCC-b"        type="number" value="55" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-VLCC-c"        type="number" value="65" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">Suezmax</span>
+        <div><input class="rate-input" id="r-Suezmax-b"     type="number" value="36" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-Suezmax-c"     type="number" value="28" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">Aframax</span>
+        <div><input class="rate-input" id="r-Aframax-b"     type="number" value="28" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-Aframax-c"     type="number" value="22" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">LNG carrier</span>
+        <div><input class="rate-input" id="r-LNG_Carrier-b" type="number" value="38" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-LNG_Carrier-c" type="number" value="60" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">LPG&thinsp;/&thinsp;VLGC</span>
+        <div><input class="rate-input" id="r-LPG-b"         type="number" value="25" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-LPG-c"         type="number" value="20" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">Neopanamax</span>
+        <div><input class="rate-input" id="r-Neopanamax-b"  type="number" value="35" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-Neopanamax-c"  type="number" value="20" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">Capesize</span>
+        <div><input class="rate-input" id="r-Capesize-b"    type="number" value="32" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-Capesize-c"    type="number" value="35" min="5" max="300"><span class="rate-unit">k</span></div>
+      <span class="rate-cls">Handymax</span>
+        <div><input class="rate-input" id="r-Handymax-b"    type="number" value="18" min="5" max="300"><span class="rate-unit">k</span></div>
+        <div><input class="rate-input" id="r-Handymax-c"    type="number" value="16" min="5" max="300"><span class="rate-unit">k</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;padding-left:16px;border-left:1px solid var(--border)">
+    <div class="assm-field">
+      <span class="assm-label">Opex&thinsp;mult</span>
+      <input type="range" id="opexSlider" class="assm-slider" min="0.5" max="3.0" step="0.01" value="1.0">
+      <input type="number" id="opexNum" class="prob-num" min="0.5" max="3.0" step="0.01" value="1.00" style="width:56px">
+      <span style="font-size:11px;color:var(--text-muted)">x</span>
+    </div>
+    <div class="assm-field">
+      <span class="assm-label">War risk loading</span>
+      <input type="range" id="wrSlider" class="assm-slider" min="0.01" max="3.0" step="0.01" value="1.0">
+      <input type="number" id="wrNum" class="prob-num" min="0.01" max="3.0" step="0.01" value="1.00" style="width:56px">
+      <span style="font-size:11px;color:var(--text-muted)">x</span>
+    </div>
+    <span class="assm-note">Rates from NARROWS-RATES.js, auto-updated daily. Override any value; changes apply immediately.</span>
+    </div><!-- /opex-wr col -->
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- Hero stats -->
+  <div class="hero" id="heroStats">
+    <div class="hstat"><div class="hstat-label">Gross VaR</div><div class="hstat-val" id="hGross">--</div><div class="hstat-sub" id="hGrossSub">Sum across corridor lines</div></div>
+    <div class="hstat"><div class="hstat-label">Net VaR</div><div class="hstat-val" id="hNet">--</div><div class="hstat-sub">Single-corridor scenario (= gross)</div></div>
+    <div class="hstat"><div class="hstat-label">Vessels exposed</div><div class="hstat-val" id="hCount">--</div><div class="hstat-sub" id="hCountSub">To this corridor</div></div>
+    <div class="hstat"><div class="hstat-label">D/E fleet fraction</div><div class="hstat-val" id="hDE">--</div><div class="hstat-sub" id="hDESub">CII-constrained vessels</div></div>
+  </div>
+
+  <!-- Portfolio section -->
+  <section class="port-section">
+    <div class="port-head">
+      <span class="port-eyebrow">Portfolio</span>
+      <h2 class="port-title">Vessels &middot; <em>sorted by VaR</em></h2>
+      <div class="port-tabs">
+        <button class="ptab on" data-m="illustrative">Illustrative fleet</button>
+        <button class="ptab" data-m="custom">My portfolio</button>
+      </div>
+    </div>
+
+    <!-- My portfolio toolbar (hidden until custom mode) -->
+    <div id="portToolbar" style="display:none" class="port-toolbar">
+      <button class="btn-sm amber" onclick="openAccessModal()">+ Add vessel</button>
+      <button class="btn-sm" onclick="openAccessModal()">Upload CSV</button>
+      <input type="file" id="csvInput" accept=".csv" style="display:none" onchange="handleCSV(event)">
+      <button class="btn-sm" onclick="downloadTemplate()">Download template</button>
+      <span id="portCount" style="font-size:12px;color:var(--text-muted);margin-left:4px;"></span>
+    </div>
+
+    <div id="vesselCards"></div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- Panel 01 -->
+  <div class="panel" id="p1">
+    <div class="phead" onclick="tog('p1')">
+      <div class="phead-left"><span class="pnum">01</span><span class="ptitle">Chokepoint <em>Value at Risk</em></span></div>
+      <span class="ptog" id="t1">&#9662;</span>
+    </div>
+    <div class="pbody" id="b1"></div>
+  </div>
+
+  <!-- Panel 02 -->
+  <div class="panel" id="p2">
+    <div class="phead" onclick="tog('p2')">
+      <div class="phead-left"><span class="pnum">02</span><span class="ptitle">JWC &amp; Geopolitical <em>flags</em></span></div>
+      <span class="ptog c" id="t2">&#9662;</span>
+    </div>
+    <div class="pbody c" id="b2"></div>
+  </div>
+
+  <!-- Panel 03 -->
+  <div class="panel" id="p3">
+    <div class="phead" onclick="tog('p3')">
+      <div class="phead-left"><span class="pnum">03</span><span class="ptitle">CII <em>overlay</em></span></div>
+      <span class="ptog c" id="t3">&#9662;</span>
+    </div>
+    <div class="pbody c" id="b3"></div>
+  </div>
+
+  <!-- Panel 04 -->
+  <div class="panel" id="p4">
+    <div class="phead" onclick="tog('p4')">
+      <div class="phead-left"><span class="pnum">04</span><span class="ptitle">Bilateral <em>context</em></span></div>
+      <span class="ptog c" id="t4">&#9662;</span>
+    </div>
+    <div class="pbody c" id="b4"></div>
+  </div>
+
+<div id="tidePanel" class="tide-panel" style="display:none">
+  <div class="tide-head">
+    <span class="tide-label">TIDE</span>
+    <span class="tide-sub">Cargo accumulation at risk &mdash; selected corridor</span>
+  </div>
+  <div class="tide-grid">
+    <div class="tide-cell">
+      <div class="tide-cell-label">Baseline (avg day)</div>
+      <div class="tide-cell-value" id="tide-baseline">--</div>
+      <div class="tide-cell-note">Annual flow &divide; 365 &times; transit days</div>
+    </div>
+    <div class="tide-cell">
+      <div class="tide-cell-label">Seasonal peak</div>
+      <div class="tide-cell-value" id="tide-peak">--</div>
+      <div class="tide-cell-note">Worst calendar month (<span id="tide-peak-month">--</span>)</div>
+    </div>
+    <div class="tide-cell accent">
+      <div class="tide-cell-label">Event horizon</div>
+      <div class="tide-cell-value" id="tide-horizon">--</div>
+      <div class="tide-cell-note">Peak + 3-day approach window</div>
+    </div>
+    <div class="tide-cell">
+      <div class="tide-cell-label">War risk PML</div>
+      <div class="tide-cell-value" id="tide-pml">--</div>
+      <div class="tide-cell-note">Horizon &times; 15% severity &times; attachment rate</div>
+    </div>
+  </div>
+  <div class="tide-cascade" id="tide-cascade-note" style="display:none"></div>
+  <div class="tide-cta">Full TIDE output including cascade modelling and vessel-count breakdown &mdash; <a onclick="openAccessModal()">request access</a></div>
+</div>
+
+  <!-- Export -->
+  <div class="export-bar">
+    <span class="export-label">Export</span>
+    <button class="btn-ghost" onclick="copyReport()">Copy report</button>
+    <button class="btn-ghost" onclick="dlTxt()">Download .txt</button>
+  </div>
+
+</main>
+
+<!-- ADD VESSEL MODAL -->
+
+<div class="access-overlay" id="accessOverlay" onclick="if(event.target===this)closeAccessModal()">
+  <div class="access-box">
+    <div class="access-head">
+      <span class="access-title">Get full access to CAPE</span>
+      <button class="access-close" onclick="closeAccessModal()">&times;</button>
+    </div>
+    <div class="access-body">
+      <p>The full version of CAPE lets you upload your own vessel portfolio — by IMO number, vessel class, and route — and run corridor exposure calculations against your actual book.</p>
+      <p>It also includes <strong>TIDE</strong> accumulation outputs: event horizon, seasonal peak, cascade ratios, and war risk PML by chokepoint — the numbers underwriters and reinsurers use to size aggregate exposure.</p>
+      <form class="access-form" onsubmit="submitAccess(event)">
+        <input type="text" id="ac-name" placeholder="Your name" required>
+        <input type="text" id="ac-org" placeholder="Organisation" required>
+        <select id="ac-role">
+          <option value="">Role (optional)</option>
+          <option>Marine underwriter</option>
+          <option>Reinsurer</option>
+          <option>P&I / mutual</option>
+          <option>Cargo underwriter</option>
+          <option>Commodity trader</option>
+          <option>Risk manager</option>
+          <option>Analyst / researcher</option>
+          <option>Other</option>
+        </select>
+        <textarea id="ac-use" placeholder="What are you looking to model? (optional)"></textarea>
+        <input type="email" id="ac-email" placeholder="Email address" required>
+        <p class="privacy">&#x1F512; Your portfolio data is processed in your browser and never transmitted. This form sends only your contact details.</p>
+      </form>
+    </div>
+    <div class="access-foot">
+      <button class="btn-ghost" onclick="closeAccessModal()">Cancel</button>
+      <button class="btn-primary" onclick="submitAccess()">Request access</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" onclick="maybeClose(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-head">
+      <span class="modal-title">Add vessel</span>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid" id="vesselForm">
+
+        <div class="form-section" style="grid-column:1/-1">Vessel identity</div>
+        <div class="field"><label class="field-label">IMO number</label><input type="text" id="f-imo" placeholder="e.g. 9100099"></div>
+        <div class="field"><label class="field-label">Vessel name</label><input type="text" id="f-name" placeholder="e.g. MV Example"></div>
+        <div class="field">
+          <label class="field-label">Vessel class</label>
+          <select id="f-cls">
+            <option value="vlcc">VLCC</option>
+            <option value="suezmax">Suezmax</option>
+            <option value="aframax">Aframax</option>
+            <option value="lng">LNG carrier</option>
+            <option value="lpg">LPG carrier</option>
+            <option value="neopanamax">Neopanamax container</option>
+            <option value="capesize">Capesize bulk</option>
+            <option value="handymax">Handymax bulk</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="field-label">CII rating</label>
+          <select id="f-cii">
+            <option>A</option><option>B</option><option selected>C</option><option>D</option><option>E</option>
+          </select>
+        </div>
+        <div class="field"><label class="field-label">Flag state</label><input type="text" id="f-flag" placeholder="e.g. Marshall Islands"></div>
+        <div class="field"><label class="field-label">Owner / operator (optional)</label><input type="text" id="f-owner" placeholder="e.g. Zodiac Maritime"></div>
+
+        <div class="form-section" style="grid-column:1/-1">Route and cargo</div>
+        <div class="field"><label class="field-label">Loading port / origin</label><input type="text" id="f-from" placeholder="e.g. Ras Tanura"></div>
+        <div class="field"><label class="field-label">Discharge port / destination</label><input type="text" id="f-to" placeholder="e.g. Rotterdam"></div>
+        <div class="field"><label class="field-label">Cargo type</label><input type="text" id="f-cargo" placeholder="e.g. Saudi crude"></div>
+        <div class="field"><label class="field-label">Cargo value (USD)</label><input type="number" id="f-val" placeholder="e.g. 85000000" min="0"></div>
+
+        <div class="form-section" style="grid-column:1/-1">Corridors transited</div>
+        <div class="field" style="grid-column:1/-1">
+          <label class="field-label">Select all corridors this vessel transits on every voyage</label>
+          <div class="corridor-checks" id="corrChecks"></div>
+        </div>
+
+        <div class="form-section" style="grid-column:1/-1">Notes (optional)</div>
+        <div class="field" style="grid-column:1/-1">
+          <label class="field-label">Additional notes</label>
+          <textarea id="f-notes" placeholder="Diversion route, constraints, current status..."></textarea>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveVessel()">Add to portfolio</button>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: load signal state -->
+<script src="NARROWS-SIGNALS.js" onerror="window._noSig=true"></script>
+<script src="NARROWS-RATES.js"></script>
+
+<script>
+/* ═══════════════════════════════
+   STATE
+═══════════════════════════════ */
+const S = { corridor:'hormuz', duration:30, severity:100, mode:'illustrative' };
+// Vessel class map: CAPE cls key → NARROWS-RATES.js vesselRates key
+const VESSEL_CLASS_MAP = {
+  vlcc:'VLCC', suezmax:'Suezmax', aframax:'Aframax',
+  lng:'LNG_Carrier', lpg:'LPG', neopanamax:'Neopanamax',
+  capesize:'Capesize', handymax:'Handymax'
+};
+
+// A: live assumption state. rates stored in $/k units to match the input fields.
+(function initA(){
+  const _vr = (window.NARROWS_RATES && window.NARROWS_RATES.vesselRates) || {};
+  const _cd = (window.NARROWS_RATES && window.NARROWS_RATES.capeDefaults) || {};
+  function kb(cls,fb){ return Math.round(((_vr[cls]||{}).bunkerPerDay  || fb*1000)/1000); }
+  function kc(cls,fc){ return Math.round(((_vr[cls]||{}).charterPerDay || fc*1000)/1000); }
+  window.A = {
+    rates: {
+      VLCC:        { b: kb('VLCC',55),        c: kc('VLCC',65)        },
+      Suezmax:     { b: kb('Suezmax',36),     c: kc('Suezmax',28)     },
+      Aframax:     { b: kb('Aframax',28),     c: kc('Aframax',22)     },
+      LNG_Carrier: { b: kb('LNG_Carrier',38), c: kc('LNG_Carrier',60) },
+      LPG:         { b: kb('LPG',25),         c: kc('LPG',20)         },
+      Neopanamax:  { b: kb('Neopanamax',35),  c: kc('Neopanamax',20)  },
+      Capesize:    { b: kb('Capesize',32),    c: kc('Capesize',35)    },
+      Handymax:    { b: kb('Handymax',18),    c: kc('Handymax',16)    },
+    },
+    opex: _cd.opexMultiplier   || 1.0,
+    wr:   _cd.warRiskMultiplier || 1.0
+  };
+})();
+const A = window.A; // shorthand ref used throughout
+let customVessels = [];
+
+function activeVessels() {
+  return S.mode === 'custom' && customVessels.length > 0 ? customVessels : VESSELS;
+}
+
+// Diversion cost: per-class (bunker + charter) $/day × detour days × opex multiplier
+function divCost(v) {
+  if (!v.div_days) return null;
+  const cls = VESSEL_CLASS_MAP[v.cls] || 'VLCC';
+  const r   = A.rates[cls] || A.rates.VLCC;
+  return (r.b + r.c) * 1000 * v.div_days * A.opex;
+}
+
+/* ═══════════════════════════════
+   CORRIDOR META
+═══════════════════════════════ */
+const CORR = {
+  hormuz:        { label:'Strait of Hormuz',        short:'Hormuz',        type:'terminal', region:'Persian Gulf / Gulf of Oman',        tier:'T1', jwc:true,  desc:'Persian Gulf is a JWC Listed Area. War risk additional premium required for all transiting vessels.' },
+  bab_el_mandeb: { label:'Bab-el-Mandeb',           short:'Bab-el-Mandeb', type:'through',  region:'Red Sea / Gulf of Aden',            tier:'T3', jwc:true,  desc:'Red Sea and Gulf of Aden are JWC Listed Areas. Standard route vessels require war risk notification.' },
+  malacca:       { label:'Strait of Malacca',       short:'Malacca',       type:'through',  region:'Indian Ocean / South China Sea',    tier:'T3', jwc:false, desc:'Not currently a JWC Listed Area. IMB piracy risk applies. Primary risk is operational and density-related.' },
+  panama:        { label:'Panama Canal',            short:'Panama',        type:'through',  region:'Pacific / Caribbean',              tier:'T3', jwc:false, desc:'Not a JWC Listed Area. Risk is operational and environmental: water level, lock capacity, hurricane season.' },
+  suez:          { label:'Suez Canal',              short:'Suez',          type:'through',  region:'Red Sea / Mediterranean',          tier:'T3', jwc:false, desc:'Canal-specific risk distinct from BAM. A Suez grounding (Ever Given type) or political closure affects the canal itself rather than the BAM southern approach.' },
+  lombok:        { label:'Lombok Strait',           short:'Lombok',        type:'through',  region:'Indonesia / Indian Ocean',         tier:'T3', jwc:false, desc:'Primary deep-water alternative to Malacca for VLCCs and wide-beam vessels unable to transit Malacca at full draught. Not a JWC Listed Area.' },
+  bosphorus:     { label:'Bosphorus / Turkish Straits', short:'Bosphorus', type:'terminal', region:'Black Sea / Mediterranean',       tier:'T3', jwc:false, desc:'Only exit from the Black Sea for commercial shipping. Governed by the Montreux Convention. Closure risk in conflict scenarios involving Black Sea states.' },
+  danish_straits:{ label:'Danish Straits',          short:'Danish Straits',type:'through',  region:'Baltic Sea / North Sea',          tier:'T3', jwc:false, desc:'Sole commercial exit from the Baltic Sea. Risk is geopolitical (Baltic energy security) and environmental: winter ice and bridge air-draft constraints (Storebaelt Bridge: 65m clearance).' }
+};
+
+function sevMult(pct){ return (pct/100) * A.wr; }
+function sevLabel(pct){
+  if(pct>=100) return 'Full closure';
+  if(pct===50)  return 'Partial restriction';
+  if(pct===30)  return 'Slot auction';
+  return pct+'% disruption';
+}
+
+/* ═══════════════════════════════
+   BILATERAL DATA
+═══════════════════════════════ */
+const BIL = {
+  hormuz:{
+    crude:[
+      {country:'Japan',dep:.942,v30:6.3e9,tier:'T1'},{country:'South Korea',dep:.715,v30:5.1e9,tier:'T1'},
+      {country:'India',dep:.475,v30:5.5e9,tier:'T1'},{country:'China',dep:.407,v30:11.3e9,tier:'T1'},
+      {country:'Greece',dep:.546,v30:.7e9,tier:'T1'}
+    ],
+    lng:[
+      {country:'Japan',dep:.89,v30:4.1e9,tier:'T1'},{country:'South Korea',dep:.82,v30:3.2e9,tier:'T1'}
+    ]
+  },
+  bab_el_mandeb:{
+    crude:[
+      {country:'Greece',dep:.546,v30:.7e9,tier:'T3'},{country:'France',dep:.129,v30:1.5e9,tier:'T3'},
+      {country:'Indonesia',dep:.296,v30:2.1e9,tier:'T3'}
+    ]
+  },
+  malacca:{
+    crude:[
+      {country:'China',dep:.407,v30:4.8e9,tier:'T3'},{country:'Japan',dep:.320,v30:2.1e9,tier:'T3'},
+      {country:'South Korea',dep:.290,v30:2.0e9,tier:'T3'}
+    ],
+    coal:[
+      {country:'Taiwan',dep:.707,v30:.9e9,tier:'T3'},{country:'Vietnam',dep:.488,v30:.4e9,tier:'T3'},
+      {country:'Philippines',dep:.423,v30:.3e9,tier:'T3'}
+    ]
+  },
+  panama:{
+    lng:[
+      {country:'China',dep:.41,v30:2.8e9,tier:'T3'},{country:'Japan',dep:.38,v30:1.7e9,tier:'T3'},
+      {country:'South Korea',dep:.31,v30:1.6e9,tier:'T3'}
+    ],
+    grain:[
+      {country:'Japan',dep:.71,v30:2.1e9,tier:'T3'},{country:'South Korea',dep:.65,v30:1.0e9,tier:'T3'}
+    ]
+  },
+  suez:{
+    crude:[
+      {country:'Netherlands',dep:.22,v30:2.1e9,tier:'T3'},{country:'Italy',dep:.31,v30:1.8e9,tier:'T3'},
+      {country:'Spain',dep:.19,v30:1.2e9,tier:'T3'}
+    ]
+  },
+  lombok:{
+    crude:[
+      {country:'China',dep:.12,v30:3.3e9,tier:'T3'},{country:'Japan',dep:.08,v30:.5e9,tier:'T3'}
+    ]
+  },
+  bosphorus:{
+    crude:[
+      {country:'Italy',dep:.18,v30:1.1e9,tier:'T3'},{country:'Romania',dep:.85,v30:.8e9,tier:'T3'},
+      {country:'Bulgaria',dep:.72,v30:.4e9,tier:'T3'}
+    ],
+    grain:[
+      {country:'Egypt',dep:.85,v30:1.8e9,tier:'T3'},{country:'Turkey',dep:.65,v30:.9e9,tier:'T3'}
+    ]
+  },
+  danish_straits:{
+    lng:[
+      {country:'Germany',dep:.28,v30:1.4e9,tier:'T3'},{country:'Poland',dep:.22,v30:.6e9,tier:'T3'}
+    ],
+    crude:[
+      {country:'Sweden',dep:.41,v30:.5e9,tier:'T3'},{country:'Finland',dep:.56,v30:.4e9,tier:'T3'}
+    ]
+  }
+};
+
+/* ═══════════════════════════════
+   BASE VAR RATES
+   fraction of cargo value per 30 days, full closure
+═══════════════════════════════ */
+/* ═══════════════════════════════
+   PORT RISK INDEX
+   PRI scores /10. Source: Narrows PRI model (illustrative).
+═══════════════════════════════ */
+const PORT_RISK = {
+  'Djibouti':    { pri:5.8, jwc:true,  note:'Gulf of Aden approach. Primary bunker stop for Cape-diverting vessels. JWC Listed Area (Gulf of Aden / Yemen coast).' },
+  'Aden':        { pri:7.9, jwc:true,  note:'JWC Listed Area. Yemen coast. High political violence risk.' },
+  'Hudaydah':    { pri:8.4, jwc:true,  note:'Houthi-controlled port. Active conflict zone.' },
+  'Fujairah':    { pri:2.8, jwc:true,  note:'Gulf of Oman. Proximity to Hormuz JWC Listed Area. Drone attack history (2021).' },
+  'Ras Tanura':  { pri:3.5, jwc:true,  note:'Saudi Arabia. Persian Gulf JWC Listed Area. Primary Saudi crude export terminal.' },
+  'Shuaiba':     { pri:3.9, jwc:true,  note:'Kuwait. Persian Gulf JWC Listed Area.' },
+  'Port Sudan':  { pri:7.2, jwc:true,  note:'Red Sea. Active conflict in Sudanese interior. JWC adjacent.' },
+  'Singapore':   { pri:1.4, jwc:false, note:'Major bunkering hub. Stable.' },
+  'Colombo':     { pri:2.2, jwc:false, note:'Sri Lanka. Post-2022 crisis recovery. Standard risk.' },
+  'Port Said':   { pri:2.5, jwc:false, note:'Suez Canal northern approach. Egyptian political risk (moderate).' },
+  'Port Klang':  { pri:1.9, jwc:false, note:'Malaysia. Standard risk.' },
+  'Durban':      { pri:2.1, jwc:false, note:'South Africa. Cape diversion route bunker stop.' },
+  'Las Palmas':  { pri:0.9, jwc:false, note:'Canary Islands. Atlantic transit hub. Low risk.' },
+  'Gibraltar':   { pri:1.0, jwc:false, note:'Mediterranean approach. Low risk.' },
+  'Rotterdam':   { pri:0.7, jwc:false, note:'North Sea hub. Low risk.' },
+  'Balboa':      { pri:1.6, jwc:false, note:'Panama Canal Pacific approach.' },
+  'Colon':       { pri:1.5, jwc:false, note:'Panama Canal Atlantic approach.' },
+  'Istanbul':    { pri:2.4, jwc:false, note:'Bosphorus. Elevated risk if Black Sea conflict escalates.' },
+  'Odessa':      { pri:8.1, jwc:true,  note:'Ukraine. Active war zone. Black Sea risk.' },
+  'Novorossiysk':{ pri:5.9, jwc:true,  note:'Russia. Black Sea. Sanctions exposure.' },
+  'Salalah':     { pri:3.2, jwc:true,  note:'Oman. Gulf of Aden adjacency. Elevated given Houthi range.' },
+};
+function priRisk(score){ return score>=6?'high':score>=3?'med':'low'; }
+function priChip(portName){
+  const p=PORT_RISK[portName]; if(!p) return `<span class="port-risk low">${portName}</span>`;
+  const cls=p.jwc?'jwc':priRisk(p.pri);
+  const label=p.jwc?'JWC':'PRI '+p.pri.toFixed(1);
+  return `<span class="port-risk ${cls}" title="${p.note}">${portName} · ${label}</span>`;
+}
+
+// Corridor exposure weights: sourced from NARROWS-RATES.js.
+// Edit weights in NARROWS-RATES.js; this reference updates automatically.
+const RATES = (window.NARROWS_RATES && window.NARROWS_RATES.corridorWeights) || {
+  vlcc:       {hormuz:.65,bab_el_mandeb:.30,malacca:.38,panama:.05,suez:.08,lombok:.12,bosphorus:.03,danish_straits:.02},
+  suezmax:    {hormuz:.50,bab_el_mandeb:.27,malacca:.33,panama:.05,suez:.25,lombok:.10,bosphorus:.15,danish_straits:.05},
+  aframax:    {hormuz:.45,bab_el_mandeb:.25,malacca:.37,panama:.04,suez:.20,lombok:.15,bosphorus:.22,danish_straits:.08},
+  lng:        {hormuz:.35,bab_el_mandeb:.22,malacca:.22,panama:.28,suez:.15,lombok:.08,bosphorus:.12,danish_straits:.18},
+  lpg:        {hormuz:.40,bab_el_mandeb:.24,malacca:.26,panama:.22,suez:.18,lombok:.10,bosphorus:.14,danish_straits:.12},
+  neopanamax: {hormuz:.06,bab_el_mandeb:.09,malacca:.13,panama:.12,suez:.20,lombok:.04,bosphorus:.06,danish_straits:.08},
+  capesize:   {hormuz:.06,bab_el_mandeb:.07,malacca:.22,panama:.03,suez:.05,lombok:.18,bosphorus:.04,danish_straits:.03},
+  handymax:   {hormuz:.08,bab_el_mandeb:.10,malacca:.14,panama:.38,suez:.12,lombok:.06,bosphorus:.18,danish_straits:.10}
+};
+
+/* ═══════════════════════════════
+   ILLUSTRATIVE VESSEL FLEET
+═══════════════════════════════ */
+const VESSELS = [
+  {imo:'9100001',name:'MV Strait Queen',cls:'vlcc',cls_label:'VLCC',
+   corridors:{hormuz:1.0},cargo_type:'Saudi crude',cargo_value:95e6,cii:'A',flag:'Marshall Islands',
+   route:'Ras Tanura → Chiba',waypoints:['Ras Tanura','Fujairah'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'listed',jwc_text:'Standard route transits JWC Listed Area (Persian Gulf). In-window at standard rate.',
+   note:'Hormuz-captive. No diversion route exists for a loaded VLCC from the Persian Gulf. Full cargo value is at risk under any Hormuz restriction scenario.'},
+  {imo:'9100002',name:'MV Gulf Star',cls:'lng',cls_label:'LNG carrier',
+   corridors:{hormuz:1.0},cargo_type:'Qatar LNG',cargo_value:78e6,cii:'B',flag:'Panama',
+   route:'Ras Laffan → Incheon',waypoints:['Fujairah','Singapore'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'listed',jwc_text:'Standard route transits JWC Listed Area (Persian Gulf). In-window at standard rate.',
+   note:'No alternative route at any price. Qatar has no pipeline bypass for LNG. Hormuz closure means cargo does not move.'},
+  {imo:'9100003',name:'MV Lotus Arrow',cls:'lpg',cls_label:'LPG carrier',
+   corridors:{hormuz:1.0,malacca:1.0},cargo_type:'UAE LPG',cargo_value:42e6,cii:'C',flag:'Bahamas',
+   route:'Abu Dhabi → Singapore',waypoints:['Fujairah','Colombo'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'listed',jwc_text:'Standard route transits JWC Listed Area (Persian Gulf/Hormuz). Malacca leg is not currently a listed area.',
+   note:'Independent exposure to two corridors on every voyage: Hormuz outbound, Malacca on approach to Singapore. Both are full risk events. Weights are 1.0 for each.'},
+  {imo:'9100004',name:'MV Atlantic Bridge',cls:'suezmax',cls_label:'Suezmax',
+   corridors:{bab_el_mandeb:1.0},cargo_type:'Saudi crude',cargo_value:68e6,cii:'D',flag:'Greece',
+   route:'Ras Tanura → Rotterdam via Suez',waypoints:['Djibouti','Durban'],
+   diversion:'Cape of Good Hope',div_days:17,div_cost:2.1e6,status:'Rerouting Cape of Good Hope',
+   jwc_flag:'divert',jwc_text:'Standard route transits Red Sea JWC Listed Area. Diverting via Cape of Good Hope. Bunker stop at Djibouti places vessel in the JWC Listed Area even on the diversion route.',
+   note:'D-rated: rerouting via Cape of Good Hope adds 17 days, placing CII compliance under further pressure. Djibouti bunker stop creates JWC listed area exposure on the diversion route itself.'},
+  {imo:'9100005',name:'MV Pacific Link',cls:'neopanamax',cls_label:'Neopanamax container',
+   corridors:{panama:1.0},cargo_type:'Mixed containers',cargo_value:185e6,cii:'B',flag:'Liberia',
+   route:'Los Angeles → Yokohama',waypoints:['Balboa'],
+   diversion:'Suez westbound',div_days:21,div_cost:null,status:null,
+   jwc_flag:'divert',jwc_text:'Standard route does not transit a JWC Listed Area. Suez diversion route transits Red Sea Listed Area: new war risk exposure on the diversion path that is not covered by the standard attachment.',
+   note:'Auction-exposed. Suez westbound is the long-distance alternative, adding approximately 21 days. Walk-away price depends on cargo mix and delivery contract.'},
+  {imo:'9100006',name:'MV Prairie Wind',cls:'handymax',cls_label:'Handymax bulk',
+   corridors:{panama:1.0},cargo_type:'US Gulf grain',cargo_value:28e6,cii:'C',flag:'Malta',
+   route:'New Orleans → Osaka',waypoints:['Colon'],
+   diversion:'Cape Horn',div_days:30,div_cost:1.0e6,status:null,
+   jwc_flag:'clear',jwc_text:'No JWC Listed Area on standard route or Cape Horn diversion route.',
+   note:'Walk-away price approximately $1M. Cape Horn diversion adds 30 days and is commercially viable only when the auction slot premium exceeds the diversion cost.'},
+  {imo:'9100007',name:'MV Iron Cape',cls:'capesize',cls_label:'Capesize bulk',
+   corridors:{malacca:1.0},cargo_type:'Brazil iron ore',cargo_value:55e6,cii:'E',flag:'Hong Kong',
+   route:'Tubarão → Qingdao',waypoints:['Singapore','Port Klang'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'clear',jwc_text:'Malacca is not currently a JWC Listed Area.',
+   note:'E-rated: cannot absorb additional voyage inefficiency. Any meaningful diversion would trigger flag-state corrective action. Effectively captive to Malacca despite it being a through-route.'},
+  {imo:'9100008',name:'MV Banda Sea',cls:'aframax',cls_label:'Aframax',
+   corridors:{malacca:1.0},cargo_type:'Indonesia crude',cargo_value:38e6,cii:'A',flag:'Singapore',
+   route:'Dumai → Zhanjiang',waypoints:['Singapore'],
+   diversion:'Lombok Strait',div_days:2.5,div_cost:.4e6,status:null,
+   jwc_flag:'clear',jwc_text:'Malacca is not currently a JWC Listed Area. Lombok diversion alternative also outside listed areas.',
+   note:'Malacca-captive on this route. Lombok Strait and Sunda Strait are alternatives, adding 2 to 3 days and entering elevated piracy risk zones.'},
+  {imo:'9100009',name:'MV Odessa Star',cls:'suezmax',cls_label:'Suezmax',
+   corridors:{bosphorus:1.0},cargo_type:'Ukraine grain',cargo_value:32e6,cii:'C',flag:'Marshall Islands',
+   route:'Odessa → Iskenderun',waypoints:['Odessa','Istanbul'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'clear',jwc_text:'Bosphorus is not currently a JWC Listed Area. Black Sea transit carries elevated political risk in the current environment.',
+   note:'Bosphorus-captive for Black Sea exit. No alternative route from Ukraine to the Mediterranean. Montreux Convention closure risk applies in conflict scenarios involving Black Sea states.'},
+  {imo:'9100010',name:'MV Java Current',cls:'vlcc',cls_label:'VLCC',
+   corridors:{lombok:1.0},cargo_type:'Middle East crude',cargo_value:88e6,cii:'B',flag:'Liberia',
+   route:'Ras Tanura → Zhoushan via Lombok',waypoints:['Fujairah','Singapore'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'clear',jwc_text:'Lombok Strait is not a JWC Listed Area.',
+   note:'Transiting Lombok as the primary deep-water alternative to Malacca. VLCCs at full draught cannot safely transit Malacca. Lombok adds approximately 1.5 days versus Malacca but is the only viable option for this vessel class.'},
+  {imo:'9100011',name:'MV Northern Gate',cls:'lng',cls_label:'LNG carrier',
+   corridors:{danish_straits:1.0},cargo_type:'Baltic LNG',cargo_value:45e6,cii:'B',flag:'Norway',
+   route:'Klaipeda → Rotterdam',waypoints:['Rotterdam'],
+   diversion:null,div_days:null,div_cost:null,status:null,
+   jwc_flag:'clear',jwc_text:'Danish Straits is not a JWC Listed Area.',
+   note:'Danish Straits is the only practical exit from the Baltic for vessels of this class. Seasonal ice constraints (November to April) and bridge air-draft limitations (Storebaelt Bridge: 65m clearance) apply.'},
+  {imo:'9100012',name:'MV Alexandria Bridge',cls:'neopanamax',cls_label:'Neopanamax container',
+   corridors:{suez:1.0,bab_el_mandeb:1.0},cargo_type:'Mixed containers',cargo_value:160e6,cii:'C',flag:'Malta',
+   route:'Singapore → Felixstowe via Suez',waypoints:['Port Said','Djibouti'],
+   diversion:'Cape of Good Hope',div_days:14,div_cost:3.2e6,status:null,
+   jwc_flag:'divert',jwc_text:'Standard route transits Red Sea JWC Listed Area (Bab-el-Mandeb approach). Port Said approach normal. Djibouti bunker stop is JWC listed area exposure on diversion route.',
+   note:'Dual corridor exposure: Suez (canal grounding / political closure risk) and Bab-el-Mandeb (conflict / restriction risk) are both on the standard route. Djibouti bunker stop is flagged: JWC listed area even when diverting Cape.'}
+];
+
+/* ═══════════════════════════════
+   CALCULATIONS
+═══════════════════════════════ */
+function vcVar(v, corr, dur, sev) {
+  const w = v.corridors[corr];
+  if (!w) return 0;
+  return v.cargo_value * (RATES[v.cls][corr]||0) * w * (dur/30) * (sev/100) * A.wr;
+}
+
+function grossVaR(vessels, corr, dur, sev) {
+  return vessels.reduce((s,v) => s + vcVar(v,corr,dur,sev), 0);
+}
+
+function byCorr(vessels, dur, sev) {
+  const out = {};
+  for (const v of vessels)
+    for (const [c,w] of Object.entries(v.corridors)) {
+      const r = RATES[v.cls][c]||0;
+      out[c] = (out[c]||0) + v.cargo_value*r*w*(dur/30)*(sev/100)*A.wr;
+    }
+  return out;
+}
+
+/* ═══════════════════════════════
+   FORMAT
+═══════════════════════════════ */
+function fM(v){if(v>=1e9)return'$'+(v/1e9).toFixed(1)+'B';if(v>=1e6)return'$'+(v/1e6).toFixed(1)+'M';return'$'+(v/1e3).toFixed(0)+'K'}
+function fP(v){return(v*100).toFixed(1)+'%'}
+function tp(t){return t==='T1'?'<span class="t1p">T1</span>':t==='T2'?'<span class="t2p">T2</span>':'<span class="t3p" title="Directional estimate only. Not validated against primary source data.">~estimate</span>'}
+
+/* ═══════════════════════════════
+   SIGNAL HELPERS
+═══════════════════════════════ */
+function getSig(cid) {
+  if (window._noSig) return null;
+  try { if (typeof CORRIDOR_SIGNALS!=='undefined') return CORRIDOR_SIGNALS[cid]||null; } catch(e){}
+  return null;
+}
+
+function sigPlainText(sig, corrLabel) {
+  if (!sig) return null;
+  const lvl = sig.level||'L1';
+  if (lvl==='L4') return { cls:'alert',   icon:'⚠', title:corrLabel+': active corridor alert', body:'Two or more elevated risk signals are active on this corridor and a linked corridor simultaneously. This state requires a formal review before CAPE output is used in client-facing work.' };
+  if (lvl==='L3') return { cls:'elevated', icon:'↑', title:corrLabel+': risk elevated',         body:'An actionable signal has been detected on this corridor. Review recommended before next use. The scenario bar above may not reflect current conditions.' };
+  if (lvl==='L2') return { cls:'elevated', icon:'·', title:corrLabel+': signal flagged',        body:'A notable signal has been detected. Flagged for weekly review. No immediate action required, but monitor for escalation.' };
+  return null; // L1: normal -- show nothing
+}
+
+/* ═══════════════════════════════
+   RENDER: HEADER
+═══════════════════════════════ */
+function renderHeader() {
+  const sig = getSig(S.corridor);
+  const c = CORR[S.corridor];
+  let pill = '';
+  if (sig) {
+    const lvl = sig.level||'L1';
+    if (lvl==='L4') pill = `<span class="alert-pill pill-alert"><span class="dot"></span>Active alert</span>`;
+    else if (lvl==='L3'||lvl==='L2') pill = `<span class="alert-pill pill-elevated"><span class="dot"></span>${c.short}: elevated</span>`;
+  }
+  document.getElementById('hdrRight').innerHTML = pill + '<span>Narrows</span>';
+}
+
+/* ═══════════════════════════════
+   RENDER: STRIP VAR
+═══════════════════════════════ */
+function renderStrip() {
+  const v = grossVaR(activeVessels(), S.corridor, S.duration, S.severity);
+  const p = CORR[S.corridor].tier==='T1'?'':'~';
+  document.getElementById('stripVal').textContent = p+fM(v);
+  document.getElementById('stripLabel').textContent = 'Scenario VaR';
+}
+
+/* ═══════════════════════════════
+   RENDER: HERO STATS
+═══════════════════════════════ */
+function renderHero() {
+  const vessels = activeVessels();
+  const c = CORR[S.corridor];
+  const p = c.tier==='T1'?'':'~';
+  const res = vessels.map(v=>({v, var:vcVar(v,S.corridor,S.duration,S.severity)}));
+  const gross = res.reduce((s,r)=>s+r.var,0);
+  const exposed = res.filter(r=>r.var>0);
+  const de = exposed.filter(r=>r.v.cii==='D'||r.v.cii==='E');
+  const dePct = exposed.length>0?Math.round(de.length/exposed.length*100):0;
+
+  document.getElementById('hGross').textContent = p+fM(gross);
+  document.getElementById('hGrossSub').textContent = 'Sum of corridor lines ('+S.duration+'d '+sevLabel(S.severity).toLowerCase()+')';
+  document.getElementById('hNet').textContent = p+fM(gross); // equals gross for single-corridor view
+  document.getElementById('hCount').textContent = exposed.length+' / '+vessels.length;
+  document.getElementById('hCountSub').textContent = 'Exposed to '+c.short;
+  const deEl = document.getElementById('hDE');
+  deEl.textContent = dePct+'%';
+  deEl.className = 'hstat-val'+(dePct>0?' warn':' muted');
+  document.getElementById('hDESub').textContent = de.length>0 ? de.length+' vessel'+(de.length>1?'s':'')+' CII-constrained' : 'No D/E vessels exposed';
+}
+
+/* ═══════════════════════════════
+   RENDER: VESSEL CARDS
+═══════════════════════════════ */
+function renderCards() {
+  const vessels = activeVessels();
+  const c = CORR[S.corridor];
+  const isT1 = c.tier==='T1';
+  const res = vessels.map((v,i)=>({v,i,var:vcVar(v,S.corridor,S.duration,S.severity)}))
+    .sort((a,b)=>b.var-a.var);
+
+  if (S.mode==='custom' && vessels.length===0) {
+    document.getElementById('vesselCards').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-title">No vessels in portfolio</div>
+        <div class="empty-sub">Add vessels individually or upload a CSV file.<br>Download the template to see the expected column format.</div>
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button class="btn-sm amber" onclick="openAccessModal()">+ Add vessel</button>
+          <button class="btn-sm" onclick="openAccessModal()">Upload CSV</button>
+        </div>
+      </div>`;
+    return;
+  }
+
+  document.getElementById('vesselCards').innerHTML = res.map(r=>{
+    const v=r.v; const i=r.i; const val=r.var;
+    const exp=val>0; const multi=Object.keys(v.corridors).length>1;
+    const cls=multi&&exp?'vcard multi':exp?'vcard exposed':'vcard nil';
+    const px=isT1?'':'~';
+    const corrList=Object.keys(v.corridors).map(x=>CORR[x]?.short||x).join(' + ');
+    const fcHtml = v.jwc_flag==='listed'?'<span class="flag-chip fc-listed">&#9651; In listed area</span>'
+                  :v.jwc_flag==='divert'?'<span class="flag-chip fc-divert">&#9650; Diversion risk</span>'
+                  :'<span class="flag-chip fc-clear">&#10003; No listed area</span>';
+    return `<div class="${cls}" id="vc${i}">
+      <div class="vhead" onclick="tvcard(${i})">
+        <div>
+          <div class="vname">${v.name}</div>
+          <div class="vmeta">
+            <span class="cls-tag">${v.cls_label}</span>
+            <span class="cii-tag cii-${v.cii}">CII ${v.cii}</span>
+            <span style="font-size:11px;color:var(--text-muted)">${v.flag||''}</span>
+            ${multi?'<span style="font-size:11px;color:#5B21B6;font-weight:500">Multi-corridor</span>':''}
+          </div>
+          <div class="vroute">${v.route||''}</div>
+          ${v.status?`<div class="vstatus">&#9650; ${v.status}</div>`:''}
+        </div>
+        <div class="vvar">
+          <div class="vvar-label">Corridor VaR</div>
+          ${exp?`<div class="vvar-val">${px}${fM(val)}</div><div class="vvar-pct">${(val/v.cargo_value*100).toFixed(1)}% of cargo</div>`:'<div class="vvar-nil">Not exposed</div>'}
+        </div>
+      </div>
+      <div class="vbody" id="vb${i}">
+        <div class="vcol">
+          <div class="vcol-head">Vessel</div>
+          <div class="vrow"><span class="vk">IMO</span><span class="vv">${v.imo||'--'}</span></div>
+          <div class="vrow"><span class="vk">Class</span><span class="vv">${v.cls_label}</span></div>
+          <div class="vrow"><span class="vk">Flag</span><span class="vv">${v.flag||'--'}</span></div>
+          <div class="vrow"><span class="vk">Corridor(s)</span><span class="vv">${corrList}</span></div>
+          ${v.status?`<div class="vrow"><span class="vk">Status</span><span class="vv wa">${v.status}</span></div>`:''}
+        </div>
+        <div class="vcol">
+          <div class="vcol-head">Cargo &amp; commercial</div>
+          <div class="vrow"><span class="vk">Cargo type</span><span class="vv">${v.cargo_type||'--'}</span></div>
+          <div class="vrow"><span class="vk">Cargo value</span><span class="vv hi">${fM(v.cargo_value)}</span></div>
+          ${v.diversion?`<div class="vrow"><span class="vk">Diversion route</span><span class="vv">${v.diversion}</span></div>`:''}
+          ${v.div_days?`<div class="vrow"><span class="vk">Diversion adds</span><span class="vv hi">+${v.div_days}d</span></div>`:''}
+          ${divCost(v)?`<div class="vrow"><span class="vk">Diversion cost</span><span class="vv hi">${fM(divCost(v))} / voyage</span></div>`:''}
+          <div class="vrow"><span class="vk">JWC status</span><span class="vv">${fcHtml}</span></div>
+          ${v.owner?`<div class="vrow"><span class="vk">Owner / operator</span><span class="vv">${v.owner}</span></div>`:''}
+        </div>
+        ${v.waypoints&&v.waypoints.length?`
+        <div class="vcol" style="grid-column:1/-1;border-top:var(--rule);padding:14px 20px">
+          <div class="vcol-head" style="margin-bottom:10px">Port stops &middot; PRI &amp; JWC flags</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            ${v.waypoints.map(p=>priChip(p)).join('')}
+          </div>
+          ${v.waypoints.some(p=>PORT_RISK[p]?.jwc)?
+            '<div style="margin-top:10px;font-size:12px;color:#92400E;background:rgba(240,180,41,.08);border:1px solid rgba(240,180,41,.25);border-radius:6px;padding:8px 12px">One or more port stops fall within a JWC Listed Area. Verify war risk attachment covers these calls explicitly.</div>'
+            :''}
+        </div>`:''}
+        <div class="vnote">${v.note||''}</div>
+        ${v.jwc_text?`<div class="vjwc">&#9651; ${v.jwc_text}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function tvcard(i) { document.getElementById('vb'+i)?.classList.toggle('open') }
+
+/* ═══════════════════════════════
+   RENDER: PANEL 01 -- VAR
+═══════════════════════════════ */
+let chartInst = null;
+function renderP1() {
+  const vessels = activeVessels();
+  const c = CORR[S.corridor];
+  const isT1 = c.tier==='T1';
+  const p = isT1?'':'~';
+  const gross = grossVaR(vessels, S.corridor, S.duration, S.severity);
+  const bc = byCorr(vessels, S.duration, S.severity);
+  const portTotal = Object.values(bc).reduce((s,v)=>s+v,0);
+
+  const corrOrder = ['hormuz','bab_el_mandeb','malacca','panama','suez','lombok','bosphorus','danish_straits'];
+  const concRows = corrOrder.map(k=>{
+    const val=bc[k]||0; const pct=portTotal>0?val/portTotal:0;
+    const w=Math.round(pct*100); const act=k===S.corridor;
+    const kp=CORR[k].tier==='T1'?'':'~';
+    return `<div class="conc-row">
+      <span class="conc-name">${CORR[k].short}</span>
+      <div class="conc-track"><div class="conc-fill${act?'':' dim'}" style="width:${w}%"></div></div>
+      <span class="conc-val">${kp}${fM(val)} <span style="color:var(--text-muted);font-size:11px">${(pct*100).toFixed(0)}%</span></span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('b1').innerHTML = `
+    <div class="var-blocks">
+      <div class="var-block">
+        <div class="var-block-label">Gross VaR &middot; ${c.short} &middot; ${S.duration}d</div>
+        <div class="var-block-val">${p}${fM(gross)}</div>
+        <div class="var-block-sub">${sevLabel(S.severity)} scenario &middot; ${tp(c.tier)}</div>
+      </div>
+      <div class="var-block">
+        <div class="var-block-label">Portfolio gross VaR &middot; all corridors</div>
+        <div class="var-block-val">~${fM(portTotal)}</div>
+        <div class="var-block-sub">All corridors, same scenario</div>
+      </div>
+    </div>
+    <div style="font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:20px">
+      Gross VaR sums each vessel's exposure per corridor independently.
+      Multi-corridor vessels appear in each corridor line. Net VaR would count each vessel once at its highest single-corridor VaR.
+      For single-corridor scenario views, gross and net are equal.
+    </div>
+    ${concRows}
+    <div class="chart-wrap">
+      <div class="chart-label">Portfolio concentration by corridor &middot; $M &middot; ${S.duration}d ${sevLabel(S.severity).toLowerCase()}</div>
+      <canvas id="cChart" height="110"></canvas>
+    </div>`;
+
+  if (chartInst){chartInst.destroy();chartInst=null}
+  const labels=['Hormuz','BAM','Malacca','Panama','Suez','Lombok','Bosphorus','Danish Str.'];
+  const vals=corrOrder.map(k=>Math.round((bc[k]||0)/1e6*10)/10);
+  const colors=corrOrder.map(k=>k===S.corridor?'#0A2540':'rgba(10,37,64,0.10)');
+  const ctx=document.getElementById('cChart');
+  if(ctx){
+    chartInst=new Chart(ctx.getContext('2d'),{
+      type:'bar',
+      data:{labels,datasets:[{data:vals,backgroundColor:colors,borderRadius:3,borderSkipped:false}]},
+      options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' $'+c.raw.toFixed(1)+'M'},backgroundColor:'#0A2540',borderColor:'rgba(10,37,64,0.12)',borderWidth:1,titleColor:'#ffffff',bodyColor:'rgba(255,255,255,0.65)',titleFont:{family:'DM Mono',size:11},bodyFont:{family:'DM Mono',size:10}}},
+        scales:{x:{grid:{color:'#DDE4EF'},ticks:{color:'#4A6078',font:{family:'DM Mono',size:10},callback:v=>'$'+v+'M'}},y:{grid:{display:false},ticks:{color:'#0A2540',font:{family:'DM Mono',size:11}}}}}
+    });
+  }
+}
+
+/* ═══════════════════════════════
+   RENDER: PANEL 02 -- JWC
+═══════════════════════════════ */
+function renderP2() {
+  const c = CORR[S.corridor];
+  const sig = getSig(S.corridor);
+  const st = sigPlainText(sig, c.short);
+
+  let riskBar='';
+  if(st){
+    riskBar=`<div class="risk-state ${st.cls}">
+      <div class="risk-state-icon">${st.icon}</div>
+      <div><div class="risk-state-title">${st.title}</div><div class="risk-state-text">${st.body}</div></div>
+    </div>`;
+  } else if(c.jwc){
+    riskBar=`<div class="risk-state elevated">
+      <div class="risk-state-icon">&#9651;</div>
+      <div><div class="risk-state-title">${c.short} is a JWC Listed Area</div>
+      <div class="risk-state-text">${c.desc}</div></div>
+    </div>`;
+  } else {
+    riskBar=`<div class="risk-state normal">
+      <div class="risk-state-icon">&#10003;</div>
+      <div><div class="risk-state-title">${c.short}: no listed area designation</div>
+      <div class="risk-state-text">${c.desc}</div></div>
+    </div>`;
+  }
+
+  const sorted=[...activeVessels()].sort((a,b)=>{
+    const o={divert:0,listed:1,clear:2};return(o[a.jwc_flag]||2)-(o[b.jwc_flag]||2);
+  });
+  const fcH=f=>f==='listed'?'<span class="flag-chip fc-listed">&#9651; In listed area</span>'
+              :f==='divert'?'<span class="flag-chip fc-divert">&#9650; Diversion risk</span>'
+              :'<span class="flag-chip fc-clear">&#10003; No exposure</span>';
+
+  const rows=sorted.map(v=>`<tr>
+    <td class="vn">${v.name}</td>
+    <td><span class="cls-tag">${v.cls_label}</span></td>
+    <td>${fcH(v.jwc_flag)}</td>
+    <td style="font-size:12px;color:var(--text-muted);line-height:1.65">${v.jwc_text||''}</td>
+  </tr>`).join('');
+
+  const divCount=activeVessels().filter(v=>v.jwc_flag==='divert').length;
+  const divNote=divCount>0?`<div class="unpriced-note">
+    <strong style="color:#B91C1C">The diversion risk flag is the unpriced scenario.</strong>
+    ${divCount} vessel${divCount>1?'s have':'has'} a standard route war risk attachment
+    that does not cover the diversion route currently being taken.
+    These vessels may be transiting a listed area or high-risk zone without valid war risk cover.
+  </div>`:'';
+
+  // Waypoint PRI section
+  const vessels = activeVessels();
+  const wpVessels = vessels.filter(v=>v.waypoints&&v.waypoints.length);
+  const jwcWaypoints = wpVessels.filter(v=>v.waypoints.some(p=>PORT_RISK[p]?.jwc));
+  let wpSection = '';
+  if(wpVessels.length>0){
+    const wpRows = wpVessels.map(v=>{
+      const chips = v.waypoints.map(p=>priChip(p)).join(' ');
+      const hasJWC = v.waypoints.some(p=>PORT_RISK[p]?.jwc);
+      return `<tr>
+        <td class="vn">${v.name}</td>
+        <td style="font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace">${v.route||''}</td>
+        <td>${chips}</td>
+        <td>${hasJWC?'<span class="flag-chip fc-listed">&#9651; JWC stop</span>':'<span class="flag-chip fc-clear">&#10003; Clear</span>'}</td>
+      </tr>`;
+    }).join('');
+    const jwcWarn = jwcWaypoints.length>0?`<div class="unpriced-note" style="margin-top:14px">
+      <strong style="color:#B91C1C">${jwcWaypoints.length} vessel${jwcWaypoints.length>1?'s have':'has'} a port stop in a JWC Listed Area.</strong>
+      A standard route war risk attachment may not automatically extend to named port calls outside the primary voyage corridor.
+      Verify held-covered status for each flagged stop. Djibouti is the most common exposure: vessels diverting around Bab-el-Mandeb
+      frequently bunker there, placing them inside the Gulf of Aden listed area on the diversion route itself.
+    </div>`:'';
+    wpSection = `<div style="margin-top:28px;padding-top:20px;border-top:var(--rule)">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px">Port stops &middot; PRI &amp; JWC flags</div>
+      <table class="jwc-table">
+        <thead><tr><th>Vessel</th><th>Route</th><th>Port stops (PRI score / 10)</th><th>JWC flag</th></tr></thead>
+        <tbody>${wpRows}</tbody>
+      </table>${jwcWarn}
+    </div>`;
+  }
+
+  document.getElementById('b2').innerHTML=`${riskBar}
+    <table class="jwc-table">
+      <thead><tr><th>Vessel</th><th>Class</th><th>JWC status</th><th>Note</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>${divNote}${wpSection}`;
+}
+
+/* ═══════════════════════════════
+   RENDER: PANEL 03 -- CII
+═══════════════════════════════ */
+function renderP3() {
+  const c = CORR[S.corridor];
+  const p = c.tier==='T1'?'':'~';
+  const res = activeVessels().map(v=>({v,var:vcVar(v,S.corridor,S.duration,S.severity)}))
+    .filter(r=>r.var>0);
+  const de=res.filter(r=>r.v.cii==='D'||r.v.cii==='E');
+  const dePct=res.length>0?Math.round(de.length/res.length*100):0;
+  const deVaR=de.reduce((s,r)=>s+r.var,0);
+  const MULT={A:1,B:1,C:1,D:1.15,E:1.30};
+  const adjTotal=res.reduce((s,r)=>s+r.var*(MULT[r.v.cii]||1),0);
+
+  const tipDE=`<span class="tip">?<span class="tip-body">D and E-rated vessels cannot voluntarily divert on through-routes. Additional voyage days worsen their CII rating further, risking mandatory flag-state corrective action and operational restrictions. They are effectively captive even where a diversion route exists.</span></span>`;
+  const tipCaptive=`<span class="tip">?<span class="tip-body">Terminal straits (Hormuz, Bosphorus) have no physical diversion route. All vessels are captive regardless of CII rating. The CII multiplier does not apply here.</span></span>`;
+
+  const rows=res.sort((a,b)=>b.var-a.var).map(r=>{
+    const m=MULT[r.v.cii]||1; const adj=r.var*m; const delta=adj-r.var;
+    const isTerminal=c.type==='terminal';
+    const constraint=isTerminal?'Captive (terminal strait)'+tipCaptive
+      :(r.v.cii==='D'||r.v.cii==='E')?'Cannot divert: CII constraint'+tipDE
+      :r.v.diversion?'Diversion viable':'No diversion route';
+    return `<tr>
+      <td class="vn">${r.v.name}</td>
+      <td><span class="cii-tag cii-${r.v.cii}">CII ${r.v.cii}</span></td>
+      <td class="r">${p}${fM(r.var)}</td>
+      <td class="r" style="color:${delta>0?'#B91C1C':'var(--text-muted)'}">${delta>0?'+'+fM(delta):'--'}</td>
+      <td style="font-size:12px;color:var(--text-muted)">${constraint}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('b3').innerHTML=`
+    <div class="cii-summary">
+      <div class="cii-cell">
+        <div class="hstat-label">D/E fraction</div>
+        <div class="hstat-val${dePct>0?' warn':' muted'}">${dePct}%</div>
+        <div class="hstat-sub">${de.length} of ${res.length} exposed</div>
+      </div>
+      <div class="cii-cell">
+        <div class="hstat-label">D/E VaR</div>
+        <div class="hstat-val${de.length>0?' warn':' muted'}">${p}${fM(deVaR)}</div>
+        <div class="hstat-sub">CII-constrained exposure</div>
+      </div>
+      <div class="cii-cell">
+        <div class="hstat-label">CII-adjusted VaR</div>
+        <div class="hstat-val">${p}${fM(adjTotal)}</div>
+        <div class="hstat-sub">Phase 4 estimate</div>
+      </div>
+    </div>
+    ${res.length>0?`<table class="cii-table">
+      <thead><tr><th>Vessel</th><th>CII</th><th style="text-align:right">Raw VaR</th><th style="text-align:right">Adj.</th><th>Diversion status</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`:'<div style="color:var(--text-dim);font-size:12px">No vessels exposed to this corridor in the current portfolio.</div>'}
+    <div class="cii-note">
+      CII multipliers (D: 1.15x, E: 1.30x) are illustrative estimates pending Phase 4 calibration.
+      The underlying logic: vessels rated D or E on through-routes cannot exercise the diversion option because additional
+      voyage days would degrade their rating further. They are effectively captive even where physical diversion is possible.
+      For terminal straits (Hormuz, Bosphorus), all vessels are captive regardless of rating.
+      Full CII adjustment methodology is deferred to Phase 4.
+    </div>`;
+}
+
+/* ═══════════════════════════════
+   RENDER: PANEL 04 -- BILATERAL
+═══════════════════════════════ */
+function renderP4() {
+  const c=CORR[S.corridor]; const data=BIL[S.corridor];
+  const dm=S.duration/30; const sm=(S.severity/100 * A.wr);
+  let tot=0; let rows='';
+  for(const[comm,entries] of Object.entries(data)){
+    const cl=comm.charAt(0).toUpperCase()+comm.slice(1);
+    rows+=`<tr class="comm-head"><td colspan="4">${cl}</td></tr>`;
+    for(const e of entries){
+      const sc=(e.v30||0)*dm*sm; tot+=e.v30||0;
+      const bw=Math.round(e.dep*80);
+      const px=e.tier==='T3'?'~':'';
+      rows+=`<tr>
+        <td class="country">${e.country}</td>
+        <td class="r"><span class="dep-bar" style="width:${bw}px"></span>${px}${fP(e.dep)}</td>
+        <td class="r hi">${px}${fM(sc)}</td>
+        <td>${tp(e.tier)}</td>
+      </tr>`;
+    }
+  }
+  const isT1=c.tier==='T1';
+  const totDisplay=(isT1?'':'~')+fM(tot*dm*sm);
+  document.getElementById('b4').innerHTML=`
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px">
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px">${c.label} &middot; importer VaR</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:32px;color:var(--navy)">${totDisplay}</div>
+        <div style="font-size:13px;color:var(--text-muted)">${S.duration}d ${sevLabel(S.severity).toLowerCase()} &middot; selected importers</div>
+      </div>${tp(c.tier)}
+    </div>
+    <table class="bil-table">
+      <thead><tr><th>Importer</th><th class="r">Corridor dep.</th><th class="r">VaR (${S.duration}d)</th><th>Source</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    ${!isT1?'<div style="margin-top:14px;font-size:13px;color:var(--text-muted);line-height:1.7;padding-top:14px;border-top:var(--rule)">Figures marked with ~ are directional estimates only. Not validated against primary bilateral trade data. Hormuz crude bilateral data is T1-validated against UN Comtrade and IEA.</div>':''}`;
+}
+
+/* ═══════════════════════════════
+   PANEL TOGGLE
+═══════════════════════════════ */
+function tog(id) {
+  const num=id.slice(1);
+  document.getElementById('b'+num).classList.toggle('c');
+  document.getElementById('t'+num).classList.toggle('c');
+}
+
+/* ═══════════════════════════════
+   RENDER ALL
+═══════════════════════════════ */
+function renderAll() {
+  renderHeader();
+  renderStrip();
+  renderHero();
+  renderCards();
+  renderP1();
+  renderP2();
+  renderP3();
+  renderP4();
+  const ct=document.getElementById('portCount');
+  if(ct&&S.mode==='custom') ct.textContent=customVessels.length+' vessel'+(customVessels.length!==1?'s':'');
+}
+
+/* ═══════════════════════════════
+   EVENT HANDLERS
+═══════════════════════════════ */
+document.getElementById('corrChips').addEventListener('click',e=>{
+  const ch=e.target.closest('.chip');
+  if(!ch||!ch.dataset.c)return;
+  document.querySelectorAll('#corrChips .chip').forEach(c=>c.classList.remove('on'));
+  ch.classList.add('on');
+  S.corridor=ch.dataset.c;
+  renderAll();
+  renderTIDE();
+});
+
+const sl=document.getElementById('durSlider');
+const ni=document.getElementById('durNum');
+sl.addEventListener('input',()=>{ni.value=sl.value;S.duration=parseInt(sl.value);renderAll()});
+ni.addEventListener('input',()=>{
+  const v=Math.min(365,Math.max(1,parseInt(ni.value)||1));
+  ni.value=v;sl.value=v;S.duration=v;renderAll();
+});
+
+/* Closure rate: slider + number input + presets */
+function fmtClosureFrac(pct){
+  if(pct <= 0) return '';
+  if(pct >= 100) return 'full stop';
+  const n = 100 / pct;
+  return '1 in '+(n >= 100 ? Math.round(n) : n.toFixed(1))+' transits';
+}
+function syncSev(pct){
+  document.querySelectorAll('.sev-preset').forEach(b=>{
+    b.classList.toggle('on', parseFloat(b.dataset.p)===pct);
+  });
+  document.getElementById('sevNum').value = (pct % 1 === 0) ? pct : pct.toFixed(1);
+  document.getElementById('sevFrac').textContent = fmtClosureFrac(pct);
+}
+document.getElementById('sevSlider').addEventListener('input',e=>{
+  S.severity = parseFloat(e.target.value);
+  syncSev(S.severity);
+  renderAll();
+});
+document.getElementById('sevNum').addEventListener('input',e=>{
+  let v = parseFloat(e.target.value);
+  if(isNaN(v)||v<0) v = 0;
+  if(v>100) v = 100;
+  v = Math.round(v*10)/10;
+  e.target.value = v;
+  S.severity = v;
+  document.getElementById('sevSlider').value = v;
+  syncSev(S.severity);
+  renderAll();
+});
+document.querySelectorAll('.sev-preset').forEach(b=>{
+  b.addEventListener('click',()=>{
+    S.severity = parseFloat(b.dataset.p);
+    document.getElementById('sevSlider').value = S.severity;
+    syncSev(S.severity);
+    renderAll();
+  });
+});
+
+/* Assumptions drawer */
+function toggleAssm(){
+  const bar=document.getElementById('assmBar');
+  const btn=document.getElementById('assmToggle');
+  const open=bar.classList.toggle('open');
+  btn.classList.toggle('on',open);
+}
+/* Sync rate table + opex/wr sliders → A → re-render */
+const RATE_CLASSES = ['VLCC','Suezmax','Aframax','LNG_Carrier','LPG','Neopanamax','Capesize','Handymax'];
+function syncAssm(){
+  RATE_CLASSES.forEach(cls=>{
+    const b = parseInt(document.getElementById('r-'+cls+'-b').value)||1;
+    const c = parseInt(document.getElementById('r-'+cls+'-c').value)||1;
+    A.rates[cls] = { b: Math.max(1,Math.min(300,b)), c: Math.max(1,Math.min(300,c)) };
+  });
+  A.opex = parseFloat(document.getElementById('opexNum').value)||1.0;
+  A.wr   = parseFloat(document.getElementById('wrNum').value)||1.0;
+  renderAll();
+}
+/* Seed inputs from A and attach listeners */
+RATE_CLASSES.forEach(cls=>{
+  ['b','c'].forEach(side=>{
+    const el = document.getElementById('r-'+cls+'-'+side);
+    if(!el) return;
+    el.value = A.rates[cls][side];
+    el.addEventListener('input', ()=>syncAssm());
+  });
+});
+/* Opex */
+document.getElementById('opexSlider').addEventListener('input',e=>{
+  document.getElementById('opexNum').value = parseFloat(e.target.value).toFixed(2);
+  syncAssm();
+});
+document.getElementById('opexNum').addEventListener('input',e=>{
+  const v = Math.min(3.0, Math.max(0.5, parseFloat(e.target.value)||1.0));
+  e.target.value = v.toFixed(2);
+  document.getElementById('opexSlider').value = v;
+  syncAssm();
+});
+/* War risk loading */
+document.getElementById('wrSlider').addEventListener('input',e=>{
+  document.getElementById('wrNum').value = parseFloat(e.target.value).toFixed(2);
+  syncAssm();
+});
+document.getElementById('wrNum').addEventListener('input',e=>{
+  const v = Math.min(3.0, Math.max(0.01, parseFloat(e.target.value)||1.0));
+  e.target.value = v.toFixed(2);
+  document.getElementById('wrSlider').value = v;
+  syncAssm();
+});
+
+document.querySelectorAll('.ptab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    S.mode=t.dataset.m;
+    document.getElementById('portToolbar').style.display=S.mode==='custom'?'flex':'none';
+    renderAll();
+  });
+});
+
+/* ═══════════════════════════════
+   ADD VESSEL MODAL
+═══════════════════════════════ */
+function openModal() {
+  // Populate corridor checkboxes
+  const wrap=document.getElementById('corrChecks');
+  wrap.innerHTML=Object.entries(CORR).map(([k,v])=>`
+    <label class="ccbox">
+      <input type="checkbox" name="corr" value="${k}">
+      ${v.short}
+    </label>`).join('');
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open') }
+function maybeClose(e) { if(e.target===document.getElementById('modalOverlay'))closeModal() }
+
+function saveVessel() {
+  const name=document.getElementById('f-name').value.trim();
+  const cls=document.getElementById('f-cls').value;
+  const cii=document.getElementById('f-cii').value;
+  const cargoVal=parseFloat(document.getElementById('f-val').value)||0;
+  if(!name||!cls||cargoVal<=0){alert('Please fill in vessel name, class, and cargo value.');return}
+
+  const checked=[...document.querySelectorAll('#corrChecks input:checked')].map(i=>i.value);
+  if(checked.length===0){alert('Select at least one corridor.');return}
+
+  const corridors={};
+  checked.forEach(c=>corridors[c]=1.0);
+
+  const from=document.getElementById('f-from').value.trim();
+  const to=document.getElementById('f-to').value.trim();
+  customVessels.push({
+    imo:document.getElementById('f-imo').value.trim()||'--',
+    name,cls,cls_label:document.getElementById('f-cls').options[document.getElementById('f-cls').selectedIndex].text,
+    corridors,cargo_type:document.getElementById('f-cargo').value.trim()||'--',
+    cargo_value:cargoVal,cii,
+    flag:document.getElementById('f-flag').value.trim()||'--',
+    owner:document.getElementById('f-owner').value.trim()||null,
+    route:from&&to?from+' → '+to:'',
+    diversion:null,div_days:null,div_cost:null,status:null,
+    jwc_flag: checked.some(c=>CORR[c]?.jwc)?'listed':'clear',
+    jwc_text: checked.some(c=>CORR[c]?.jwc)?'Standard route transits a JWC Listed Area.':'No JWC Listed Area on standard route.',
+    note:document.getElementById('f-notes').value.trim()||''
+  });
+
+  closeModal();
+  if(S.mode!=='custom'){
+    document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('on'));
+    document.querySelector('.ptab[data-m="custom"]').classList.add('on');
+    S.mode='custom';
+    document.getElementById('portToolbar').style.display='flex';
+  }
+  renderAll();
+}
+
+/* ═══════════════════════════════
+   CSV UPLOAD
+═══════════════════════════════ */
+function handleCSV(e) {
+  const file=e.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=evt=>{
+    const lines=evt.target.result.split('\n').filter(l=>l.trim());
+    if(lines.length<2){alert('CSV appears empty.');return}
+    const hdr=lines[0].split(',').map(h=>h.trim().toLowerCase());
+    const idx=k=>hdr.indexOf(k);
+    let added=0;
+    for(let i=1;i<lines.length;i++){
+      const cols=lines[i].split(',').map(c=>c.trim());
+      const get=k=>cols[idx(k)]||'';
+      const cls=get('class')||get('cls');
+      const cargoVal=parseFloat(get('cargo_value')||get('cargo_value_usd')||'0');
+      const name=get('name');
+      if(!name||!cls||cargoVal<=0)continue;
+      const corrRaw=get('corridors');
+      const corrKeys=corrRaw.split(/[|,;]/).map(x=>x.trim().toLowerCase()).filter(x=>CORR[x]);
+      if(corrKeys.length===0)continue;
+      const corridors={};corrKeys.forEach(c=>corridors[c]=1.0);
+      const ciiVal=get('cii')||get('cii_rating')||'C';
+      customVessels.push({
+        imo:get('imo')||'--',name,
+        cls:cls.toLowerCase(),
+        cls_label:cls,
+        corridors,
+        cargo_type:get('cargo_type')||'--',
+        cargo_value:cargoVal,
+        cii:ciiVal.toUpperCase(),
+        flag:get('flag')||'--',
+        owner:get('owner')||null,
+        route:get('route_from')&&get('route_to')?get('route_from')+' → '+get('route_to'):'',
+        diversion:null,div_days:null,div_cost:null,status:get('current_status')||null,
+        jwc_flag:corrKeys.some(c=>CORR[c]?.jwc)?'listed':'clear',
+        jwc_text:corrKeys.some(c=>CORR[c]?.jwc)?'Standard route transits a JWC Listed Area.':'No JWC Listed Area on standard route.',
+        waypoints:(get('waypoints')||'').split(/[|,;]/).map(x=>x.trim()).filter(Boolean),
+        note:get('notes')||''
+      });
+      added++;
+    }
+    e.target.value='';
+    if(added===0){alert('No valid vessel rows found. Check that required columns (name, class, cargo_value, corridors) are present.');return}
+    if(S.mode!=='custom'){
+      document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('on'));
+      document.querySelector('.ptab[data-m="custom"]').classList.add('on');
+      S.mode='custom';document.getElementById('portToolbar').style.display='flex';
+    }
+    renderAll();
+    alert(`${added} vessel${added!==1?'s':''} imported successfully.`);
+  };
+  reader.readAsText(file);
+}
+
+function downloadTemplate() {
+  const hdr='imo,name,class,flag,owner,route_from,route_to,cargo_type,cargo_value,corridors,waypoints,cii,current_status,notes\n';
+  const ex='9100099,MV Example,VLCC,Marshall Islands,Example Shipping Co,Ras Tanura,Chiba,Saudi crude,95000000,hormuz,Fujairah|Singapore,A,,Example note\n';
+  const note='# waypoints: pipe-separated port call names used for PRI scoring. e.g. Fujairah|Singapore|Rotterdam\n# corridors: pipe-separated corridor keys. e.g. hormuz|malacca\n';
+  const blob=new Blob([note+hdr+ex],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='CAPE_vessel_template.csv';a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ═══════════════════════════════
+   EXPORT
+═══════════════════════════════ */
+function generateReport() {
+  const c=CORR[S.corridor];
+  const vessels=activeVessels();
+  const gross=grossVaR(vessels,S.corridor,S.duration,S.severity);
+  const res=vessels.map(v=>({v,var:vcVar(v,S.corridor,S.duration,S.severity)})).sort((a,b)=>b.var-a.var);
+  const lines=['CAPE: Corridor Accumulation and Portfolio Exposure','Narrows','='.repeat(56),'',
+    'SCENARIO',`Corridor:  ${c.label} (${c.type})`,`Duration:  ${S.duration} days`,
+    `Severity:  ${sevLabel(S.severity)}`,`Source:    ${c.tier} data`,'',
+    'PORTFOLIO SUMMARY',`Corridor VaR (${S.duration}d):  ${fM(gross)}`,
+    `Vessels exposed:  ${res.filter(r=>r.var>0).length} of ${vessels.length}`,'','PER-VESSEL BREAKDOWN',''];
+  for(const r of res){
+    const v=r.v;
+    lines.push(`${v.name}  [${v.cls_label}]  [CII ${v.cii}]`);
+    if(v.route)lines.push(`  Route:    ${v.route}`);
+    lines.push(`  Cargo:    ${v.cargo_type}  ${fM(v.cargo_value)}`);
+    lines.push(`  VaR:      ${r.var>0?fM(r.var):'Not exposed to '+c.short}`);
+    const _dc=divCost(v); if(_dc)lines.push(`  Diversion: ${v.diversion}  ${fM(_dc)} / voyage (+${v.div_days}d)`);
+    lines.push('');
+  }
+  lines.push('='.repeat(56));
+  lines.push('Model estimate mode. Illustrative portfolio only.');
+  lines.push(`Generated: ${new Date().toISOString().slice(0,19).replace('T',' ')} UTC`);
+  lines.push('narrows.io');
+  return lines.join('\n');
+}
+
+function copyReport(){
+  navigator.clipboard.writeText(generateReport()).then(()=>{
+    const b=event.target;const o=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=o,2000);
+  });
+}
+function dlTxt(){
+  const blob=new Blob([generateReport()],{type:'text/plain'});
+  const url=URL.createObjectURL(blob);const a=document.createElement('a');
+  a.href=url;a.download=`CAPE_${CORR[S.corridor].short}_${S.duration}d_${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();URL.revokeObjectURL(url);
+}
+
+/* ═══════════════════════════════
+   TIDE — Accumulation data
+═══════════════════════════════ */
+const TIDE_DATA = {
+  hormuz:       {baseline:25.7,peak:30.5,horizon:36.5,cascade:40.0,pml:3.97,peakMonth:'Jan',cascadeRatio:1.31,cascadeRoute:'Cape of Good Hope routes spike 31% during closure'},
+  bab_el_mandeb:{baseline:8.0, peak:9.8, horizon:11.1,cascade:16.8,pml:1.24,peakMonth:'Jan',cascadeRatio:1.71,cascadeRoute:'Cape of Good Hope accumulation spikes 71% — correlated exposure for Cape war risk writers'},
+  malacca:      {baseline:20.6,peak:24.5,horizon:30.7,cascade:30.6,pml:3.35,peakMonth:'Jan',cascadeRatio:1.19,cascadeRoute:'Lombok and Sunda strait traffic increases'},
+  suez:         {baseline:8.0, peak:9.8, horizon:11.1,cascade:16.8,pml:1.24,peakMonth:'Jan',cascadeRatio:1.71,cascadeRoute:'Cape of Good Hope accumulation spikes 71% — correlated exposure for Cape war risk writers'},
+  panama:       {baseline:8.4, peak:10.4,horizon:11.1,cascade:23.5,pml:1.24,peakMonth:'Aug',cascadeRatio:2.12,cascadeRoute:'Cape Horn and Suez westbound accumulation spikes sharply'},
+  lombok:       {baseline:18.5,peak:21.7,horizon:24.5,cascade:24.1,pml:2.45,peakMonth:'Jul',cascadeRatio:1.17,cascadeRoute:'Malacca and Sunda traffic redistributes'},
+  bosphorus:    {baseline:3.2, peak:3.8, horizon:5.1, cascade:3.9, pml:0.55,peakMonth:'Jul',cascadeRatio:null,cascadeRoute:null},
+  danish_straits:{baseline:0,  peak:0,   horizon:0,   cascade:0,   pml:0,   peakMonth:'--',cascadeRatio:null,cascadeRoute:'No alternative route — no cascade effect'}
+};
+
+function fTIDE(b){
+  if(b===0)return 'n/a';
+  return b>=1?'$'+b.toFixed(1)+'B':'$'+(b*1000).toFixed(0)+'M';
+}
+
+function renderTIDE(){
+  const td = TIDE_DATA[S.corridor];
+  const panel = document.getElementById('tidePanel');
+  if(!panel) return;
+  if(!td){panel.style.display='none';return;}
+  panel.style.display='block';
+  document.getElementById('tide-baseline').textContent = fTIDE(td.baseline);
+  document.getElementById('tide-peak').textContent     = fTIDE(td.peak);
+  document.getElementById('tide-horizon').textContent  = fTIDE(td.horizon);
+  document.getElementById('tide-pml').textContent      = fTIDE(td.pml);
+  document.getElementById('tide-peak-month').textContent = td.peakMonth;
+  const cascNote = document.getElementById('tide-cascade-note');
+  if(td.cascadeRoute && td.cascadeRatio){
+    cascNote.style.display='block';
+    cascNote.innerHTML = '<strong>Cascade:</strong> ' + td.cascadeRoute +
+      '. 30-day closure scenario: <strong>' + fTIDE(td.cascade) + '</strong> simultaneously at sea on diversion routes.';
+  } else {
+    cascNote.style.display='none';
+  }
+}
+
+/* ═══════════════════════════════
+   ACCESS MODAL
+═══════════════════════════════ */
+function openAccessModal(){
+  document.getElementById('accessOverlay').classList.add('open');
+}
+function closeAccessModal(){
+  document.getElementById('accessOverlay').classList.remove('open');
+}
+function submitAccess(e){
+  if(e) e.preventDefault();
+  const name  = document.getElementById('ac-name').value.trim();
+  const org   = document.getElementById('ac-org').value.trim();
+  const email = document.getElementById('ac-email').value.trim();
+  const role  = document.getElementById('ac-role').value;
+  const use   = document.getElementById('ac-use').value.trim();
+  if(!name||!org||!email){alert('Please fill in name, organisation, and email.');return;}
+  const subj = encodeURIComponent('CAPE access request: ' + org);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Organisation: ' + org + '\n' +
+    'Role: ' + (role||'--') + '\n' +
+    'Email: ' + email + '\n' +
+    'Use case: ' + (use||'--')
+  );
+  window.location.href = 'mailto:fysh@narrows.io?subject=' + subj + '&body=' + body;
+  closeAccessModal();
+}
+
+/* TIDE rendering is called from init and corridor changes below */
+
+/* ═══════════════════════════════
+   INIT
+═══════════════════════════════ */
+renderAll();
+renderTIDE();
+</script>
+</body>
+</html>
