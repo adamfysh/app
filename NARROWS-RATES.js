@@ -27,12 +27,12 @@ window.NARROWS_RATES = Object.freeze({
 
 <<<<<<< HEAD
   version:      '1.1',
-  last_updated: '2026-07-04',
-  source:       'Yahoo Finance auto-update 2026-07-04 (Brent 72.1 USD/bbl, BDI n/a)',
+  last_updated: '2026-07-05',
+  source:       'Yahoo Finance auto-update 2026-07-05 (Brent 72.1 USD/bbl, BDI n/a)',
 =======
   version:      '1.0',
-  last_updated: '2026-07-04',
-  source:       'Yahoo Finance auto-update 2026-07-04 (Brent 72.1 USD/bbl, BDI n/a)',
+  last_updated: '2026-07-05',
+  source:       'Yahoo Finance auto-update 2026-07-05 (Brent 72.1 USD/bbl, BDI n/a)',
 >>>>>>> 8d3638f14bd0c6bbac8a0aec27ce4d32f048001e
 
   // ---------------------------------------------------------------------------
