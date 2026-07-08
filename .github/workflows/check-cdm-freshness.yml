@@ -1,0 +1,35 @@
+# check-cdm-freshness.yml
+# rebuild_cdm_v2.py (narrows-pipeline repo) is run by hand, not on a schedule.
+# Nothing previously monitored how old the deployed simulator_data.json actually
+# got between manual reruns — the foundation audit (2026-07-08) found this file
+# up to ten days stale relative to the pipeline output with no signal anywhere
+# that it had drifted. This runs independently of the pipeline itself: it just
+# checks the "generated" date already embedded in the deployed file and fails
+# loudly (triggering GitHub's workflow-failure notification) once it crosses a
+# staleness threshold, so a forgotten rebuild gets noticed instead of silently
+# serving old dependency figures.
+
+name: Check CDM data freshness
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 07:00 UTC daily — after the 06:00 rates bot
+  workflow_dispatch:
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check simulator_data.json freshness
+        env:
+          MAX_AGE_DAYS: 21
+        run: python3 .github/workflows/check_cdm_freshness.py

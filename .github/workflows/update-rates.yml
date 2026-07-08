@@ -45,6 +45,24 @@ jobs:
       - name: Fetch rates and update files
         run: python3 .github/workflows/fetch_rates.py
 
+      # Fix-1 (2026-07-08): validate before committing. A manual merge left
+      # unresolved conflict markers in NARROWS-RATES.js on 2026-06-28, and this
+      # bot then ran on top of that broken file for over a week without ever
+      # noticing, because nothing checked that the output was valid JS before
+      # pushing it. This step makes that class of failure impossible to push
+      # silently again: if the generated files are not valid, the job fails
+      # here (red run, GitHub sends the owner a failure notification) and
+      # nothing is committed.
+      - name: Validate generated files
+        run: |
+          node --check NARROWS-RATES.js
+          python3 -m json.tool narrows_config.json > /dev/null
+          if grep -qE '^(<{7}|={7}|>{7})' NARROWS-RATES.js narrows_config.json; then
+            echo "::error::Unresolved merge conflict markers found in generated files — refusing to commit."
+            exit 1
+          fi
+          echo "Validation passed: NARROWS-RATES.js is valid JS, narrows_config.json is valid JSON, no conflict markers."
+
       - name: Commit if changed
         run: |
           git config user.name  "narrows-rates-bot"

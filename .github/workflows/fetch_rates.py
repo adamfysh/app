@@ -7,7 +7,7 @@ Do not run this file directly in production — always via the GitHub Action
 so the git commit step can record provenance.
 """
 
-import json, re, sys
+import json, os, re, sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -38,6 +38,33 @@ brent = fetch("BZ=F")   # Brent crude front-month, USD/bbl
 bdi   = fetch("^BDI")   # Baltic Dry Index
 
 print(f"Brent: {brent}  BDI: {bdi}")
+
+# ---------------------------------------------------------------------------
+# Fix-1 (2026-07-08): fail loudly instead of silently going stale.
+# Previously, if both tickers failed, the script fell back to whatever was
+# already in narrows_config.json and exited 0 — a total outage looked
+# identical to a normal quiet day in the Action logs, and nobody would know
+# rates had stopped updating until someone happened to check the file dates.
+# A hard failure here makes the scheduled run go red, which triggers GitHub's
+# default "workflow run failed" notification to the repo owner.
+# ---------------------------------------------------------------------------
+if brent is None and bdi is None:
+    print(
+        "FATAL: both Brent (BZ=F) and BDI (^BDI) fetches failed — no market "
+        "signal available this run. Refusing to silently reuse stale fallback "
+        "values without visibility. Failing the job so GitHub sends a "
+        "workflow-failure notification instead of updating nothing unnoticed.",
+        file=sys.stderr,
+    )
+    sys.exit(1)
+
+degraded_notes = []
+if brent is None:
+    degraded_notes.append("Brent fetch failed — bunker/charter rates held at prior values")
+if bdi is None:
+    degraded_notes.append("BDI fetch failed — Capesize/Handymax charter rates held at prior values")
+if degraded_notes:
+    print("DEGRADED RUN: " + "; ".join(degraded_notes), file=sys.stderr)
 
 # Load existing rates as fallback
 cfg_path = Path("narrows_config.json")
@@ -130,7 +157,8 @@ new_rates = {
 today     = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 brent_str = f"{brent:.1f}" if brent else "n/a"
 bdi_str   = f"{int(bdi)}"  if bdi   else "n/a"
-source    = f"Yahoo Finance auto-update {today} (Brent {brent_str} USD/bbl, BDI {bdi_str})"
+status    = "DEGRADED" if degraded_notes else "OK"
+source    = f"Yahoo Finance auto-update {today} (Brent {brent_str} USD/bbl, BDI {bdi_str}) [{status}]"
 
 
 # ---------------------------------------------------------------------------
@@ -196,3 +224,17 @@ vr = d["vesselRates"]
 print(f"  VLCC:     bunker=${vr['VLCC']['bunkerPerDay']:,}/d  charter=${vr['VLCC']['charterPerDay']:,}/d")
 print(f"  Capesize: bunker=${vr['Capesize']['bunkerPerDay']:,}/d  charter=${vr['Capesize']['charterPerDay']:,}/d")
 print(f"  Source: {source}")
+
+# Surface status in the GitHub Actions job summary so it's visible at a glance
+# in the Actions tab without opening logs, even on a run that doesn't fail.
+summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+if summary_path:
+    with open(summary_path, "a") as sf:
+        sf.write(f"### Vessel rate update — {today}\n\n")
+        sf.write(f"**Status:** {status}\n\n")
+        sf.write(f"- Brent: {brent_str} USD/bbl\n")
+        sf.write(f"- BDI: {bdi_str}\n")
+        if degraded_notes:
+            sf.write("\n**Degraded because:**\n")
+            for note in degraded_notes:
+                sf.write(f"- {note}\n")
