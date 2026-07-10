@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-09",
+  "generated": "2026-07-10",
   "model_year": 2022,
   "coverage_note": "46 importing nations, 14 chokepoints, 14 commodities. CDM v2: Capesize iron ore/coal rerouted via Cape of Good Hope (LOMBOK). OMN LNG Hormuz transit removed. West Africa corridor split Atlantic vs Mediterranean.",
   "data_tiers": {
-    "1": "Bilateral",
-    "2": "Proxy",
-    "3": "Aggregate"
+    "1": "Reported",
+    "2": "Corroborated",
+    "3": "Estimated"
   },
   "chokepoints": {
     "BABELMANDEB": {
@@ -24,7 +24,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -40,7 +40,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "South Africa",
@@ -56,7 +56,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Sri Lanka",
@@ -72,7 +72,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1201": [
@@ -90,7 +90,7 @@
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -108,7 +108,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -124,7 +124,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -140,7 +140,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -156,7 +156,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -174,7 +174,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -192,7 +192,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "South Africa",
@@ -208,7 +208,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -226,7 +226,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Egypt",
@@ -242,7 +242,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -258,7 +258,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Germany",
@@ -274,7 +274,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Brazil",
@@ -290,7 +290,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -306,7 +306,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "South Africa",
@@ -322,7 +322,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Jordan",
@@ -338,7 +338,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Indonesia",
@@ -354,7 +354,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Bulgaria",
@@ -370,7 +370,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -388,7 +388,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jordan",
@@ -404,7 +404,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -420,7 +420,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "United Arab Emirates",
@@ -436,7 +436,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -452,7 +452,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -468,7 +468,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -486,7 +486,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Italy",
@@ -502,7 +502,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -518,7 +518,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Rep. of Korea",
@@ -534,7 +534,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Singapore",
@@ -550,7 +550,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Netherlands",
@@ -566,7 +566,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -582,7 +582,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Pakistan",
@@ -598,7 +598,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Japan",
@@ -614,7 +614,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "India",
@@ -630,7 +630,7 @@
           "route_inelasticity": 0.95,
           "inelasticity_note": "ri=0.95:PCM",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -646,7 +646,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Portugal",
@@ -662,7 +662,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -680,7 +680,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -698,7 +698,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -714,7 +714,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -732,7 +732,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -748,7 +748,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -764,7 +764,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jordan",
@@ -780,7 +780,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -796,7 +796,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jamaica",
@@ -812,7 +812,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Dominican Rep.",
@@ -828,7 +828,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -848,7 +848,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -864,7 +864,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Pakistan",
@@ -880,7 +880,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Sri Lanka",
@@ -896,7 +896,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -912,7 +912,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -928,7 +928,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "South Africa",
@@ -944,7 +944,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1201": [
@@ -962,7 +962,7 @@
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -980,7 +980,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Germany",
@@ -996,7 +996,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -1012,7 +1012,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -1028,7 +1028,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -1044,7 +1044,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -1060,7 +1060,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Finland",
@@ -1076,7 +1076,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Iceland",
@@ -1092,7 +1092,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -1110,7 +1110,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Bulgaria",
@@ -1126,7 +1126,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -1144,7 +1144,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -1160,7 +1160,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -1178,7 +1178,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -1194,7 +1194,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -1210,7 +1210,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Sri Lanka",
@@ -1226,7 +1226,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Bulgaria",
@@ -1242,7 +1242,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Denmark",
@@ -1258,7 +1258,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Croatia",
@@ -1274,7 +1274,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -1292,7 +1292,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -1308,7 +1308,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -1324,7 +1324,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "United Arab Emirates",
@@ -1340,7 +1340,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -1356,7 +1356,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -1374,7 +1374,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Italy",
@@ -1390,7 +1390,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -1408,7 +1408,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -1426,7 +1426,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -1442,7 +1442,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Bulgaria",
@@ -1458,7 +1458,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -1474,7 +1474,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -1492,7 +1492,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -1508,7 +1508,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -1524,7 +1524,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "South Africa",
@@ -1540,7 +1540,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -1560,7 +1560,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2710": [
@@ -1578,7 +1578,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jamaica",
@@ -1594,7 +1594,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -1612,7 +1612,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Finland",
@@ -1628,7 +1628,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "3102": [
@@ -1646,7 +1646,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -1664,7 +1664,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -1680,7 +1680,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -1700,7 +1700,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2709": [
@@ -1718,7 +1718,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -1734,7 +1734,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Denmark",
@@ -1750,7 +1750,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "271111": [
@@ -1768,7 +1768,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "3102": [
@@ -1786,7 +1786,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -1804,7 +1804,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -1824,7 +1824,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -1840,7 +1840,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -1856,7 +1856,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -1872,7 +1872,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -1890,7 +1890,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Italy",
@@ -1906,7 +1906,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -1922,7 +1922,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Germany",
@@ -1938,7 +1938,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Finland",
@@ -1954,7 +1954,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Iceland",
@@ -1970,7 +1970,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -1988,7 +1988,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -2006,7 +2006,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -2022,7 +2022,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -2040,7 +2040,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -2056,7 +2056,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Brazil",
@@ -2072,7 +2072,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "South Africa",
@@ -2088,7 +2088,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -2104,7 +2104,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Denmark",
@@ -2120,7 +2120,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Belgium",
@@ -2136,7 +2136,7 @@
           "route_inelasticity": 0.5,
           "inelasticity_note": "ri=0.5:PCM",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -2154,7 +2154,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -2170,7 +2170,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -2186,7 +2186,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -2202,7 +2202,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -2218,7 +2218,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Dominican Rep.",
@@ -2234,7 +2234,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -2252,7 +2252,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -2268,7 +2268,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Belgium",
@@ -2284,7 +2284,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -2300,7 +2300,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Netherlands",
@@ -2316,7 +2316,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Portugal",
@@ -2332,7 +2332,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Finland",
@@ -2348,7 +2348,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -2366,7 +2366,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -2382,7 +2382,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -2400,7 +2400,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -2416,7 +2416,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -2434,7 +2434,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -2450,7 +2450,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -2466,7 +2466,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Morocco",
@@ -2482,7 +2482,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jordan",
@@ -2498,7 +2498,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -2514,7 +2514,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jamaica",
@@ -2530,7 +2530,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Dominican Rep.",
@@ -2546,7 +2546,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -2566,7 +2566,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -2582,7 +2582,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Viet Nam",
@@ -2598,7 +2598,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Pakistan",
@@ -2614,7 +2614,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Egypt",
@@ -2630,7 +2630,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -2646,7 +2646,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Germany",
@@ -2662,7 +2662,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Philippines",
@@ -2678,7 +2678,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Brazil",
@@ -2694,7 +2694,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Indonesia",
@@ -2710,7 +2710,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "South Africa",
@@ -2726,7 +2726,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Jordan",
@@ -2742,7 +2742,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "New Zealand",
@@ -2758,7 +2758,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Sri Lanka",
@@ -2774,7 +2774,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Bulgaria",
@@ -2790,7 +2790,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -2808,7 +2808,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "United Arab Emirates",
@@ -2824,7 +2824,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -2840,7 +2840,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Argentina",
@@ -2856,7 +2856,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jordan",
@@ -2872,7 +2872,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -2888,7 +2888,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -2904,7 +2904,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -2920,7 +2920,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -2938,7 +2938,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Rep. of Korea",
@@ -2954,7 +2954,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Belgium",
@@ -2970,7 +2970,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Italy",
@@ -2986,7 +2986,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Pakistan",
@@ -3002,7 +3002,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -3018,7 +3018,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Japan",
@@ -3034,7 +3034,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "India",
@@ -3050,7 +3050,7 @@
           "route_inelasticity": 0.95,
           "inelasticity_note": "ri=0.95:PCM",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Netherlands",
@@ -3066,7 +3066,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Singapore",
@@ -3082,7 +3082,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Brazil",
@@ -3098,7 +3098,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Argentina",
@@ -3114,7 +3114,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Portugal",
@@ -3130,7 +3130,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -3146,7 +3146,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -3164,7 +3164,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -3180,7 +3180,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -3198,7 +3198,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -3214,7 +3214,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Canada",
@@ -3230,7 +3230,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Argentina",
@@ -3246,7 +3246,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Pakistan",
@@ -3262,7 +3262,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -3278,7 +3278,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -3298,7 +3298,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1511": [
@@ -3316,7 +3316,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -3334,7 +3334,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -3350,7 +3350,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -3366,7 +3366,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Philippines",
@@ -3382,7 +3382,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -3398,7 +3398,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Indonesia",
@@ -3414,7 +3414,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -3432,7 +3432,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "China",
@@ -3448,7 +3448,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Rep. of Korea",
@@ -3464,7 +3464,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -3482,7 +3482,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "South Africa",
@@ -3498,7 +3498,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -3514,7 +3514,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Philippines",
@@ -3530,7 +3530,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -3548,7 +3548,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Indonesia",
@@ -3564,7 +3564,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Australia",
@@ -3580,7 +3580,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Viet Nam",
@@ -3596,7 +3596,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Philippines",
@@ -3612,7 +3612,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -3630,7 +3630,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -3648,7 +3648,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -3664,7 +3664,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -3682,7 +3682,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -3702,7 +3702,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -3720,7 +3720,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -3738,7 +3738,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Rep. of Korea",
@@ -3754,7 +3754,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -3772,7 +3772,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Philippines",
@@ -3788,7 +3788,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -3806,7 +3806,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -3824,7 +3824,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -3842,7 +3842,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -3858,7 +3858,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Rep. of Korea",
@@ -3874,7 +3874,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "8703": [
@@ -3892,7 +3892,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -3912,7 +3912,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Myanmar",
@@ -3928,7 +3928,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1201": [
@@ -3946,7 +3946,7 @@
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1511": [
@@ -3964,7 +3964,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "China",
@@ -3980,7 +3980,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -3996,7 +3996,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -4012,7 +4012,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Myanmar",
@@ -4028,7 +4028,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Sri Lanka",
@@ -4044,7 +4044,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Brunei Darussalam",
@@ -4060,7 +4060,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Cambodia",
@@ -4076,7 +4076,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -4094,7 +4094,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Indonesia",
@@ -4110,7 +4110,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -4126,7 +4126,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -4142,7 +4142,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -4158,7 +4158,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -4176,7 +4176,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Malaysia",
@@ -4192,7 +4192,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Rep. of Korea",
@@ -4208,7 +4208,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Japan",
@@ -4224,7 +4224,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -4242,7 +4242,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Pakistan",
@@ -4258,7 +4258,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Philippines",
@@ -4274,7 +4274,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -4292,7 +4292,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Viet Nam",
@@ -4308,7 +4308,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Indonesia",
@@ -4324,7 +4324,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Philippines",
@@ -4340,7 +4340,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Brunei Darussalam",
@@ -4356,7 +4356,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "New Zealand",
@@ -4372,7 +4372,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -4390,7 +4390,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -4406,7 +4406,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Myanmar",
@@ -4422,7 +4422,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Pakistan",
@@ -4438,7 +4438,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "New Zealand",
@@ -4454,7 +4454,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "United Arab Emirates",
@@ -4470,7 +4470,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -4486,7 +4486,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -4504,7 +4504,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Rep. of Korea",
@@ -4520,7 +4520,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -4536,7 +4536,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Malaysia",
@@ -4552,7 +4552,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Singapore",
@@ -4568,7 +4568,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Cambodia",
@@ -4584,7 +4584,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Pakistan",
@@ -4600,7 +4600,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -4616,7 +4616,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -4634,7 +4634,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -4652,7 +4652,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -4668,7 +4668,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Pakistan",
@@ -4684,7 +4684,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Cambodia",
@@ -4700,7 +4700,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Myanmar",
@@ -4716,7 +4716,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -4734,7 +4734,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -4750,7 +4750,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Pakistan",
@@ -4766,7 +4766,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "South Africa",
@@ -4782,7 +4782,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -4798,7 +4798,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -4814,7 +4814,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Myanmar",
@@ -4830,7 +4830,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jamaica",
@@ -4846,7 +4846,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Dominican Rep.",
@@ -4862,7 +4862,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -4882,7 +4882,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -4898,7 +4898,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -4916,7 +4916,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Rep. of Korea",
@@ -4932,7 +4932,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Malaysia",
@@ -4948,7 +4948,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -4966,7 +4966,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Rep. of Korea",
@@ -4982,7 +4982,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Singapore",
@@ -4998,7 +4998,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Japan",
@@ -5014,7 +5014,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ]
     },
@@ -5034,7 +5034,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "China",
@@ -5050,7 +5050,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Colombia",
@@ -5066,7 +5066,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Ecuador",
@@ -5082,7 +5082,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Chile",
@@ -5098,7 +5098,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -5114,7 +5114,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1201": [
@@ -5132,7 +5132,7 @@
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Colombia",
@@ -5148,7 +5148,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Canada",
@@ -5164,7 +5164,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Chile",
@@ -5180,7 +5180,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1511": [
@@ -5198,7 +5198,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Colombia",
@@ -5214,7 +5214,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Chile",
@@ -5230,7 +5230,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2603": [
@@ -5248,7 +5248,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Japan",
@@ -5264,7 +5264,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Rep. of Korea",
@@ -5280,7 +5280,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Canada",
@@ -5296,7 +5296,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Mexico",
@@ -5312,7 +5312,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Malaysia",
@@ -5328,7 +5328,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2710": [
@@ -5346,7 +5346,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Argentina",
@@ -5362,7 +5362,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "New Zealand",
@@ -5378,7 +5378,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -5396,7 +5396,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Japan",
@@ -5412,7 +5412,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -5428,7 +5428,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Chile",
@@ -5444,7 +5444,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Mexico",
@@ -5460,7 +5460,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Colombia",
@@ -5476,7 +5476,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Singapore",
@@ -5492,7 +5492,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -5510,7 +5510,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -5528,7 +5528,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8471": [
@@ -5546,7 +5546,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -5564,7 +5564,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Dominican Rep.",
@@ -5580,7 +5580,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -5596,7 +5596,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Argentina",
@@ -5612,7 +5612,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -5628,7 +5628,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jamaica",
@@ -5644,7 +5644,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     },
@@ -5664,7 +5664,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1201": [
@@ -5682,7 +5682,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -5700,7 +5700,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "France",
@@ -5716,7 +5716,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -5732,7 +5732,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -5748,7 +5748,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -5766,7 +5766,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2709": [
@@ -5784,7 +5784,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -5800,7 +5800,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ]
     },
@@ -5820,7 +5820,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -5836,7 +5836,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "South Africa",
@@ -5852,7 +5852,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Sri Lanka",
@@ -5868,7 +5868,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "1201": [
@@ -5886,7 +5886,7 @@
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2601": [
@@ -5904,7 +5904,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Egypt",
@@ -5920,7 +5920,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -5936,7 +5936,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -5952,7 +5952,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -5970,7 +5970,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "2701": [
@@ -5988,7 +5988,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "South Africa",
@@ -6004,7 +6004,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 2,
-          "data_tier_label": "proxy"
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -6022,7 +6022,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Egypt",
@@ -6038,7 +6038,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -6054,7 +6054,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Germany",
@@ -6070,7 +6070,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Brazil",
@@ -6086,7 +6086,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -6102,7 +6102,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "South Africa",
@@ -6118,7 +6118,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Indonesia",
@@ -6134,7 +6134,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Bulgaria",
@@ -6150,7 +6150,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2710": [
@@ -6168,7 +6168,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -6184,7 +6184,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "United Arab Emirates",
@@ -6200,7 +6200,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Viet Nam",
@@ -6216,7 +6216,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -6232,7 +6232,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "271111": [
@@ -6250,7 +6250,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Italy",
@@ -6266,7 +6266,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "France",
@@ -6282,7 +6282,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Rep. of Korea",
@@ -6298,7 +6298,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Singapore",
@@ -6314,7 +6314,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Netherlands",
@@ -6330,7 +6330,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "China",
@@ -6346,7 +6346,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Pakistan",
@@ -6362,7 +6362,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Japan",
@@ -6378,7 +6378,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "India",
@@ -6394,7 +6394,7 @@
           "route_inelasticity": 0.95,
           "inelasticity_note": "ri=0.95:PCM",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Greece",
@@ -6410,7 +6410,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         },
         {
           "country": "Portugal",
@@ -6426,7 +6426,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 1,
-          "data_tier_label": "bilateral"
+          "data_tier_label": "Reported"
         }
       ],
       "2814": [
@@ -6444,7 +6444,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "3102": [
@@ -6462,7 +6462,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Belgium",
@@ -6478,7 +6478,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ],
       "8703": [
@@ -6496,7 +6496,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "T\u00fcrkiye",
@@ -6512,7 +6512,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Egypt",
@@ -6528,7 +6528,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jordan",
@@ -6544,7 +6544,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Philippines",
@@ -6560,7 +6560,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Jamaica",
@@ -6576,7 +6576,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         },
         {
           "country": "Dominican Rep.",
@@ -6592,7 +6592,7 @@
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
           "data_tier": 3,
-          "data_tier_label": "aggregate"
+          "data_tier_label": "Estimated"
         }
       ]
     }
