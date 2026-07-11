@@ -4,24 +4,24 @@
     "note": "Hand-maintained structural config. Edit this file to add chokepoints, update routes, vessel rates, or commodity mappings. Never auto-generated — safe to edit between data runs.",
     "jsonKeyField": "jsonKey maps each chokepoint to its key in simulator_data.json. null = no bilateral data yet.",
     "terminal_straitField": "terminal_strait: true marks chokepoints where the enclosed basin has no maritime exit except through this strait. Closure is an export halt, not a rerouting event. Detour costs represent supply substitution premiums, not vessel diversion costs.",
-    "ratesUpdated": "2026-07-10",
-    "ratesSource": "Yahoo Finance auto-update 2026-07-10 (Brent 75.9 USD/bbl, BDI n/a) [DEGRADED]",
+    "ratesUpdated": "2026-07-11",
+    "ratesSource": "Yahoo Finance auto-update 2026-07-11 (Brent 76.0 USD/bbl, BDI n/a) [DEGRADED]",
     "ratesNote": "Capesize charter updated to reflect BCI ~35k/d (May 2026). VLCC charter reflects mid-May TD3C TCE ~122k/d net bunker. All rates are defaults; override in simulator assumptions panel.",
     "rateBaselines": {
       "bdi": 2000,
-      "brent": 75.9,
+      "brent": 76.0,
       "_note": "Approximate market levels when vesselRates were last set (May 2026). Simulator scales charter + bunker rates proportionally from these baselines using 30d trailing averages fetched from Yahoo Finance."
     }
   },
   "vesselRates": {
     "VLCC": {
       "bunkerPerDay": 30000,
-      "charterPerDay": 69506,
+      "charterPerDay": 69608,
       "cargoValueM": 120
     },
     "Aframax": {
       "bunkerPerDay": 15000,
-      "charterPerDay": 27284,
+      "charterPerDay": 27323,
       "cargoValueM": 65
     },
     "Capesize": {
@@ -51,7 +51,7 @@
     },
     "Suezmax": {
       "bunkerPerDay": 18000,
-      "charterPerDay": 34355,
+      "charterPerDay": 34404,
       "cargoValueM": 90
     },
     "LPG": {
