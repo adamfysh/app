@@ -1,7 +1,7 @@
 {
-  "generated": "2026-07-10",
+  "generated": "2026-07-13",
   "model_year": 2022,
-  "coverage_note": "46 importing nations, 14 chokepoints, 14 commodities. CDM v2: Capesize iron ore/coal rerouted via Cape of Good Hope (LOMBOK). OMN LNG Hormuz transit removed. West Africa corridor split Atlantic vs Mediterranean.",
+  "coverage_note": "45 importing nations, 14 chokepoints, 14 commodities. CDM v2: Capesize iron ore/coal rerouted via Cape of Good Hope (LOMBOK). OMN LNG Hormuz transit removed. West Africa corridor split Atlantic vs Mediterranean.",
   "data_tiers": {
     "1": "Reported",
     "2": "Corroborated",
@@ -5151,22 +5151,6 @@
           "data_tier_label": "Corroborated"
         },
         {
-          "country": "Canada",
-          "importer_iso": "CAN",
-          "dep": 63.7,
-          "varB": 0.241,
-          "commodity": "Soybeans",
-          "commodity_code": "1201",
-          "avg_detour_days": 38.1,
-          "reroute_possible": true,
-          "supplier_substitution": false,
-          "substitution_lag_days": 0,
-          "route_inelasticity": 0.0,
-          "inelasticity_note": "",
-          "data_tier": 2,
-          "data_tier_label": "Corroborated"
-        },
-        {
           "country": "Chile",
           "importer_iso": "CHL",
           "dep": 99.6,
@@ -5274,38 +5258,6 @@
           "commodity": "Copper ores",
           "commodity_code": "2603",
           "avg_detour_days": 38.0,
-          "reroute_possible": true,
-          "supplier_substitution": false,
-          "substitution_lag_days": 0,
-          "route_inelasticity": 0.0,
-          "inelasticity_note": "",
-          "data_tier": 2,
-          "data_tier_label": "Corroborated"
-        },
-        {
-          "country": "Canada",
-          "importer_iso": "CAN",
-          "dep": 74.0,
-          "varB": 0.732,
-          "commodity": "Copper ores",
-          "commodity_code": "2603",
-          "avg_detour_days": 38.1,
-          "reroute_possible": true,
-          "supplier_substitution": false,
-          "substitution_lag_days": 0,
-          "route_inelasticity": 0.0,
-          "inelasticity_note": "",
-          "data_tier": 2,
-          "data_tier_label": "Corroborated"
-        },
-        {
-          "country": "Mexico",
-          "importer_iso": "MEX",
-          "dep": 100.0,
-          "varB": 0.66,
-          "commodity": "Copper ores",
-          "commodity_code": "2603",
-          "avg_detour_days": 38.1,
           "reroute_possible": true,
           "supplier_substitution": false,
           "substitution_lag_days": 0,
@@ -5447,22 +5399,6 @@
           "data_tier_label": "Reported"
         },
         {
-          "country": "Mexico",
-          "importer_iso": "MEX",
-          "dep": 100.0,
-          "varB": 0.101,
-          "commodity": "LNG",
-          "commodity_code": "271111",
-          "avg_detour_days": 38.1,
-          "reroute_possible": true,
-          "supplier_substitution": false,
-          "substitution_lag_days": 0,
-          "route_inelasticity": 0.0,
-          "inelasticity_note": "",
-          "data_tier": 1,
-          "data_tier_label": "Reported"
-        },
-        {
           "country": "Colombia",
           "importer_iso": "COL",
           "dep": 100.0,
@@ -5503,24 +5439,6 @@
           "varB": 0.188,
           "commodity": "Ammonia",
           "commodity_code": "2814",
-          "avg_detour_days": 38.1,
-          "reroute_possible": true,
-          "supplier_substitution": false,
-          "substitution_lag_days": 0,
-          "route_inelasticity": 0.0,
-          "inelasticity_note": "",
-          "data_tier": 2,
-          "data_tier_label": "Corroborated"
-        }
-      ],
-      "3102": [
-        {
-          "country": "Canada",
-          "importer_iso": "CAN",
-          "dep": 47.9,
-          "varB": 0.662,
-          "commodity": "Nitrogenous fertilisers",
-          "commodity_code": "3102",
           "avg_detour_days": 38.1,
           "reroute_possible": true,
           "supplier_substitution": false,
@@ -5801,6 +5719,78 @@
           "inelasticity_note": "",
           "data_tier": 1,
           "data_tier_label": "Reported"
+        }
+      ],
+      "3102": [
+        {
+          "country": "Canada",
+          "importer_iso": "CAN",
+          "dep": 14.5,
+          "varB": 0.2,
+          "commodity": "Nitrogenous fertilisers",
+          "commodity_code": "3102",
+          "avg_detour_days": 0.0,
+          "reroute_possible": false,
+          "supplier_substitution": false,
+          "substitution_lag_days": 0,
+          "route_inelasticity": 0.0,
+          "inelasticity_note": "",
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
+        }
+      ],
+      "6109": [
+        {
+          "country": "Canada",
+          "importer_iso": "CAN",
+          "dep": 32.4,
+          "varB": 0.341,
+          "commodity": "Apparel",
+          "commodity_code": "6109",
+          "avg_detour_days": 0.0,
+          "reroute_possible": false,
+          "supplier_substitution": false,
+          "substitution_lag_days": 0,
+          "route_inelasticity": 0.0,
+          "inelasticity_note": "",
+          "data_tier": 3,
+          "data_tier_label": "Estimated"
+        }
+      ],
+      "8471": [
+        {
+          "country": "Canada",
+          "importer_iso": "CAN",
+          "dep": 2.4,
+          "varB": 0.253,
+          "commodity": "Electronics",
+          "commodity_code": "8471",
+          "avg_detour_days": 0.0,
+          "reroute_possible": false,
+          "supplier_substitution": false,
+          "substitution_lag_days": 0,
+          "route_inelasticity": 0.0,
+          "inelasticity_note": "",
+          "data_tier": 3,
+          "data_tier_label": "Estimated"
+        }
+      ],
+      "8703": [
+        {
+          "country": "Canada",
+          "importer_iso": "CAN",
+          "dep": 14.2,
+          "varB": 4.744,
+          "commodity": "Vehicles",
+          "commodity_code": "8703",
+          "avg_detour_days": 0.0,
+          "reroute_possible": false,
+          "supplier_substitution": false,
+          "substitution_lag_days": 0,
+          "route_inelasticity": 0.0,
+          "inelasticity_note": "",
+          "data_tier": 3,
+          "data_tier_label": "Estimated"
         }
       ]
     },
