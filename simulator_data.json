@@ -89,8 +89,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2601": [
@@ -173,8 +173,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -679,8 +679,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -697,8 +697,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -713,8 +713,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -961,8 +961,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2601": [
@@ -1109,8 +1109,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Bulgaria",
@@ -1125,8 +1125,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -1407,8 +1407,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -1425,8 +1425,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Morocco",
@@ -1441,8 +1441,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Bulgaria",
@@ -1457,8 +1457,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -1473,8 +1473,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -1645,8 +1645,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -1785,8 +1785,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -1987,8 +1987,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -2365,8 +2365,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -2381,8 +2381,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -2399,8 +2399,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Morocco",
@@ -2415,8 +2415,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -3163,8 +3163,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -3179,8 +3179,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -3197,8 +3197,8 @@
           "substitution_lag_days": 45,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Philippines",
@@ -3213,8 +3213,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Canada",
@@ -3229,8 +3229,8 @@
           "substitution_lag_days": 30,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Argentina",
@@ -3245,8 +3245,8 @@
           "substitution_lag_days": 45,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Pakistan",
@@ -3261,8 +3261,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -3277,8 +3277,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ]
     },
@@ -3315,8 +3315,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2601": [
@@ -3431,8 +3431,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "China",
@@ -3447,8 +3447,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -3463,8 +3463,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -3629,8 +3629,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -3647,8 +3647,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -3663,8 +3663,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -3737,8 +3737,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -3753,8 +3753,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -3945,8 +3945,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "1511": [
@@ -3963,8 +3963,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "China",
@@ -3979,8 +3979,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Philippines",
@@ -3995,8 +3995,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -4011,8 +4011,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Myanmar",
@@ -4027,8 +4027,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Sri Lanka",
@@ -4043,8 +4043,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Brunei Darussalam",
@@ -4059,8 +4059,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Cambodia",
@@ -4075,8 +4075,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2601": [
@@ -4175,8 +4175,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Malaysia",
@@ -4191,8 +4191,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -4207,8 +4207,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -4223,8 +4223,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -4633,8 +4633,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -4651,8 +4651,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Viet Nam",
@@ -4667,8 +4667,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Pakistan",
@@ -4683,8 +4683,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Cambodia",
@@ -4699,8 +4699,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Myanmar",
@@ -4715,8 +4715,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
@@ -4915,8 +4915,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -4931,8 +4931,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Malaysia",
@@ -4947,8 +4947,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "271111": [
@@ -5131,8 +5131,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Colombia",
@@ -5147,8 +5147,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Canada",
@@ -5163,8 +5163,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Chile",
@@ -5179,8 +5179,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "1511": [
@@ -5197,8 +5197,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Colombia",
@@ -5213,8 +5213,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Chile",
@@ -5229,8 +5229,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2603": [
@@ -5247,8 +5247,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Japan",
@@ -5263,8 +5263,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Rep. of Korea",
@@ -5279,8 +5279,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Canada",
@@ -5295,8 +5295,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Mexico",
@@ -5311,8 +5311,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Malaysia",
@@ -5327,8 +5327,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2710": [
@@ -5509,8 +5509,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -5527,8 +5527,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8471": [
@@ -5681,8 +5681,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2601": [
@@ -5765,8 +5765,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2709": [
@@ -5885,8 +5885,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.65,
           "inelasticity_note": "ri=0.65:PCM",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2601": [
@@ -5969,8 +5969,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "2701": [
@@ -6443,8 +6443,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "3102": [
@@ -6461,8 +6461,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         },
         {
           "country": "Belgium",
@@ -6477,8 +6477,8 @@
           "substitution_lag_days": 0,
           "route_inelasticity": 0.0,
           "inelasticity_note": "",
-          "data_tier": 3,
-          "data_tier_label": "Estimated"
+          "data_tier": 2,
+          "data_tier_label": "Corroborated"
         }
       ],
       "8703": [
