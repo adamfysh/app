@@ -947,7 +947,7 @@ function sevLabel(pct){
 /* ═══════════════════════════════
    BILATERAL DATA
 ═══════════════════════════════ */
-const BIL = {
+const BIL_FALLBACK = {
   hormuz:{
     crude:[
       {country:'Japan',dep:.942,v30:6.3e9,tier:'T1'},{country:'South Korea',dep:.715,v30:5.1e9,tier:'T1'},
@@ -1012,6 +1012,31 @@ const BIL = {
     ]
   }
 };
+
+let BIL = BIL_FALLBACK;
+let BIL_FEED_META = null;
+
+async function loadCorridorFeed() {
+  try {
+    const resp = await fetch('cape_corridor_feed.json', {cache:'no-store'});
+    if (!resp.ok) throw new Error('feed fetch failed: '+resp.status);
+    const feed = await resp.json();
+    const live = {};
+    for (const [corr, classes] of Object.entries(feed.corridors || {})) {
+      live[corr] = {};
+      for (const [cls, rows] of Object.entries(classes)) {
+        live[corr][cls] = rows.map(r => ({country:r.country, dep:r.dep, v30:r.v30, tier:r.tier}));
+      }
+    }
+    BIL = Object.assign({}, BIL_FALLBACK, live);
+    BIL_FEED_META = feed._meta || null;
+    console.log('CAPE: loaded live corridor feed', BIL_FEED_META);
+  } catch (e) {
+    console.warn('CAPE: could not load live corridor feed, using fallback demo data.', e);
+    BIL = BIL_FALLBACK;
+  }
+  renderAll();
+}
 
 /* ═══════════════════════════════
    BASE VAR RATES
@@ -1550,8 +1575,11 @@ function renderP4() {
   const c=CORR[S.corridor]; const data=BIL[S.corridor];
   const dm=S.duration/30; const sm=(S.severity/100 * A.wr);
   let tot=0; let rows='';
+  const COMM_LABEL={crude:'Crude',lng:'LNG',coal:'Coal',grain:'Grain',refined:'Refined petroleum',
+    iron_ore:'Iron ore',vehicles:'Vehicles',electronics:'Electronics',apparel:'Apparel',
+    palm_oil:'Palm oil',copper:'Copper ores',ammonia:'Ammonia',fertiliser:'Fertiliser',aluminium:'Aluminium ores'};
   for(const[comm,entries] of Object.entries(data)){
-    const cl=comm.charAt(0).toUpperCase()+comm.slice(1);
+    const cl=COMM_LABEL[comm]||(comm.charAt(0).toUpperCase()+comm.slice(1)).replace(/_/g,' ');
     rows+=`<tr class="comm-head"><td colspan="4">${cl}</td></tr>`;
     for(const e of entries){
       const sc=(e.v30||0)*dm*sm; tot+=e.v30||0;
@@ -1579,7 +1607,7 @@ function renderP4() {
       <thead><tr><th>Importer</th><th class="r">Corridor dep.</th><th class="r">VaR (${S.duration}d)</th><th>Source</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    ${!isT1?'<div style="margin-top:14px;font-size:13px;color:var(--text-muted);line-height:1.7;padding-top:14px;border-top:var(--rule)">Figures marked with ~ are directional estimates only. Not validated against primary bilateral trade data. Hormuz crude bilateral data is T1-validated against UN Comtrade and IEA.</div>':''}`;
+    ${!isT1?'<div style="margin-top:14px;font-size:13px;color:var(--text-muted);line-height:1.7;padding-top:14px;border-top:var(--rule)">Figures marked with ~ are directional estimates only. Reported (T1) figures are validated against UN Comtrade bilateral data; Corroborated (T2) and Estimated (T3) figures use progressively more inferred routing, per the Narrows data verification policy.</div>':''}`;
 }
 
 /* ═══════════════════════════════
@@ -1893,7 +1921,7 @@ function dlTxt(){
 /* ═══════════════════════════════
    TIDE — Accumulation data
 ═══════════════════════════════ */
-const TIDE_DATA = {
+const TIDE_DATA_FALLBACK = {
   hormuz:       {baseline:25.7,peak:30.5,horizon:36.5,cascade:40.0,pml:3.97,peakMonth:'Jan',cascadeRatio:1.31,cascadeRoute:'Cape of Good Hope routes spike 31% during closure'},
   bab_el_mandeb:{baseline:8.0, peak:9.8, horizon:11.1,cascade:16.8,pml:1.24,peakMonth:'Jan',cascadeRatio:1.71,cascadeRoute:'Cape of Good Hope accumulation spikes 71% — correlated exposure for Cape war risk writers'},
   malacca:      {baseline:20.6,peak:24.5,horizon:30.7,cascade:30.6,pml:3.35,peakMonth:'Jan',cascadeRatio:1.19,cascadeRoute:'Lombok and Sunda strait traffic increases'},
@@ -1907,6 +1935,39 @@ const TIDE_DATA = {
 function fTIDE(b){
   if(b===0)return 'n/a';
   return b>=1?'$'+b.toFixed(1)+'B':'$'+(b*1000).toFixed(0)+'M';
+}
+
+let TIDE_DATA = TIDE_DATA_FALLBACK;
+
+// Route commentary is narrative, not a modeled figure -- kept static and
+// merged onto whatever numeric data (fallback or live feed) is active.
+const TIDE_ROUTE_NOTES = {
+  hormuz:        {cascadeRoute:'Cape of Good Hope routes spike during closure'},
+  bab_el_mandeb: {cascadeRoute:'Cape of Good Hope accumulation spikes -- correlated exposure for Cape war risk writers'},
+  malacca:       {cascadeRoute:'Lombok and Sunda strait traffic increases'},
+  suez:          {cascadeRoute:'Cape of Good Hope accumulation spikes -- correlated exposure for Cape war risk writers'},
+  panama:        {cascadeRoute:'Cape Horn and Suez westbound accumulation spikes sharply'},
+  lombok:        {cascadeRoute:'Malacca and Sunda traffic redistributes'},
+  bosphorus:     {cascadeRoute:null},
+  danish_straits:{cascadeRoute:'No alternative route -- no cascade effect'}
+};
+
+async function loadTideFeed() {
+  try {
+    const resp = await fetch('cape_tide_feed.json', {cache:'no-store'});
+    if (!resp.ok) throw new Error('tide feed fetch failed: '+resp.status);
+    const feed = await resp.json();
+    const live = {};
+    for (const [corr, v] of Object.entries(feed.corridors || {})) {
+      live[corr] = Object.assign({}, v, TIDE_ROUTE_NOTES[corr] || {});
+    }
+    TIDE_DATA = Object.assign({}, TIDE_DATA_FALLBACK, live);
+    console.log('CAPE: loaded live TIDE feed', feed._meta);
+  } catch (e) {
+    console.warn('CAPE: could not load live TIDE feed, using fallback demo data.', e);
+    TIDE_DATA = TIDE_DATA_FALLBACK;
+  }
+  renderTIDE();
 }
 
 function renderTIDE(){
@@ -1966,6 +2027,8 @@ function submitAccess(e){
 ═══════════════════════════════ */
 renderAll();
 renderTIDE();
+loadCorridorFeed();
+loadTideFeed();
 </script>
 </body>
 </html>

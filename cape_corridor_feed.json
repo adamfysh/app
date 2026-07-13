@@ -1,0 +1,3293 @@
+{
+  "_meta": {
+    "generated_at": "2026-07-13T13:01:39.836513+00:00",
+    "source_file": "simulator_data.json",
+    "source_generated": "2026-07-13",
+    "source_model_year": 2022,
+    "notes": [
+      "v30 = annual VaR (varB, USD) scaled to a 30-day window: varB * 1e9 * (30/365).",
+      "dep is a 0-1 fraction (simulator_data.json stores 0-100 percent).",
+      "tier / tier_label mirror the CDM's Reported/Corroborated/Estimated data tier for that commodity.",
+      "Top 8 countries per corridor x commodity by annual VaR."
+    ],
+    "warnings": []
+  },
+  "corridors": {
+    "hormuz": {
+      "crude": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.458,
+          "v30": 13763013699.0,
+          "annual_usd": 167450000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Greece",
+          "iso": "GRC",
+          "dep": 0.543,
+          "v30": 700027397.0,
+          "annual_usd": 8517000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.868,
+          "v30": 517397260.0,
+          "annual_usd": 6295000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 1.0,
+          "v30": 489945205.0,
+          "annual_usd": 5961000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 1.0,
+          "v30": 380383562.0,
+          "annual_usd": 4628000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.132,
+          "v30": 380136986.0,
+          "annual_usd": 4625000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Germany",
+          "iso": "DEU",
+          "dep": 0.063,
+          "v30": 330821918.0,
+          "annual_usd": 4025000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.956,
+          "v30": 297123288.0,
+          "annual_usd": 3615000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "refined": [
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.7,
+          "v30": 628931507.0,
+          "annual_usd": 7652000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "United Arab Emirates",
+          "iso": "ARE",
+          "dep": 0.364,
+          "v30": 482301370.0,
+          "annual_usd": 5868000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.622,
+          "v30": 296958904.0,
+          "annual_usd": 3613000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Argentina",
+          "iso": "ARG",
+          "dep": 0.293,
+          "v30": 162575342.0,
+          "annual_usd": 1978000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Jordan",
+          "iso": "JOR",
+          "dep": 0.747,
+          "v30": 139232877.0,
+          "annual_usd": 1694000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.062,
+          "v30": 93780822.0,
+          "annual_usd": 1141000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.081,
+          "v30": 90575342.0,
+          "annual_usd": 1102000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.002,
+          "v30": 1232877.0,
+          "annual_usd": 15000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "lng": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.224,
+          "v30": 959178082.0,
+          "annual_usd": 11670000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.183,
+          "v30": 751726027.0,
+          "annual_usd": 9146000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.558,
+          "v30": 511232877.0,
+          "annual_usd": 6220000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Italy",
+          "iso": "ITA",
+          "dep": 0.416,
+          "v30": 486739726.0,
+          "annual_usd": 5922000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.874,
+          "v30": 324904110.0,
+          "annual_usd": 3953000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.102,
+          "v30": 282493151.0,
+          "annual_usd": 3437000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.065,
+          "v30": 247068493.0,
+          "annual_usd": 3006000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "India",
+          "iso": "IND",
+          "dep": 0.032,
+          "v30": 46767123.0,
+          "annual_usd": 569000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.265,
+          "v30": 5424658.0,
+          "annual_usd": 66000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.03,
+          "v30": 2630137.0,
+          "annual_usd": 32000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "Brazil",
+          "iso": "BRA",
+          "dep": 0.337,
+          "v30": 202849315.0,
+          "annual_usd": 2468000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.144,
+          "v30": 7972603.0,
+          "annual_usd": 97000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Canada",
+          "iso": "CAN",
+          "dep": 0.053,
+          "v30": 6082192.0,
+          "annual_usd": 74000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Argentina",
+          "iso": "ARG",
+          "dep": 0.046,
+          "v30": 4109589.0,
+          "annual_usd": 50000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.077,
+          "v30": 1726027.0,
+          "annual_usd": 21000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.016,
+          "v30": 1315068.0,
+          "annual_usd": 16000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ]
+    },
+    "bab_el_mandeb": {
+      "grain": [
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.845,
+          "v30": 65506849.0,
+          "annual_usd": 797000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.257,
+          "v30": 31890411.0,
+          "annual_usd": 388000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.319,
+          "v30": 16602740.0,
+          "annual_usd": 202000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.002,
+          "v30": 12657534.0,
+          "annual_usd": 154000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Sri Lanka",
+          "iso": "LKA",
+          "dep": 0.371,
+          "v30": 7068493.0,
+          "annual_usd": 86000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "iron_ore": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.008,
+          "v30": 79972603.0,
+          "annual_usd": 973000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.587,
+          "v30": 75534247.0,
+          "annual_usd": 919000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.054,
+          "v30": 8712329.0,
+          "annual_usd": 106000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.007,
+          "v30": 7726027.0,
+          "annual_usd": 94000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "copper": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.003,
+          "v30": 14794521.0,
+          "annual_usd": 180000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "coal": [
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.246,
+          "v30": 42000000.0,
+          "annual_usd": 511000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.134,
+          "v30": 5671233.0,
+          "annual_usd": 69000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "crude": [
+        {
+          "country": "Greece",
+          "iso": "GRC",
+          "dep": 0.543,
+          "v30": 700027397.0,
+          "annual_usd": 8517000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 1.0,
+          "v30": 380383562.0,
+          "annual_usd": 4628000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.132,
+          "v30": 380136986.0,
+          "annual_usd": 4625000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Germany",
+          "iso": "DEU",
+          "dep": 0.063,
+          "v30": 330821918.0,
+          "annual_usd": 4025000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Brazil",
+          "iso": "BRA",
+          "dep": 0.321,
+          "v30": 267780822.0,
+          "annual_usd": 3258000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.008,
+          "v30": 251342466.0,
+          "annual_usd": 3058000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.35,
+          "v30": 126328767.0,
+          "annual_usd": 1537000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Jordan",
+          "iso": "JOR",
+          "dep": 1.0,
+          "v30": 111369863.0,
+          "annual_usd": 1355000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "refined": [
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.623,
+          "v30": 297205479.0,
+          "annual_usd": 3616000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Jordan",
+          "iso": "JOR",
+          "dep": 0.747,
+          "v30": 139232877.0,
+          "annual_usd": 1694000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.066,
+          "v30": 100602740.0,
+          "annual_usd": 1224000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "United Arab Emirates",
+          "iso": "ARE",
+          "dep": 0.037,
+          "v30": 48739726.0,
+          "annual_usd": 593000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.005,
+          "v30": 3780822.0,
+          "annual_usd": 46000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.002,
+          "v30": 2054795.0,
+          "annual_usd": 25000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "lng": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.558,
+          "v30": 511232877.0,
+          "annual_usd": 6220000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Italy",
+          "iso": "ITA",
+          "dep": 0.432,
+          "v30": 504575342.0,
+          "annual_usd": 6139000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.107,
+          "v30": 297534247.0,
+          "annual_usd": 3620000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.017,
+          "v30": 69945205.0,
+          "annual_usd": 851000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Singapore",
+          "iso": "SGP",
+          "dep": 0.194,
+          "v30": 56547945.0,
+          "annual_usd": 688000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Netherlands",
+          "iso": "NLD",
+          "dep": 0.033,
+          "v30": 51041096.0,
+          "annual_usd": 621000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.007,
+          "v30": 32054795.0,
+          "annual_usd": 390000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.08,
+          "v30": 29671233.0,
+          "annual_usd": 361000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.03,
+          "v30": 2630137.0,
+          "annual_usd": 32000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.516,
+          "v30": 92054795.0,
+          "annual_usd": 1120000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.016,
+          "v30": 1315068.0,
+          "annual_usd": 16000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.295,
+          "v30": 109068493.0,
+          "annual_usd": 1327000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.058,
+          "v30": 37808219.0,
+          "annual_usd": 460000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.196,
+          "v30": 32630137.0,
+          "annual_usd": 397000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Jordan",
+          "iso": "JOR",
+          "dep": 0.144,
+          "v30": 13150685.0,
+          "annual_usd": 160000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.021,
+          "v30": 6246575.0,
+          "annual_usd": 76000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Jamaica",
+          "iso": "JAM",
+          "dep": 0.131,
+          "v30": 3287671.0,
+          "annual_usd": 40000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Dominican Rep.",
+          "iso": "DOM",
+          "dep": 0.029,
+          "v30": 3205479.0,
+          "annual_usd": 39000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ]
+    },
+    "malacca": {
+      "grain": [
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.257,
+          "v30": 31890411.0,
+          "annual_usd": 388000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 13.4
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.002,
+          "v30": 13068493.0,
+          "annual_usd": 159000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.1
+        },
+        {
+          "country": "Myanmar",
+          "iso": "MMR",
+          "dep": 0.106,
+          "v30": 904110.0,
+          "annual_usd": 11000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "palm_oil": [
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 1.0,
+          "v30": 312739726.0,
+          "annual_usd": 3805000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.322,
+          "v30": 154520548.0,
+          "annual_usd": 1880000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 1.0,
+          "v30": 108821918.0,
+          "annual_usd": 1324000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 1.0,
+          "v30": 103643836.0,
+          "annual_usd": 1261000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Myanmar",
+          "iso": "MMR",
+          "dep": 1.0,
+          "v30": 56136986.0,
+          "annual_usd": 683000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Sri Lanka",
+          "iso": "LKA",
+          "dep": 0.996,
+          "v30": 2301370.0,
+          "annual_usd": 28000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Brunei Darussalam",
+          "iso": "BRN",
+          "dep": 1.0,
+          "v30": 575342.0,
+          "annual_usd": 7000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Cambodia",
+          "iso": "KHM",
+          "dep": 1.0,
+          "v30": 575342.0,
+          "annual_usd": 7000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "iron_ore": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.027,
+          "v30": 289315068.0,
+          "annual_usd": 3520000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 10.9
+        },
+        {
+          "country": "Indonesia",
+          "iso": "IDN",
+          "dep": 0.732,
+          "v30": 73561644.0,
+          "annual_usd": 895000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 3.7
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.098,
+          "v30": 15698630.0,
+          "annual_usd": 191000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 7.8
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.012,
+          "v30": 13726027.0,
+          "annual_usd": 167000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 14.7
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.017,
+          "v30": 12082192.0,
+          "annual_usd": 147000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 6.6
+        }
+      ],
+      "copper": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.035,
+          "v30": 161342466.0,
+          "annual_usd": 1963000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 13.1
+        },
+        {
+          "country": "Malaysia",
+          "iso": "MYS",
+          "dep": 0.708,
+          "v30": 56383562.0,
+          "annual_usd": 686000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 7.8
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.08,
+          "v30": 43397260.0,
+          "annual_usd": 528000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 9.2
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.017,
+          "v30": 18821918.0,
+          "annual_usd": 229000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "coal": [
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.092,
+          "v30": 49972603.0,
+          "annual_usd": 608000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.208,
+          "v30": 37068493.0,
+          "annual_usd": 451000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.015,
+          "v30": 7479452.0,
+          "annual_usd": 91000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "crude": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.552,
+          "v30": 16575863014.0,
+          "annual_usd": 201673000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 4.5
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.87,
+          "v30": 518547945.0,
+          "annual_usd": 6309000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Indonesia",
+          "iso": "IDN",
+          "dep": 0.383,
+          "v30": 348328767.0,
+          "annual_usd": 4238000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 4.4
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.956,
+          "v30": 297123288.0,
+          "annual_usd": 3615000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Brunei Darussalam",
+          "iso": "BRN",
+          "dep": 0.293,
+          "v30": 131178082.0,
+          "annual_usd": 1596000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "New Zealand",
+          "iso": "NZL",
+          "dep": 1.0,
+          "v30": 43561644.0,
+          "annual_usd": 530000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "refined": [
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.99,
+          "v30": 1111150685.0,
+          "annual_usd": 13519000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 5.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.618,
+          "v30": 494794521.0,
+          "annual_usd": 6020000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 10.5
+        },
+        {
+          "country": "Myanmar",
+          "iso": "MMR",
+          "dep": 0.988,
+          "v30": 407671233.0,
+          "annual_usd": 4960000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.261,
+          "v30": 234410959.0,
+          "annual_usd": 2852000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "New Zealand",
+          "iso": "NZL",
+          "dep": 0.4,
+          "v30": 176547945.0,
+          "annual_usd": 2148000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 10.0
+        },
+        {
+          "country": "United Arab Emirates",
+          "iso": "ARE",
+          "dep": 0.007,
+          "v30": 9616438.0,
+          "annual_usd": 117000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.002,
+          "v30": 3205479.0,
+          "annual_usd": 39000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "lng": [
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.584,
+          "v30": 3084000000.0,
+          "annual_usd": 37522000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 9.2
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.616,
+          "v30": 2532739726.0,
+          "annual_usd": 30815000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 9.2
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.577,
+          "v30": 2476191781.0,
+          "annual_usd": 30127000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 8.7
+        },
+        {
+          "country": "Malaysia",
+          "iso": "MYS",
+          "dep": 1.0,
+          "v30": 179095890.0,
+          "annual_usd": 2179000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Singapore",
+          "iso": "SGP",
+          "dep": 0.094,
+          "v30": 27287671.0,
+          "annual_usd": 332000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 12.5
+        },
+        {
+          "country": "Cambodia",
+          "iso": "KHM",
+          "dep": 1.0,
+          "v30": 19150685.0,
+          "annual_usd": 233000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.016,
+          "v30": 6000000.0,
+          "annual_usd": 73000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.002,
+          "v30": 5260274.0,
+          "annual_usd": 64000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.426,
+          "v30": 8712329.0,
+          "annual_usd": 106000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.977,
+          "v30": 54000000.0,
+          "annual_usd": 657000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.969,
+          "v30": 34684932.0,
+          "annual_usd": 422000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.812,
+          "v30": 17835616.0,
+          "annual_usd": 217000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Cambodia",
+          "iso": "KHM",
+          "dep": 0.989,
+          "v30": 8219178.0,
+          "annual_usd": 100000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Myanmar",
+          "iso": "MMR",
+          "dep": 0.56,
+          "v30": 5671233.0,
+          "annual_usd": 69000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.889,
+          "v30": 203424658.0,
+          "annual_usd": 2475000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.608,
+          "v30": 178438356.0,
+          "annual_usd": 2171000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 8.0
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.947,
+          "v30": 133972603.0,
+          "annual_usd": 1630000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.196,
+          "v30": 72410959.0,
+          "annual_usd": 881000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.038,
+          "v30": 25068493.0,
+          "annual_usd": 305000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.141,
+          "v30": 23506849.0,
+          "annual_usd": 286000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Myanmar",
+          "iso": "MMR",
+          "dep": 0.832,
+          "v30": 2876712.0,
+          "annual_usd": 35000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Jamaica",
+          "iso": "JAM",
+          "dep": 0.086,
+          "v30": 2136986.0,
+          "annual_usd": 26000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ]
+    },
+    "panama": {
+      "grain": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.339,
+          "v30": 1706876712.0,
+          "annual_usd": 20767000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.479,
+          "v30": 101753425.0,
+          "annual_usd": 1238000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.279,
+          "v30": 86794521.0,
+          "annual_usd": 1056000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Colombia",
+          "iso": "COL",
+          "dep": 0.977,
+          "v30": 71095890.0,
+          "annual_usd": 865000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Ecuador",
+          "iso": "ECU",
+          "dep": 0.981,
+          "v30": 50301370.0,
+          "annual_usd": 612000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Chile",
+          "iso": "CHL",
+          "dep": 0.943,
+          "v30": 40356164.0,
+          "annual_usd": 491000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Colombia",
+          "iso": "COL",
+          "dep": 1.0,
+          "v30": 25890411.0,
+          "annual_usd": 315000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Chile",
+          "iso": "CHL",
+          "dep": 0.996,
+          "v30": 3452055.0,
+          "annual_usd": 42000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        }
+      ],
+      "palm_oil": [
+        {
+          "country": "Brazil",
+          "iso": "BRA",
+          "dep": 0.324,
+          "v30": 11095890.0,
+          "annual_usd": 135000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Colombia",
+          "iso": "COL",
+          "dep": 0.426,
+          "v30": 5917808.0,
+          "annual_usd": 72000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Chile",
+          "iso": "CHL",
+          "dep": 0.273,
+          "v30": 1150685.0,
+          "annual_usd": 14000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        }
+      ],
+      "copper": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.115,
+          "v30": 531945205.0,
+          "annual_usd": 6472000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.137,
+          "v30": 154273973.0,
+          "annual_usd": 1877000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.115,
+          "v30": 61890411.0,
+          "annual_usd": 753000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Malaysia",
+          "iso": "MYS",
+          "dep": 0.077,
+          "v30": 6164384.0,
+          "annual_usd": 75000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        }
+      ],
+      "refined": [
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.002,
+          "v30": 2712329.0,
+          "annual_usd": 33000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Argentina",
+          "iso": "ARG",
+          "dep": 0.004,
+          "v30": 2465753.0,
+          "annual_usd": 30000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "New Zealand",
+          "iso": "NZL",
+          "dep": 0.005,
+          "v30": 2219178.0,
+          "annual_usd": 27000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        }
+      ],
+      "lng": [
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.145,
+          "v30": 594493151.0,
+          "annual_usd": 7233000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.083,
+          "v30": 438328767.0,
+          "annual_usd": 5333000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.053,
+          "v30": 227835616.0,
+          "annual_usd": 2772000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Chile",
+          "iso": "CHL",
+          "dep": 0.24,
+          "v30": 26383562.0,
+          "annual_usd": 321000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Colombia",
+          "iso": "COL",
+          "dep": 1.0,
+          "v30": 7232877.0,
+          "annual_usd": 88000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Singapore",
+          "iso": "SGP",
+          "dep": 0.016,
+          "v30": 4767123.0,
+          "annual_usd": 58000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "Chile",
+          "iso": "CHL",
+          "dep": 0.45,
+          "v30": 15452055.0,
+          "annual_usd": 188000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        }
+      ],
+      "electronics": [
+        {
+          "country": "Argentina",
+          "iso": "ARG",
+          "dep": 0.086,
+          "v30": 9205479.0,
+          "annual_usd": 112000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.033,
+          "v30": 54904110.0,
+          "annual_usd": 668000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Dominican Rep.",
+          "iso": "DOM",
+          "dep": 0.493,
+          "v30": 54246575.0,
+          "annual_usd": 660000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.047,
+          "v30": 10849315.0,
+          "annual_usd": 132000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Argentina",
+          "iso": "ARG",
+          "dep": 0.061,
+          "v30": 10027397.0,
+          "annual_usd": 122000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.005,
+          "v30": 1561644.0,
+          "annual_usd": 19000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.0
+        },
+        {
+          "country": "Jamaica",
+          "iso": "JAM",
+          "dep": 0.053,
+          "v30": 1315068.0,
+          "annual_usd": 16000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 38.1
+        }
+      ]
+    },
+    "suez": {
+      "grain": [
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.845,
+          "v30": 65506849.0,
+          "annual_usd": 797000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.257,
+          "v30": 31890411.0,
+          "annual_usd": 388000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.319,
+          "v30": 16602740.0,
+          "annual_usd": 202000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.002,
+          "v30": 12493151.0,
+          "annual_usd": 152000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Sri Lanka",
+          "iso": "LKA",
+          "dep": 0.371,
+          "v30": 7068493.0,
+          "annual_usd": 86000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "iron_ore": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.008,
+          "v30": 79561644.0,
+          "annual_usd": 968000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.587,
+          "v30": 75534247.0,
+          "annual_usd": 919000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.054,
+          "v30": 8712329.0,
+          "annual_usd": 106000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.007,
+          "v30": 7726027.0,
+          "annual_usd": 94000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "copper": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.003,
+          "v30": 14465753.0,
+          "annual_usd": 176000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "coal": [
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.246,
+          "v30": 42000000.0,
+          "annual_usd": 511000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.134,
+          "v30": 5671233.0,
+          "annual_usd": 69000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "crude": [
+        {
+          "country": "Greece",
+          "iso": "GRC",
+          "dep": 0.543,
+          "v30": 700027397.0,
+          "annual_usd": 8517000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 1.0,
+          "v30": 380383562.0,
+          "annual_usd": 4628000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.132,
+          "v30": 380136986.0,
+          "annual_usd": 4625000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Germany",
+          "iso": "DEU",
+          "dep": 0.063,
+          "v30": 330821918.0,
+          "annual_usd": 4025000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Brazil",
+          "iso": "BRA",
+          "dep": 0.321,
+          "v30": 267780822.0,
+          "annual_usd": 3258000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.008,
+          "v30": 251342466.0,
+          "annual_usd": 3058000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.35,
+          "v30": 126328767.0,
+          "annual_usd": 1537000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Indonesia",
+          "iso": "IDN",
+          "dep": 0.036,
+          "v30": 32958904.0,
+          "annual_usd": 401000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "refined": [
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.623,
+          "v30": 297205479.0,
+          "annual_usd": 3616000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.066,
+          "v30": 100602740.0,
+          "annual_usd": 1224000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "United Arab Emirates",
+          "iso": "ARE",
+          "dep": 0.037,
+          "v30": 48739726.0,
+          "annual_usd": 593000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.005,
+          "v30": 3780822.0,
+          "annual_usd": 46000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.002,
+          "v30": 2054795.0,
+          "annual_usd": 25000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.5
+        }
+      ],
+      "lng": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.558,
+          "v30": 511232877.0,
+          "annual_usd": 6220000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Italy",
+          "iso": "ITA",
+          "dep": 0.432,
+          "v30": 504575342.0,
+          "annual_usd": 6139000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.107,
+          "v30": 297534247.0,
+          "annual_usd": 3620000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.017,
+          "v30": 69945205.0,
+          "annual_usd": 851000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Singapore",
+          "iso": "SGP",
+          "dep": 0.194,
+          "v30": 56547945.0,
+          "annual_usd": 688000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Netherlands",
+          "iso": "NLD",
+          "dep": 0.033,
+          "v30": 51041096.0,
+          "annual_usd": 621000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.007,
+          "v30": 32054795.0,
+          "annual_usd": 390000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.08,
+          "v30": 29671233.0,
+          "annual_usd": 361000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.03,
+          "v30": 2630137.0,
+          "annual_usd": 32000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.516,
+          "v30": 92054795.0,
+          "annual_usd": 1120000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.016,
+          "v30": 1315068.0,
+          "annual_usd": 16000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.295,
+          "v30": 109068493.0,
+          "annual_usd": 1327000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.058,
+          "v30": 37808219.0,
+          "annual_usd": 460000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.196,
+          "v30": 32630137.0,
+          "annual_usd": 397000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Jordan",
+          "iso": "JOR",
+          "dep": 0.122,
+          "v30": 11178082.0,
+          "annual_usd": 136000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.021,
+          "v30": 6246575.0,
+          "annual_usd": 76000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Jamaica",
+          "iso": "JAM",
+          "dep": 0.131,
+          "v30": 3287671.0,
+          "annual_usd": 40000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        },
+        {
+          "country": "Dominican Rep.",
+          "iso": "DOM",
+          "dep": 0.029,
+          "v30": 3205479.0,
+          "annual_usd": 39000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 15.6
+        }
+      ]
+    },
+    "lombok": {
+      "grain": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.556,
+          "v30": 172684932.0,
+          "annual_usd": 2101000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "palm_oil": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.678,
+          "v30": 325561644.0,
+          "annual_usd": 3961000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "iron_ore": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.943,
+          "v30": 9925972603.0,
+          "annual_usd": 120766000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.987,
+          "v30": 1113863014.0,
+          "annual_usd": 13552000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.982,
+          "v30": 719835616.0,
+          "annual_usd": 8758000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.988,
+          "v30": 53753425.0,
+          "annual_usd": 654000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.304,
+          "v30": 48575342.0,
+          "annual_usd": 591000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Indonesia",
+          "iso": "IDN",
+          "dep": 0.178,
+          "v30": 17917808.0,
+          "annual_usd": 218000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "copper": [
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.166,
+          "v30": 186739726.0,
+          "annual_usd": 2272000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.036,
+          "v30": 168739726.0,
+          "annual_usd": 2053000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Rep. of Korea",
+          "iso": "KOR",
+          "dep": 0.225,
+          "v30": 121397260.0,
+          "annual_usd": 1477000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "coal": [
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.582,
+          "v30": 103726027.0,
+          "annual_usd": 1262000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.394,
+          "v30": 16684932.0,
+          "annual_usd": 203000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.021,
+          "v30": 11178082.0,
+          "annual_usd": 136000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.004,
+          "v30": 2219178.0,
+          "annual_usd": 27000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "crude": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.204,
+          "v30": 6113589041.0,
+          "annual_usd": 74382000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Indonesia",
+          "iso": "IDN",
+          "dep": 0.538,
+          "v30": 489780822.0,
+          "annual_usd": 5959000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Australia",
+          "iso": "AUS",
+          "dep": 0.176,
+          "v30": 106438356.0,
+          "annual_usd": 1295000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.042,
+          "v30": 24986301.0,
+          "annual_usd": 304000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.018,
+          "v30": 5506849.0,
+          "annual_usd": 67000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.56,
+          "v30": 11424658.0,
+          "annual_usd": 139000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "Philippines",
+          "iso": "PHL",
+          "dep": 0.02,
+          "v30": 1150685.0,
+          "annual_usd": 14000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.017,
+          "v30": 575342.0,
+          "annual_usd": 7000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.01,
+          "v30": 2301370.0,
+          "annual_usd": 28000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        }
+      ]
+    },
+    "bosphorus": {
+      "grain": [
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.804,
+          "v30": 282410959.0,
+          "annual_usd": 3436000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.957,
+          "v30": 263917808.0,
+          "annual_usd": 3211000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Pakistan",
+          "iso": "PAK",
+          "dep": 0.784,
+          "v30": 60821918.0,
+          "annual_usd": 740000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.002,
+          "v30": 12493151.0,
+          "annual_usd": 152000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Sri Lanka",
+          "iso": "LKA",
+          "dep": 0.371,
+          "v30": 7068493.0,
+          "annual_usd": 86000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.045,
+          "v30": 5506849.0,
+          "annual_usd": 67000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.018,
+          "v30": 3863014.0,
+          "annual_usd": 47000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.029,
+          "v30": 1479452.0,
+          "annual_usd": 18000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "iron_ore": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.008,
+          "v30": 79561644.0,
+          "annual_usd": 968000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Germany",
+          "iso": "DEU",
+          "dep": 0.06,
+          "v30": 24739726.0,
+          "annual_usd": 301000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.136,
+          "v30": 15534247.0,
+          "annual_usd": 189000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Japan",
+          "iso": "JPN",
+          "dep": 0.007,
+          "v30": 7726027.0,
+          "annual_usd": 94000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Viet Nam",
+          "iso": "VNM",
+          "dep": 0.048,
+          "v30": 7643836.0,
+          "annual_usd": 93000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.026,
+          "v30": 3369863.0,
+          "annual_usd": 41000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Finland",
+          "iso": "FIN",
+          "dep": 0.012,
+          "v30": 493151.0,
+          "annual_usd": 6000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Iceland",
+          "iso": "ISL",
+          "dep": 0.618,
+          "v30": 246575.0,
+          "annual_usd": 3000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "copper": [
+        {
+          "country": "China",
+          "iso": "CHN",
+          "dep": 0.002,
+          "v30": 9945205.0,
+          "annual_usd": 121000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Bulgaria",
+          "iso": "BGR",
+          "dep": 0.004,
+          "v30": 657534.0,
+          "annual_usd": 8000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "coal": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.499,
+          "v30": 334767123.0,
+          "annual_usd": 4073000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.197,
+          "v30": 7479452.0,
+          "annual_usd": 91000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "crude": [
+        {
+          "country": "Germany",
+          "iso": "DEU",
+          "dep": 0.342,
+          "v30": 1786684932.0,
+          "annual_usd": 21738000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "France",
+          "iso": "FRA",
+          "dep": 0.182,
+          "v30": 525369863.0,
+          "annual_usd": 6392000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Greece",
+          "iso": "GRC",
+          "dep": 0.209,
+          "v30": 269835616.0,
+          "annual_usd": 3283000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Sri Lanka",
+          "iso": "LKA",
+          "dep": 0.7,
+          "v30": 22356164.0,
+          "annual_usd": 272000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Bulgaria",
+          "iso": "BGR",
+          "dep": 0.025,
+          "v30": 8547945.0,
+          "annual_usd": 104000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Denmark",
+          "iso": "DNK",
+          "dep": 0.019,
+          "v30": 5424658.0,
+          "annual_usd": 66000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Croatia",
+          "iso": "HRV",
+          "dep": 0.033,
+          "v30": 3534247.0,
+          "annual_usd": 43000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "refined": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.107,
+          "v30": 163315068.0,
+          "annual_usd": 1987000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.084,
+          "v30": 64684932.0,
+          "annual_usd": 787000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Egypt",
+          "iso": "EGY",
+          "dep": 0.067,
+          "v30": 31890411.0,
+          "annual_usd": 388000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "United Arab Emirates",
+          "iso": "ARE",
+          "dep": 0.002,
+          "v30": 2794521.0,
+          "annual_usd": 34000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.056,
+          "v30": 1068493.0,
+          "annual_usd": 13000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "lng": [
+        {
+          "country": "Greece",
+          "iso": "GRC",
+          "dep": 0.061,
+          "v30": 18821918.0,
+          "annual_usd": 229000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Italy",
+          "iso": "ITA",
+          "dep": 0.016,
+          "v30": 18164384.0,
+          "annual_usd": 221000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "ammonia": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.192,
+          "v30": 16520548.0,
+          "annual_usd": 201000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.163,
+          "v30": 29095890.0,
+          "annual_usd": 354000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.44,
+          "v30": 6493151.0,
+          "annual_usd": 79000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Bulgaria",
+          "iso": "BGR",
+          "dep": 0.17,
+          "v30": 6493151.0,
+          "annual_usd": 79000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.076,
+          "v30": 6164384.0,
+          "annual_usd": 75000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.055,
+          "v30": 36328767.0,
+          "annual_usd": 442000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.006,
+          "v30": 10027397.0,
+          "annual_usd": 122000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.048,
+          "v30": 8219178.0,
+          "annual_usd": 100000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "South Africa",
+          "iso": "ZAF",
+          "dep": 0.013,
+          "v30": 4849315.0,
+          "annual_usd": 59000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ]
+    },
+    "danish_straits": {
+      "coal": [
+        {
+          "country": "Morocco",
+          "iso": "MAR",
+          "dep": 0.46,
+          "v30": 78657534.0,
+          "annual_usd": 957000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "refined": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.395,
+          "v30": 602054795.0,
+          "annual_usd": 7325000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Jamaica",
+          "iso": "JAM",
+          "dep": 0.012,
+          "v30": 1150685.0,
+          "annual_usd": 14000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "lng": [
+        {
+          "country": "Lithuania",
+          "iso": "LTU",
+          "dep": 0.972,
+          "v30": 354986301.0,
+          "annual_usd": 4319000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Finland",
+          "iso": "FIN",
+          "dep": 0.596,
+          "v30": 9205479.0,
+          "annual_usd": 112000000.0,
+          "tier": "T1",
+          "tier_label": "Reported",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "fertiliser": [
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.046,
+          "v30": 3698630.0,
+          "annual_usd": 45000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ],
+      "vehicles": [
+        {
+          "country": "T\u00fcrkiye",
+          "iso": "TUR",
+          "dep": 0.019,
+          "v30": 12657534.0,
+          "annual_usd": 154000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
+          "country": "Belgium",
+          "iso": "BEL",
+          "dep": 0.007,
+          "v30": 12000000.0,
+          "annual_usd": 146000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        }
+      ]
+    }
+  }
+}

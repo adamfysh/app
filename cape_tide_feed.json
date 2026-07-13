@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "generated_at": "2026-07-13T13:11:32.608042+00:00",
+    "source_file": "product2_accumulation.json",
+    "source_model_version": "product2_v1.0",
+    "notes": [
+      "All USD values in $B.",
+      "pml uses the war_risk severity scenario (15% of horizon-accumulated cargo value).",
+      "cascadeRoute descriptive text is not in this feed -- CAPE.html keeps a static narrative map for that, since it's route commentary, not a modeled number."
+    ],
+    "warnings": []
+  },
+  "corridors": {
+    "hormuz": {
+      "baseline": 12.5,
+      "peak": 15.32,
+      "horizon": 18.37,
+      "cascade": 19.86,
+      "pml": 2.04,
+      "peakMonth": "Jan",
+      "cascadeRatio": 1.3,
+      "vesselsPeak": 241
+    },
+    "bab_el_mandeb": {
+      "baseline": 3.51,
+      "peak": 4.68,
+      "horizon": 5.37,
+      "cascade": 8.55,
+      "pml": 0.62,
+      "peakMonth": "Jan",
+      "cascadeRatio": 1.83,
+      "vesselsPeak": 111
+    },
+    "malacca": {
+      "baseline": 13.58,
+      "peak": 16.98,
+      "horizon": 21.48,
+      "cascade": 21.02,
+      "pml": 2.42,
+      "peakMonth": "Jan",
+      "cascadeRatio": 1.24,
+      "vesselsPeak": 276
+    },
+    "panama": {
+      "baseline": 8.34,
+      "peak": 10.21,
+      "horizon": 10.83,
+      "cascade": 21.92,
+      "pml": 1.2,
+      "peakMonth": "Jan",
+      "cascadeRatio": 2.15,
+      "vesselsPeak": 1317
+    },
+    "suez": {
+      "baseline": 3.42,
+      "peak": 4.57,
+      "horizon": 5.23,
+      "cascade": 8.29,
+      "pml": 0.61,
+      "peakMonth": "Jan",
+      "cascadeRatio": 1.82,
+      "vesselsPeak": 109
+    },
+    "lombok": {
+      "baseline": 21.41,
+      "peak": 24.94,
+      "horizon": 27.25,
+      "cascade": 26.94,
+      "pml": 2.6,
+      "peakMonth": "Jun",
+      "cascadeRatio": 1.08,
+      "vesselsPeak": 2207
+    },
+    "bosphorus": {
+      "baseline": 1.36,
+      "peak": 1.62,
+      "horizon": 2.14,
+      "cascade": 2.4,
+      "pml": 0.22,
+      "peakMonth": "Jul",
+      "cascadeRatio": 1.48,
+      "vesselsPeak": 99
+    },
+    "danish_straits": {
+      "baseline": 0.51,
+      "peak": 0.63,
+      "horizon": 0.84,
+      "cascade": 0.86,
+      "pml": 0.1,
+      "peakMonth": "Jan",
+      "cascadeRatio": 1.36,
+      "vesselsPeak": 13
+    }
+  }
+}
