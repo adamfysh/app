@@ -1161,12 +1161,15 @@ function runSim() {
     'Voyage estimates derived from annual AIS traffic baselines scaled to daily averages — structural simulation, not a live vessel count. In-window = (annual transits ÷ 365) × min(duration, 20d avg voyage) × severity %. Overrun = (bunker + charter) × detour days. Cargo uses representative loaded values per vessel class.';
 
   /* ---- methodology note ---- */
-  document.getElementById('methodology-note').textContent =
+  document.getElementById('methodology-note').innerHTML =
     `Source: UN Comtrade ${SIM_DATA.model_year} bilateral data. ${SIM_DATA.coverage_note} ` +
     `Data quality: Reported = direct bilateral trade pairs; Corroborated = derived from exporter-side statistics; Estimated = national totals allocated by chokepoint routing logic. ` +
     `Dependency % = share of that commodity's total imports exposed to the chokepoint (commodity-specific denominator from UN Comtrade bilateral pairs). ` +
     `${Object.keys(SIM_DATA.chokepoints).length} chokepoints active, ${Object.keys(CFG.chokepoints).length} defined. ` +
-    `◦ in chokepoint list = no bilateral data yet. narrows.io`;
+    `◦ in chokepoint list = no bilateral data yet. ` +
+    `Full tier definitions, coverage volumes, and dated correction history: ` +
+    `<a href="https://narrows.io/data-verification-policy" style="color:inherit;text-decoration:underline;">data verification policy</a> · ` +
+    `<a href="https://narrows.io/data-changelog" style="color:inherit;text-decoration:underline;">data changelog</a>.`;
 
   /* ---- store for CSV export ---- */
   lastSimState = {
