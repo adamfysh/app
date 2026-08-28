@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-21",
+  "generated": "2026-08-27",
   "model_year": 2024,
   "build_version": "cdm_v3",
-  "data_basis": "Multi-vintage blend, built 2026-08-21 (rebuild_cdm_v3.py). 2022 UN Comtrade authenticated bilateral pull is the floor (broadest country coverage, ~57 importers incl. UAE/South Africa/Vietnam and ~20 others absent from the 2024 pull). 2024 UN Comtrade authenticated bilateral pull, plus real primary-source overlays (Eurostat NRG_TI_OIL for 11 EU crude importers, UK DESNZ ET 3.14, US EIA PET_IMPORTS), override the 2022 figure wherever a newer bilateral figure exists for the same importer+exporter+commodity pair. Every row in this file carries its own source_id/source_label/data_year; see CDM-DATA-VINTAGE.md for the full writeup, including the known China crude country-of-origin attribution caveat.",
+  "data_basis": "Multi-vintage blend, built 2026-08-27 (rebuild_cdm_v3.py). 2022 UN Comtrade authenticated bilateral pull is the floor (broadest country coverage, ~57 importers incl. UAE/South Africa/Vietnam and ~20 others absent from the 2024 pull). 2024 UN Comtrade authenticated bilateral pull, plus real primary-source overlays (Eurostat NRG_TI_OIL for 11 EU crude importers, UK DESNZ ET 3.14, US EIA PET_IMPORTS), override the 2022 figure wherever a newer bilateral figure exists for the same importer+exporter+commodity pair. Every row in this file carries its own source_id/source_label/data_year; see CDM-DATA-VINTAGE.md for the full writeup, including the known China crude country-of-origin attribution caveat.",
   "coverage_note": "90 importing nations, 14 chokepoints, 17 commodities. CDM v2: Capesize iron ore/coal rerouted via Cape of Good Hope (LOMBOK). OMN LNG Hormuz transit removed. West Africa corridor split Atlantic vs Mediterranean.",
   "data_tiers": {
     "1": "Reported",
