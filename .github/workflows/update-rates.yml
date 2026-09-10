@@ -1,7 +1,7 @@
 # update-rates.yml
 # Fetches Brent crude (BZ=F) and Baltic Dry Index (^BDI) from Yahoo Finance daily,
 # estimates vessel day rates using calibrated regression coefficients, and commits
-# updated narrows_config.json and NARROWS-RATES.js to the repo.
+# updated narrows_config.json and NARROWS-RATES.js to this repo (app/).
 #
 # Coefficients (last calibrated May 2026 against Baltic Exchange / broker data):
 #   VLCC bunker/day   ≈ 0.85 × Brent × 165 + 6000   (165 mt/day VLSFO consumption)
@@ -15,6 +15,20 @@
 #
 # All outputs are clamped to plausible floor/ceiling values to prevent
 # nonsense figures during data outages or extreme market moves.
+#
+# Fix-124 (2026-09-11, Harmonization Register item 2/5, decided by Fysh: "The
+# rates should feed the model. CDM/CAPE/CASCADE, etc."): this used to commit
+# only to app/. 0526/public/NARROWS-RATES.js was a separate, hand-maintained
+# copy that nobody was re-syncing — it was found 2.5 months stale (last
+# updated 28 June) while this file updated daily. Added a second checkout +
+# commit at the end of this job to push the same generated files into 0526's
+# public/ folder too, so app/ (gated CDM/CAPE) and 0526 (public site,
+# including CASCADE once it's wired to real rates) are never running on
+# different numbers again. Requires a fine-grained PAT scoped to
+# contents:read/write on adamfysh/0526 only, stored as the NARROWS_0526_PAT
+# secret in this repo's settings (Fysh created this 2026-09-11) — the
+# default GITHUB_TOKEN a workflow gets can only push to the repo it runs in,
+# not a second one.
 
 name: Update vessel rates
 
@@ -73,5 +87,46 @@ jobs:
           else
             DATE=$(date -u +"%Y-%m-%d")
             git commit -m "rates: auto-update ${DATE} (Brent/BDI)"
+            git push
+          fi
+
+      # Fix-124: mirror the same generated files into 0526/public/, which has
+      # its own separate copy that nothing was previously keeping in sync.
+      # Runs every time (not only when app/'s own commit above fired) so a
+      # 0526 copy that's drifted for any other reason self-heals too.
+      - name: Checkout 0526 (cross-repo sync target)
+        if: always()
+        uses: actions/checkout@v4
+        with:
+          repository: adamfysh/0526
+          token: ${{ secrets.NARROWS_0526_PAT }}
+          path: 0526-repo
+
+      - name: Sync rates into 0526/public
+        run: |
+          cp narrows_config.json NARROWS-RATES.js 0526-repo/public/
+
+      - name: Validate 0526 copy
+        working-directory: 0526-repo
+        run: |
+          node --check public/NARROWS-RATES.js
+          python3 -m json.tool public/narrows_config.json > /dev/null
+          if grep -qE '^(<{7}|={7}|>{7})' public/NARROWS-RATES.js public/narrows_config.json; then
+            echo "::error::Unresolved merge conflict markers found in 0526's copy — refusing to commit."
+            exit 1
+          fi
+          echo "Validation passed for 0526/public copy."
+
+      - name: Commit to 0526 if changed
+        working-directory: 0526-repo
+        run: |
+          git config user.name  "narrows-rates-bot"
+          git config user.email "bot@narrows.io"
+          git add public/narrows_config.json public/NARROWS-RATES.js
+          if git diff --cached --quiet; then
+            echo "No rate changes for 0526 — skipping commit"
+          else
+            DATE=$(date -u +"%Y-%m-%d")
+            git commit -m "rates: sync from app ${DATE} (Brent/BDI)"
             git push
           fi
