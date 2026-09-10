@@ -7,11 +7,24 @@
  * Author:      Fysh, fysh@narrows.io
  *
  * Update protocol:
- *   - vesselRates: update in sync with narrows_config.json when Baltic Exchange / broker
- *     quotes shift materially (>10%). Increment version and last_updated.
- *   - corridorWeights: derived from AIS annual transit analysis. Review quarterly.
- *   - capeDefaults: only change if the baseline market reference period changes.
- *   - Never auto-generate this file. Human review required for every edit.
+ *   - Fix-120 (2026-09-10): this "never auto-generate" line used to contradict
+ *     reality -- the update-rates.yml GitHub Action has auto-committed vesselRates,
+ *     version, last_updated and source to THIS file, unattended, every day since
+ *     it was built. Corrected below to describe what actually happens.
+ *   - vesselRates, version, last_updated, source: auto-updated daily by
+ *     update-rates.yml (fetch_rates.py), which pulls Brent crude (BZ=F) and the
+ *     Baltic Dry Index (^BDI) from Yahoo Finance and commits the result with no
+ *     human in the loop. It fails the Action loudly (triggering GitHub's
+ *     workflow-failure notification) rather than silently going stale if a
+ *     ticker fetch fails -- see fetch_rates.py's Fix-1 comment. A `source`
+ *     string ending "[DEGRADED]" means one or both tickers failed that run and
+ *     the affected rates held their prior value rather than refreshing --
+ *     currently true here: BDI has been failing since at least 2026-09-09, see
+ *     the Harmonization Register for the open diagnosis.
+ *   - corridorWeights: derived from AIS annual transit analysis. Reviewed
+ *     quarterly, by hand -- the bot never touches this block.
+ *   - capeDefaults: only changed if the baseline market reference period
+ *     changes, by hand -- the bot never touches this block either.
  *   - This file must load synchronously before any dependent script block.
  *
  * Relationship to narrows_config.json:
@@ -35,10 +48,12 @@ window.NARROWS_RATES = Object.freeze({
   // fallback before narrows_config.json resolves.
   // Authoritative source at runtime: narrows_config.json vesselRates.
   // ---------------------------------------------------------------------------
-  // Synced to narrows_config.json (authoritative) 2026-06-28.
-  // June 2 auto-update had BDI n/a which caused systematically understated bunker costs.
-  // Suezmax / LPG / Neopanamax bunker costs also corrected proportionally; charter unchanged.
-  // Human review still required before next CAPE deployment.
+  // Auto-updated daily by update-rates.yml -- see the Update protocol note
+  // above. Historical note, resolved: the 2026-06-02 auto-update had BDI n/a,
+  // which caused systematically understated bunker costs; corrected 2026-06-28
+  // and the bot's Fix-1 safeguard now fails loudly instead of repeating that
+  // silently. Current run is [DEGRADED] again (see `source` above) -- a live,
+  // separate incident, not this historical one.
   vesselRates: Object.freeze({
     VLCC:       Object.freeze({ bunkerPerDay: 30000, charterPerDay: 90569, cargoValueM: 120 }),
     Aframax:    Object.freeze({ bunkerPerDay: 15000, charterPerDay: 35214, cargoValueM: 65 }),
