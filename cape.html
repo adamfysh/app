@@ -933,7 +933,7 @@ const CORR = {
   suez:          { label:'Suez Canal',              short:'Suez',          type:'through',  region:'Red Sea / Mediterranean',          tier:'T3', jwc:false, desc:'Canal-specific risk distinct from BAM. A Suez grounding (Ever Given type) or political closure affects the canal itself rather than the BAM southern approach.' },
   lombok:        { label:'Lombok Strait',           short:'Lombok',        type:'through',  region:'Indonesia / Indian Ocean',         tier:'T3', jwc:false, desc:'Primary deep-water alternative to Malacca for VLCCs and wide-beam vessels unable to transit Malacca at full draught. Not a JWC Listed Area.' },
   bosphorus:     { label:'Bosphorus / Turkish Straits', short:'Bosphorus', type:'terminal', region:'Black Sea / Mediterranean',       tier:'T3', jwc:false, desc:'Only exit from the Black Sea for commercial shipping. Governed by the Montreux Convention. Closure risk in conflict scenarios involving Black Sea states.' },
-  danish_straits:{ label:'Danish Straits',          short:'Danish Straits',type:'through',  region:'Baltic Sea / North Sea',          tier:'T3', jwc:false, desc:'Sole commercial exit from the Baltic Sea. Risk is geopolitical (Baltic energy security) and environmental: winter ice and bridge air-draft constraints (Storebaelt Bridge: 65m clearance).' }
+  danish_straits:{ label:'Danish Straits',          short:'Danish Straits',type:'terminal', region:'Baltic Sea / North Sea',          tier:'T3', jwc:false, desc:'Sole commercial exit from the Baltic Sea. Risk is geopolitical (Baltic energy security) and environmental: winter ice and bridge air-draft constraints (Storebaelt Bridge: 65m clearance).' }
 };
 
 function sevMult(pct){ return (pct/100) * A.wr; }
@@ -1209,7 +1209,7 @@ function getSig(cid) {
 
 function sigPlainText(sig, corrLabel) {
   if (!sig) return null;
-  const lvl = sig.level||'L1';
+  const lvl = sig.threshold_level||'L1';
   if (lvl==='L4') return { cls:'alert',   icon:'⚠', title:corrLabel+': active corridor alert', body:'Two or more elevated risk signals are active on this corridor and a linked corridor simultaneously. This state requires a formal review before CAPE output is used in client-facing work.' };
   if (lvl==='L3') return { cls:'elevated', icon:'↑', title:corrLabel+': risk elevated',         body:'An actionable signal has been detected on this corridor. Review recommended before next use. The scenario bar above may not reflect current conditions.' };
   if (lvl==='L2') return { cls:'elevated', icon:'·', title:corrLabel+': signal flagged',        body:'A notable signal has been detected. Flagged for weekly review. No immediate action required, but monitor for escalation.' };
@@ -1224,7 +1224,7 @@ function renderHeader() {
   const c = CORR[S.corridor];
   let pill = '';
   if (sig) {
-    const lvl = sig.level||'L1';
+    const lvl = sig.threshold_level||'L1';
     if (lvl==='L4') pill = `<span class="alert-pill pill-alert"><span class="dot"></span>Active alert</span>`;
     else if (lvl==='L3'||lvl==='L2') pill = `<span class="alert-pill pill-elevated"><span class="dot"></span>${c.short}: elevated</span>`;
   }
@@ -1520,7 +1520,7 @@ function renderP3() {
   const adjTotal=res.reduce((s,r)=>s+r.var*(MULT[r.v.cii]||1),0);
 
   const tipDE=`<span class="tip">?<span class="tip-body">D and E-rated vessels cannot voluntarily divert on through-routes. Additional voyage days worsen their CII rating further, risking mandatory flag-state corrective action and operational restrictions. They are effectively captive even where a diversion route exists.</span></span>`;
-  const tipCaptive=`<span class="tip">?<span class="tip-body">Terminal straits (Hormuz, Bosphorus) have no physical diversion route. All vessels are captive regardless of CII rating. The CII multiplier does not apply here.</span></span>`;
+  const tipCaptive=`<span class="tip">?<span class="tip-body">Terminal straits (Hormuz, Bosphorus, Danish Straits) have no physical diversion route. All vessels are captive regardless of CII rating. The CII multiplier does not apply here.</span></span>`;
 
   const rows=res.sort((a,b)=>b.var-a.var).map(r=>{
     const m=MULT[r.v.cii]||1; const adj=r.var*m; const delta=adj-r.var;
@@ -1922,15 +1922,24 @@ function dlTxt(){
    TIDE — Accumulation data
 ═══════════════════════════════ */
 const TIDE_DATA_FALLBACK = {
-  hormuz:       {baseline:25.7,peak:30.5,horizon:36.5,cascade:40.0,pml:3.97,peakMonth:'Jan',cascadeRatio:1.31,cascadeRoute:'Cape of Good Hope routes spike 31% during closure'},
-  bab_el_mandeb:{baseline:8.0, peak:9.8, horizon:11.1,cascade:16.8,pml:1.24,peakMonth:'Jan',cascadeRatio:1.71,cascadeRoute:'Cape of Good Hope accumulation spikes 71% — correlated exposure for Cape war risk writers'},
-  malacca:      {baseline:20.6,peak:24.5,horizon:30.7,cascade:30.6,pml:3.35,peakMonth:'Jan',cascadeRatio:1.19,cascadeRoute:'Lombok and Sunda strait traffic increases'},
-  suez:         {baseline:8.0, peak:9.8, horizon:11.1,cascade:16.8,pml:1.24,peakMonth:'Jan',cascadeRatio:1.71,cascadeRoute:'Cape of Good Hope accumulation spikes 71% — correlated exposure for Cape war risk writers'},
-  panama:       {baseline:8.4, peak:10.4,horizon:11.1,cascade:23.5,pml:1.24,peakMonth:'Aug',cascadeRatio:2.12,cascadeRoute:'Cape Horn and Suez westbound accumulation spikes sharply'},
-  lombok:       {baseline:18.5,peak:21.7,horizon:24.5,cascade:24.1,pml:2.45,peakMonth:'Jul',cascadeRatio:1.17,cascadeRoute:'Malacca and Sunda traffic redistributes'},
-  bosphorus:    {baseline:3.2, peak:3.8, horizon:5.1, cascade:3.9, pml:0.55,peakMonth:'Jul',cascadeRatio:null,cascadeRoute:null},
-  danish_straits:{baseline:0,  peak:0,   horizon:0,   cascade:0,   pml:0,   peakMonth:'--',cascadeRatio:null,cascadeRoute:'No alternative route — no cascade effect'}
+  hormuz:        {baseline:21.83,peak:25.63,horizon:31.22,cascade:25.63,pml:3.38,peakMonth:'Jul',cascadeRatio:1.0, cascadeRoute:null},
+  bab_el_mandeb: {baseline:10.72,peak:12.74,horizon:14.74,cascade:23.58,pml:1.64,peakMonth:'Jul',cascadeRatio:1.85,cascadeRoute:'Cape of Good Hope accumulation spikes — correlated exposure for Cape war risk writers'},
+  malacca:       {baseline:25.22,peak:29.86,horizon:38.23,cascade:39.56,pml:4.19,peakMonth:'Jan',cascadeRatio:1.32,cascadeRoute:'Lombok and Sunda strait traffic increases'},
+  suez:          {baseline:10.80,peak:12.83,horizon:14.81,cascade:23.53,pml:1.65,peakMonth:'Jul',cascadeRatio:1.83,cascadeRoute:'Cape of Good Hope accumulation spikes — correlated exposure for Cape war risk writers'},
+  panama:        {baseline:27.29,peak:31.88,horizon:33.85,cascade:69.43,pml:3.94,peakMonth:'Jul',cascadeRatio:2.18,cascadeRoute:'Cape Horn and Suez westbound accumulation spikes sharply'},
+  lombok:        {baseline:30.30,peak:35.55,horizon:38.80,cascade:38.36,pml:3.77,peakMonth:'Jun',cascadeRatio:1.08,cascadeRoute:'Malacca and Sunda traffic redistributes'},
+  bosphorus:     {baseline:5.90, peak:6.88, horizon:8.43, cascade:6.88, pml:0.90,peakMonth:'Jul',cascadeRatio:1.0, cascadeRoute:null},
+  danish_straits:{baseline:3.07, peak:3.56, horizon:4.62, cascade:3.56, pml:0.53,peakMonth:'Jul',cascadeRatio:1.0, cascadeRoute:'No alternative route — no cascade effect'}
 };
+// Fix-116 (2026-09-10): synced to the live cape_tide_feed.json as of the
+// Fix-115 pipeline proof run. This is demo-only data (used solely when the
+// live feed fetch below fails) -- refresh it whenever the pipeline's
+// headline numbers move meaningfully, so an offline/blocked-network demo
+// never shows a materially wrong figure. cascadeRoute text intentionally
+// carries no embedded percentages now (see TIDE_ROUTE_NOTES below for the
+// live-feed equivalent) -- the old "spike 31%"/"spikes 71%" wording had
+// quietly baked in the pre-NO_REROUTE-fix cascadeRatio values and gone
+// stale right alongside them.
 
 function fTIDE(b){
   if(b===0)return 'n/a';
