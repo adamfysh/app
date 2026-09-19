@@ -873,6 +873,12 @@
 <!-- Optional: load signal state -->
 <script src="NARROWS-SIGNALS.js" onerror="window._noSig=true"></script>
 <script src="NARROWS-RATES.js"></script>
+<!-- Optional: shared port-risk table (decision D30). Same byte-identical-twin
+     pattern as NARROWS-RATES.js/NARROWS-SIGNALS.js above — app/ and
+     0526/public/ are separate repos, this file is copy-pasted to both and
+     kept in sync by hand, not loaded cross-origin. Soft-fail like SIGNALS:
+     CAPE's own PORT_RISK_FALLBACK below covers a failed/missing load. -->
+<script src="NARROWS-CORRIDORS.js" onerror="window._noCorridors=true"></script>
 
 <script>
 /* ═══════════════════════════════
@@ -1045,8 +1051,18 @@ async function loadCorridorFeed() {
 /* ═══════════════════════════════
    PORT RISK INDEX
    PRI scores /10. Source: Narrows PRI model (illustrative).
+
+   D30 (2026-09-19): now reads live from NARROWS-CORRIDORS.js
+   (window.NARROWS_CORRIDORS.PORT_RISK) — the shared file CASCADE+ already
+   reads this exact table from (it was ported FROM this table originally,
+   so this IS the canonical source; CASCADE+'s copy and this one are meant
+   to be identical). PORT_RISK_FALLBACK below is used only if that file
+   fails to load — same soft-fail posture CAPE already uses for
+   NARROWS-SIGNALS.js, not the hard-fail CASCADE+ uses for this same file.
+   Edit port risk data in NARROWS-CORRIDORS.js; update the fallback below
+   too so a failed load doesn't silently show stale numbers.
 ═══════════════════════════════ */
-const PORT_RISK = {
+const PORT_RISK_FALLBACK = {
   'Djibouti':    { pri:5.8, jwc:true,  note:'Gulf of Aden approach. Primary bunker stop for Cape-diverting vessels. JWC Listed Area (Gulf of Aden / Yemen coast).' },
   'Aden':        { pri:7.9, jwc:true,  note:'JWC Listed Area. Yemen coast. High political violence risk.' },
   'Hudaydah':    { pri:8.4, jwc:true,  note:'Houthi-controlled port. Active conflict zone.' },
@@ -1069,6 +1085,7 @@ const PORT_RISK = {
   'Novorossiysk':{ pri:5.9, jwc:true,  note:'Russia. Black Sea. Sanctions exposure.' },
   'Salalah':     { pri:3.2, jwc:true,  note:'Oman. Gulf of Aden adjacency. Elevated given Houthi range.' },
 };
+const PORT_RISK = (window.NARROWS_CORRIDORS && window.NARROWS_CORRIDORS.PORT_RISK) || PORT_RISK_FALLBACK;
 function priRisk(score){ return score>=6?'high':score>=3?'med':'low'; }
 function priChip(portName){
   const p=PORT_RISK[portName]; if(!p) return `<span class="port-risk low">${portName}</span>`;
