@@ -917,7 +917,7 @@ const A = window.A; // shorthand ref used throughout
 let customVessels = [];
 
 function activeVessels() {
-  return S.mode === 'custom' && customVessels.length > 0 ? customVessels : VESSELS;
+  return S.mode === 'custom' ? customVessels : VESSELS;
 }
 
 // Diversion cost: per-class (bunker + charter) $/day × detour days × opex multiplier
