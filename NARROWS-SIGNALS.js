@@ -25,6 +25,16 @@
  * (JWC/ACLED qualitative state, ENSO, hurricane outlook, Panama transit figures)
  * reflects real, dated, sourced events as of 2026-09-09. Recommend a human
  * sanity-check of the L4 upgrades below before relying on them in a live pitch.
+ *
+ * 2026-09-28 review: authorized directly by Fysh after the automated freshness
+ * check (check-cdm-freshness.yml) flagged next_review_due as 17 days overdue.
+ * Scoped to Bab-el-Mandeb only, triggered by a real, dated event: Houthi forces
+ * seized Perim (Mayyun) Island on 2026-09-12, splitting the strait, having
+ * already seized Zuqar and besieged the Hanish islands. Day-over-day crossings
+ * fell from roughly 30 to roughly 15 (-50%) in the 24 hours after the seizure,
+ * on top of the 22% decline already reflected in the 2026-09-09 review. Sourced
+ * inline below (Euronews, The National). Hormuz, Malacca, and Panama were not
+ * re-reviewed this cycle -- no new sourced event affecting them since 2026-09-09.
  */
 
 'use strict';
@@ -277,8 +287,8 @@ const PREDICTION_MARKETS = {
       delta_level: 'L1',
       threshold_level: 'L3',
       repull_needed: true,
-      last_reviewed: '2026-09-09',
-      note: 'blend_p not re-pulled, but directionally confirmed: Houthis claimed a strike on a Saudi tanker Jul 23 2026 and killed several seafarers in a missile strike on the cargo ship Tihamah off Yemen Aug 12 2026 (IMO Secretary-General called it "an indefensible attack on international shipping"). The campaign has sustained through Q3 2026 as this market question posited. Source: UN News, Aug 2026, https://news.un.org/en/story/2026/08/1168121'
+      last_reviewed: '2026-09-28',
+      note: 'blend_p not re-pulled, but directionally confirmed, now more strongly than at the last review: Houthis claimed a strike on a Saudi tanker Jul 23 2026 and killed several seafarers in a missile strike on the cargo ship Tihamah off Yemen Aug 12 2026 (IMO Secretary-General called it "an indefensible attack on international shipping"). The campaign has sustained through Q3 2026 as this market question posited, and on 2026-09-12 escalated further: Houthi forces seized Perim Island, splitting the strait, cutting day-over-day crossings roughly 50%. Sources: UN News, Aug 2026, https://news.un.org/en/story/2026/08/1168121; Euronews and The National, both 2026-09-12.'
     },
 
     iran_hormuz_escalation: {
@@ -440,37 +450,45 @@ const CORRIDOR_SIGNALS = {
     },
 
     acled: {
-      // UPGRADED 2026-09-09 from ELEVATED to HIGH by documented events, not a fresh ACLED pull: Houthis
-      // claimed a strike on a Saudi tanker 2026-07-23 and killed several seafarers in a missile strike
-      // on the cargo ship Tihamah off Yemen's coast 2026-08-12 (IMO Secretary-General: "an indefensible
-      // attack on international shipping"). Carried as an analytical policy override, tier T3.
-      temperature: 'HIGH',
+      // UPGRADED 2026-09-28 from HIGH to CRITICAL by documented events, not a fresh ACLED pull: Houthi
+      // forces seized Perim (Mayyun) Island on 2026-09-12, splitting the strait itself, having already
+      // seized Zuqar and besieged the Hanish islands. A Houthi military spokesman stated navigation is
+      // "safe for all companies except Saudi ships, which have already been banned." Day-over-day traffic
+      // fell from roughly 30 to roughly 15 crossings (-50%) in the 24 hours following the seizure, on top
+      // of the 22% decline already reflected in the 2026-09-09 review (47.8 -> 37.2 vessels/day after the
+      // 20 July blockade declaration). This is a materially different signal from the prior HIGH override
+      // (attacks on individual vessels): a hostile non-state actor now holds physical territory dividing
+      // the strait. Carried as an analytical policy override, tier T3, pending a real ACLED pull -- same
+      // basis as the Hormuz CRITICAL override.
+      temperature: 'CRITICAL',
       incidents_l90d: null,      // not independently re-counted this review -- see override note above
       baseline_l12m_avg: 8.0,    // T3, carried from May pull
       baseline_sd: 3.5,
       sigma_above: null,         // not recomputed this review; qualitative override applied instead
-      uplift: 0.20,
-      uplift_note: 'ACLED HIGH band (0.20) now ties JWC (0.20); either basis yields the same event_uplift.',
+      uplift: 0.30,
+      uplift_note: 'ACLED CRITICAL override (0.30) now exceeds JWC uplift (0.20). ACLED applied, reversing the September 9 state where ACLED HIGH (0.20) tied JWC.',
       bounding_box: '10N to 22N, 40E to 52E',
-      last_updated: '2026-09-09',
+      last_updated: '2026-09-28',
       tier: 'T3',
       sources: [
+        'Euronews, "Houthis seize key Yemeni island in Bab el-Mandeb, taking control of the strait" (2026-09-12)',
+        'The National, "Ship traffic in Bab Al Mandeb strait halves as Houthis seize control of key island" (2026-09-12)',
         'UN News, Aug 2026, https://news.un.org/en/story/2026/08/1168121 (Tihamah attack, 2026-08-12)',
         'Reported Houthi claim of a strike on a Saudi tanker, 2026-07-23'
       ]
     },
 
-    event_uplift: 0.20,   // JWC and ACLED HIGH now agree at 0.20
+    event_uplift: 0.30,   // UPGRADED 2026-09-28: ACLED CRITICAL override now exceeds JWC (see acled.uplift_note above)
     seasonal_uplift: 0.10, // CORRECTED 2026-09-09: the May file left this at 0.00 with a June-1 "upcoming"
                             // trigger that has since passed. It is now September -- per SEASONAL_TABLE.bab_el_mandeb,
                             // month 8 (Sep) is SW monsoon withdrawal, uplift 0.10. This was simply stale, not re-researched.
-    total_uplift: 0.30,
+    total_uplift: 0.40,
 
     upcoming_change: {
       date: '2026-10-01',
-      description: 'Post-monsoon transition. Per SEASONAL_TABLE, seasonal uplift drops to 0.00 in October, reducing total modifier to 0.20 (assuming event_uplift is unchanged by then).',
+      description: 'Post-monsoon transition. Per SEASONAL_TABLE, seasonal uplift drops to 0.00 in October, reducing total modifier to 0.30 (assuming event_uplift stays at the 2026-09-28 CRITICAL override level by then).',
       new_seasonal_uplift: 0.00,
-      new_total_uplift: 0.20
+      new_total_uplift: 0.30
     },
 
     prediction_p: 0.69,   // STALE, not re-pulled -- but directionally corroborated, see PREDICTION_MARKETS.signals.houthi_sustained_escalation
@@ -479,13 +497,14 @@ const CORRIDOR_SIGNALS = {
     threshold_level: 'L4',
     threshold_drivers: [
       'jwc_active',
-      'acled_high',
+      'acled_critical',
+      'territorial_seizure_confirmed_perim_island',
       'multi_corridor_compound_with_hormuz'
     ],
 
-    last_reviewed: '2026-09-09',
-    reviewer: 'Fysh (update authorized 2026-09-09; researched/drafted by Claude against the sources cited above)',
-    reviewer_note: 'L4 compound alert active jointly with Hormuz, and if anything more firmly grounded than the May review gave it credit for: the Houthi campaign has not just "continued at reduced frequency," it has produced confirmed fatal attacks as recently as 2026-08-12 (Tihamah) and a claimed tanker strike 2026-07-23, against the backdrop of the broader Iran-Israel-US war that began 2026-02-28. The May reviewer_note about MV Atlantic Bridge rerouting Cape of Good Hope was not re-verified this cycle (illustrative fleet notes were separately audited and found correct in the Aug 2026 harmonization pass) and is carried forward unchanged. Seasonal uplift corrected from a stale 0.00 to the current-month 0.10 (SW monsoon withdrawal); see upcoming_change for the October step-down.'
+    last_reviewed: '2026-09-28',
+    reviewer: 'Fysh (update authorized 2026-09-28; researched/drafted by Claude against the sources cited above -- recommend a human sanity-check of the CRITICAL override before external use)',
+    reviewer_note: 'L4 compound alert active jointly with Hormuz, and materially more firmly grounded than the 2026-09-09 review gave it credit for: on 2026-09-12, Houthi forces seized Perim (Mayyun) Island, the island that physically divides the strait, having already seized Zuqar and besieged the Hanish islands. A Houthi military spokesman stated navigation is safe for all companies "except Saudi ships, which have already been banned." Day-over-day crossings fell roughly 50% (about 30 to about 15) in the 24 hours after the seizure, on top of the 22% decline already reflected here from the 20 July blockade declaration. This is a qualitatively different signal from the fatal-attack basis of the prior HIGH override (2026-08-12 Tihamah, 2026-07-23 tanker strike): a hostile non-state actor now holds physical territory inside the corridor itself, which is why ACLED was upgraded to CRITICAL rather than left at HIGH. The 2026-09-09 reviewer_note about MV Atlantic Bridge rerouting Cape of Good Hope was not re-verified this cycle and is carried forward unchanged. See upcoming_change for the October seasonal step-down, now recalculated against the new CRITICAL-level event_uplift.'
   },
 
   malacca: {
@@ -626,14 +645,14 @@ const COMPOUND_STATE = {
   active: true,
   corridors: ['hormuz', 'bab_el_mandeb'],
 
-  description: 'Hormuz and Bab-el-Mandeb are simultaneously carrying active JWC designations and, as of the 2026-09-09 review, ACLED-override temperatures of CRITICAL and HIGH respectively (see each corridor for sourcing). Both corridors are driven by overlapping Iran-Houthi geopolitical dynamics, which since the May review have escalated from elevated tension into an actual, ongoing US/Israel-Iran war (began 2026-02-28) with a repeatedly-violated ceasefire and sustained Houthi attacks on shipping (fatal strike as recently as 2026-08-12). This remains the highest-risk multi-corridor environment in the current analysis period, and is now grounded in observed events rather than tension indicators alone.',
+  description: 'Hormuz and Bab-el-Mandeb are simultaneously carrying active JWC designations and, as of the 2026-09-28 review, ACLED-override temperatures of CRITICAL and CRITICAL respectively (see each corridor for sourcing; Bab-el-Mandeb upgraded from HIGH on 2026-09-28 after Houthi forces seized Perim Island on 2026-09-12, splitting the strait). Both corridors are driven by overlapping Iran-Houthi geopolitical dynamics, which since the May review have escalated from elevated tension into an actual, ongoing US/Israel-Iran war (began 2026-02-28) with a repeatedly-violated ceasefire and sustained Houthi attacks on shipping and, now, direct territorial control of part of the Bab-el-Mandeb strait. This remains the highest-risk multi-corridor environment in the current analysis period, and is now grounded in observed events rather than tension indicators alone.',
 
   correlation_note: 'The two corridors are not independent. Iran directly controls Hormuz and materially supports Houthi operations in the Red Sea. An Iran-driven escalation event has meaningful probability of affecting both corridors simultaneously. Single-corridor analysis will understate aggregate portfolio exposure for vessels with exposure to either or both corridors. Confirmed by this review: Panama\'s L4 status (drought/ENSO-driven) is causally unrelated to this Hormuz/Bab-el-Mandeb pair and correctly remains outside this compound state -- consistent with the bilateral pair audit finding that Hormuz+Bab-el-Mandeb is the one genuinely-linked pair in the current corridor set.',
 
   cape_display_rule: 'When Hormuz or Bab-el-Mandeb are in scope (either selected individually or via All Corridors), CAPE must display the following note: "Compound corridor alert active. Hormuz and Bab-el-Mandeb signals are correlated. Multi-corridor accumulation exposure may exceed single-corridor analysis. Compound alert level: L4."',
 
-  last_reviewed: '2026-09-09',
-  reviewer: 'Fysh (update authorized 2026-09-09; researched/drafted by Claude)'
+  last_reviewed: '2026-09-28',
+  reviewer: 'Fysh (update authorized 2026-09-28; researched/drafted by Claude, scoped to the Bab-el-Mandeb ACLED upgrade only)'
 };
 
 // =============================================================================
@@ -724,8 +743,8 @@ function getUpcomingChange(corridorId) {
 const SIGNALS_METADATA = {
   version: '1.1',
   created: '2026-05-26',
-  last_updated: '2026-09-09',
-  next_review_due: '2026-09-11',  // day of the NATO call this update was made for; recommend weekly cadence after that given current volatility
+  last_updated: '2026-09-28',
+  next_review_due: '2026-10-05',  // one week out, per the weekly cadence this file has recommended since 2026-09-09 given current volatility
 
   products: ['CAPE', 'CDM (planned)', 'PRI (planned)'],
   methodology_ref: 'CAPE-METHODOLOGY.md Sections 4.4 and 4.5',
@@ -753,6 +772,16 @@ const SIGNALS_METADATA = {
         'CORRIDOR_SIGNALS.bab_el_mandeb',
         'CORRIDOR_SIGNALS.malacca',
         'CORRIDOR_SIGNALS.panama',
+        'COMPOUND_STATE'
+      ]
+    },
+    {
+      date: '2026-09-28',
+      reviewer: 'Fysh (update authorized 2026-09-28 after the check-cdm-freshness.yml automation flagged next_review_due as 17 days overdue; researched and drafted by Claude, sourced inline)',
+      summary: 'Scoped review, Bab-el-Mandeb only -- triggered by a real, dated event rather than a routine cycle. On 2026-09-12, Houthi forces seized Perim (Mayyun) Island, splitting the strait itself, having already seized Zuqar and besieged the Hanish islands; a Houthi spokesman stated navigation is safe for all companies except Saudi-flagged ships. Day-over-day crossings fell roughly 50% (about 30 to about 15) in the 24 hours after the seizure, on top of the 22% decline already on file from the 20 July blockade declaration. ACLED override upgraded HIGH -> CRITICAL (event_uplift 0.20 -> 0.30, total_uplift 0.30 -> 0.40), matching the same territorial-control basis already used for the Hormuz CRITICAL override. upcoming_change recalculated: the October seasonal step-down now lands on 0.30, not 0.20. COMPOUND_STATE description updated to reflect both corridors at CRITICAL. Hormuz, Malacca, and Panama were not re-reviewed this cycle -- no new sourced event affecting them since 2026-09-09; do not read their unchanged fields as freshly re-confirmed. next_review_due set to 2026-10-05 (one week out).',
+      signals_changed: [
+        'PREDICTION_MARKETS.signals.houthi_sustained_escalation',
+        'CORRIDOR_SIGNALS.bab_el_mandeb',
         'COMPOUND_STATE'
       ]
     }
