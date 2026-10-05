@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated_at": "2026-09-29T11:55:42.164203+00:00",
+    "generated_at": "2026-10-05T10:00:48.114604+00:00",
     "source_file": "product2_accumulation.json",
     "source_model_version": "product2_v1.0",
     "notes": [
@@ -12,54 +12,54 @@
   },
   "corridors": {
     "hormuz": {
-      "baseline": 21.39,
-      "peak": 25.09,
-      "horizon": 30.58,
-      "cascade": 25.09,
-      "pml": 3.31,
+      "baseline": 21.15,
+      "peak": 24.8,
+      "horizon": 30.21,
+      "cascade": 24.8,
+      "pml": 3.27,
       "peakMonth": "Jul",
       "cascadeRatio": 1.0,
-      "vesselsPeak": 488
+      "vesselsPeak": 457
     },
     "bab_el_mandeb": {
-      "baseline": 11.19,
-      "peak": 13.28,
-      "horizon": 15.41,
-      "cascade": 24.7,
-      "pml": 1.72,
+      "baseline": 22.76,
+      "peak": 26.55,
+      "horizon": 30.07,
+      "cascade": 43.96,
+      "pml": 3.53,
       "peakMonth": "Jul",
-      "cascadeRatio": 1.86,
-      "vesselsPeak": 551
+      "cascadeRatio": 1.66,
+      "vesselsPeak": 882
     },
     "malacca": {
-      "baseline": 24.57,
-      "peak": 29.13,
-      "horizon": 37.23,
-      "cascade": 38.33,
-      "pml": 4.08,
-      "peakMonth": "Jan",
-      "cascadeRatio": 1.32,
-      "vesselsPeak": 821
+      "baseline": 36.14,
+      "peak": 42.4,
+      "horizon": 51.89,
+      "cascade": 57.58,
+      "pml": 5.89,
+      "peakMonth": "Jul",
+      "cascadeRatio": 1.36,
+      "vesselsPeak": 1152
     },
     "panama": {
-      "baseline": 31.11,
-      "peak": 36.23,
-      "horizon": 38.45,
-      "cascade": 78.53,
-      "pml": 4.48,
+      "baseline": 18.09,
+      "peak": 21.21,
+      "horizon": 22.57,
+      "cascade": 46.98,
+      "pml": 2.55,
       "peakMonth": "Jul",
-      "cascadeRatio": 2.17,
-      "vesselsPeak": 2277
+      "cascadeRatio": 2.21,
+      "vesselsPeak": 1759
     },
     "suez": {
-      "baseline": 11.27,
-      "peak": 13.37,
-      "horizon": 15.48,
-      "cascade": 24.66,
-      "pml": 1.73,
+      "baseline": 22.84,
+      "peak": 26.64,
+      "horizon": 30.14,
+      "cascade": 43.92,
+      "pml": 3.54,
       "peakMonth": "Jul",
-      "cascadeRatio": 1.84,
-      "vesselsPeak": 555
+      "cascadeRatio": 1.65,
+      "vesselsPeak": 885
     },
     "lombok": {
       "baseline": 30.03,
@@ -72,14 +72,14 @@
       "vesselsPeak": 3103
     },
     "bosphorus": {
-      "baseline": 5.91,
-      "peak": 6.89,
-      "horizon": 8.44,
-      "cascade": 6.89,
-      "pml": 0.91,
+      "baseline": 6.15,
+      "peak": 7.19,
+      "horizon": 8.81,
+      "cascade": 7.19,
+      "pml": 0.94,
       "peakMonth": "Jul",
       "cascadeRatio": 1.0,
-      "vesselsPeak": 332
+      "vesselsPeak": 363
     },
     "danish_straits": {
       "baseline": 3.11,

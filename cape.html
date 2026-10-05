@@ -1182,7 +1182,13 @@ const VESSELS = [
    route:'Singapore → Felixstowe via Suez',waypoints:['Port Said','Djibouti'],
    diversion:'Cape of Good Hope',div_days:14,div_cost:3.2e6,status:null,
    jwc_flag:'divert',jwc_text:'Standard route transits Red Sea JWC Listed Area (Bab-el-Mandeb approach). Port Said approach normal. Djibouti bunker stop is JWC listed area exposure on diversion route.',
-   note:'Dual corridor exposure: Suez (canal grounding / political closure risk) and Bab-el-Mandeb (conflict / restriction risk) are both on the standard route. Djibouti bunker stop is flagged: JWC listed area even when diverting Cape.'}
+   note:'Dual corridor exposure: Suez (canal grounding / political closure risk) and Bab-el-Mandeb (conflict / restriction risk) are both on the standard route. Djibouti bunker stop is flagged: JWC listed area even when diverting Cape.'},
+  {imo:'9100013',name:'MV Yanbu Relay',cls:'suezmax',cls_label:'Suezmax',
+   corridors:{suez:1.0},cargo_type:'Saudi crude (Yanbu loading)',cargo_value:68e6,cii:'D',flag:'Marshall Islands',
+   route:'Yanbu → Ain Sukhna → Suez → Gibraltar → Cape of Good Hope → Ulsan',waypoints:['Yanbu','Port Said'],
+   diversion:'SUMED pipeline transfer (Ain Sukhna to Sidi Kerir, reload in the Mediterranean)',div_days:3,div_cost:null,status:'On Suez + Cape routing (Bab-el-Mandeb closed)',
+   jwc_flag:'listed',jwc_text:'Loads in the Red Sea JWC Listed Area. War risk at Yanbu was reported at about 3% of hull value in late September 2026 (under 1% in July), roughly $3M per voyage against $100k before the conflict (Insurance Journal, 25 Sep 2026). Does not pass Bab-el-Mandeb.',
+   note:'Illustrative case of a Bab-el-Mandeb bypass. Hormuz is avoided by loading at Yanbu, and Bab-el-Mandeb is avoided by going north: Suezmax-size so a laden vessel can transit Suez (a laden VLCC cannot, and partially lightens or transfers via SUMED). Adds roughly 30 days versus the Bab route to Asia (about 24 to about 54 days to Korea). Single points of failure on this one voyage: the East-West pipeline feeding Yanbu (shut 11-12 September 2026 after drone attacks), the Suez Canal, and the Red Sea war-risk zone. SUMED is the alternative but ran near capacity in August (about 1.9 mb/d); transfer cost and delay are not published, so div_cost is left blank. Weights, cargo value and CII rating are illustrative, not observed.'}
 ];
 
 /* ═══════════════════════════════
