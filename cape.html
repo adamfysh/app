@@ -655,6 +655,13 @@
       <input type="number" id="wrNum" class="prob-num" min="0.01" max="3.0" step="0.01" value="1.00" style="width:56px">
       <span style="font-size:11px;color:var(--text-muted)">x</span>
     </div>
+    <div class="assm-field">
+      <span class="assm-label">Exposure model</span>
+      <select id="modelSel" class="prob-num" style="width:auto;min-width:210px" title="Route-based: bounded by cargo value and driven by the vessel's own route. Fleet-average: the original linear line.">
+        <option value="legs">Route-based where a route is set</option>
+        <option value="fleet">Fleet-average (original)</option>
+      </select>
+    </div>
     <span class="assm-note">Rates from NARROWS-RATES.js, auto-updated daily. Override any value; changes apply immediately.</span>
     </div><!-- /opex-wr col -->
   </div>
@@ -879,6 +886,8 @@
      kept in sync by hand, not loaded cross-origin. Soft-fail like SIGNALS:
      CAPE's own PORT_RISK_FALLBACK below covers a failed/missing load. -->
 <script src="NARROWS-CORRIDORS.js" onerror="window._noCorridors=true"></script>
+<!-- Route-based exposure engine. Soft-fail: without it every vessel uses the original fleet-weight line. -->
+<script src="NARROWS-LEGS.js" onerror="window._noLegs=true"></script>
 
 <script>
 /* ═══════════════════════════════
@@ -910,7 +919,8 @@ const VESSEL_CLASS_MAP = {
       Handymax:    { b: kb('Handymax',18),    c: kc('Handymax',16)    },
     },
     opex: _cd.opexMultiplier   || 1.0,
-    wr:   _cd.warRiskMultiplier || 1.0
+    wr:   _cd.warRiskMultiplier || 1.0,
+    model: 'legs'   // 'legs' = route-based where a vessel has a route; 'fleet' = original line
   };
 })();
 const A = window.A; // shorthand ref used throughout
@@ -1050,7 +1060,7 @@ async function loadCorridorFeed() {
 ═══════════════════════════════ */
 /* ═══════════════════════════════
    PORT RISK INDEX
-   PRI scores /10. Source: Narrows PRI model (illustrative).
+   PRI composite score (about 0.5 to 3.5) and tier, generated from pri_composite.csv by narrows-pipeline/scripts/export_port_risk.py. JWC flag and note come from the event overlay.
 
    D30 (2026-09-19): now reads live from NARROWS-CORRIDORS.js
    (window.NARROWS_CORRIDORS.PORT_RISK) — the shared file CASCADE+ already
@@ -1063,35 +1073,40 @@ async function loadCorridorFeed() {
    too so a failed load doesn't silently show stale numbers.
 ═══════════════════════════════ */
 const PORT_RISK_FALLBACK = {
-  'Djibouti':    { pri:5.8, jwc:true,  note:'Gulf of Aden approach. Primary bunker stop for Cape-diverting vessels. JWC Listed Area (Gulf of Aden / Yemen coast).' },
-  'Aden':        { pri:7.9, jwc:true,  note:'JWC Listed Area. Yemen coast. High political violence risk.' },
-  'Hudaydah':    { pri:8.4, jwc:true,  note:'Houthi-controlled port. Active conflict zone.' },
-  'Fujairah':    { pri:2.8, jwc:true,  note:'Gulf of Oman. Proximity to Hormuz JWC Listed Area. Drone attack history (2021).' },
-  'Ras Tanura':  { pri:3.5, jwc:true,  note:'Saudi Arabia. Persian Gulf JWC Listed Area. Primary Saudi crude export terminal.' },
-  'Shuaiba':     { pri:3.9, jwc:true,  note:'Kuwait. Persian Gulf JWC Listed Area.' },
-  'Port Sudan':  { pri:7.2, jwc:true,  note:'Red Sea. Active conflict in Sudanese interior. JWC adjacent.' },
-  'Singapore':   { pri:1.4, jwc:false, note:'Major bunkering hub. Stable.' },
-  'Colombo':     { pri:2.2, jwc:false, note:'Sri Lanka. Post-2022 crisis recovery. Standard risk.' },
-  'Port Said':   { pri:2.5, jwc:false, note:'Suez Canal northern approach. Egyptian political risk (moderate).' },
-  'Port Klang':  { pri:1.9, jwc:false, note:'Malaysia. Standard risk.' },
-  'Durban':      { pri:2.1, jwc:false, note:'South Africa. Cape diversion route bunker stop.' },
-  'Las Palmas':  { pri:0.9, jwc:false, note:'Canary Islands. Atlantic transit hub. Low risk.' },
-  'Gibraltar':   { pri:1.0, jwc:false, note:'Mediterranean approach. Low risk.' },
-  'Rotterdam':   { pri:0.7, jwc:false, note:'North Sea hub. Low risk.' },
-  'Balboa':      { pri:1.6, jwc:false, note:'Panama Canal Pacific approach.' },
-  'Colon':       { pri:1.5, jwc:false, note:'Panama Canal Atlantic approach.' },
-  'Istanbul':    { pri:2.4, jwc:false, note:'Bosphorus. Elevated risk if Black Sea conflict escalates.' },
-  'Odessa':      { pri:8.1, jwc:true,  note:'Ukraine. Active war zone. Black Sea risk.' },
-  'Novorossiysk':{ pri:5.9, jwc:true,  note:'Russia. Black Sea. Sanctions exposure.' },
-  'Salalah':     { pri:3.2, jwc:true,  note:'Oman. Gulf of Aden adjacency. Elevated given Houthi range.' },
+  'Djibouti': { pri:1.54, tier:'Moderate', rank:745, dwellH:72, dwellSrc:'port_level_curated', jwc:true, asOf:'2026-09-18', note:'Gulf of Aden approach. Bunker stop for Cape-diverting vessels.' },
+  'Aden': { pri:3.53, tier:'Critical', rank:1, dwellH:120, dwellSrc:'port_level_curated', jwc:true, asOf:'2026-09-18', note:'Yemen coast. Active conflict.' },
+  'Hudaydah': { pri:3.20, tier:'Critical', rank:12, dwellH:121, dwellSrc:'lpi_formula_fallback', jwc:true, asOf:'2026-09-18', note:'Houthi-controlled. PRI record is the nearest port, Al Ahmadi; Hodeidah itself is not in the PRI port list. PRI record: Al Ahmadi (5 km).' },
+  'Fujairah': { pri:1.31, tier:'Moderate', rank:1475, dwellH:24, dwellSrc:'unctad_2021_country_median', jwc:true, asOf:'2026-09-18', note:'Gulf of Oman, near the Hormuz listed area. PRI record: Al Fujayrah (1 km).' },
+  'Ras Tanura': { pri:1.23, tier:'Moderate', rank:1833, dwellH:78, dwellSrc:'lpi_formula_fallback', jwc:true, asOf:'2026-09-18', note:'Persian Gulf listed area. Main Saudi crude export terminal. PRI record: Ras  Tannurah (1 km).' },
+  'Shuaiba': { pri:1.12, tier:'Moderate', rank:2506, dwellH:86, dwellSrc:'lpi_formula_fallback', jwc:true, asOf:'2026-09-18', note:'Kuwait, Persian Gulf listed area. PRI record: Mina Ash Shuaybah (2 km).' },
+  'Port Sudan': { pri:2.35, tier:'Elevated', rank:127, dwellH:121, dwellSrc:'lpi_formula_fallback', jwc:true, asOf:'2026-09-18', note:'Red Sea. Conflict in the Sudanese interior.' },
+  'Singapore': { pri:0.96, tier:'Moderate', rank:3353, dwellH:25, dwellSrc:'unctad_2021_country_median', jwc:false, asOf:'2026-09-18', note:'Major bunkering hub. PRI record: Keppel - (East Singapore) (3 km).' },
+  'Colombo': { pri:0.79, tier:'Moderate', rank:3655, dwellH:24, dwellSrc:'port_level_curated', jwc:false, asOf:'2026-09-18', note:'Sri Lanka.' },
+  'Port Said': { pri:0.96, tier:'Moderate', rank:3342, dwellH:90, dwellSrc:'lpi_formula_fallback', jwc:false, asOf:'2026-09-18', note:'Suez Canal northern approach. PRI record: Bur Sa\'id (1 km).' },
+  'Port Klang': { pri:0.68, tier:'Moderate', rank:3749, dwellH:20, dwellSrc:'port_level_curated', jwc:false, asOf:'2026-09-18', note:'Malaysia.' },
+  'Durban': { pri:1.10, tier:'Moderate', rank:2689, dwellH:48, dwellSrc:'port_level_curated', jwc:false, asOf:'2026-09-18', note:'South Africa. Cape diversion bunker stop.' },
+  'Las Palmas': { pri:0.59, tier:'Moderate', rank:3772, dwellH:16, dwellSrc:'unctad_2021_country_median', jwc:false, asOf:'2026-09-18', note:'Canary Islands. Atlantic transit hub.' },
+  'Gibraltar': { pri:1.56, tier:'Moderate', rank:694, dwellH:98, dwellSrc:'lpi_formula_fallback', jwc:false, asOf:'2026-09-18', note:'Mediterranean approach. PRI record: Europa Point (1 km).' },
+  'Rotterdam': { pri:0.67, tier:'Moderate', rank:3753, dwellH:20, dwellSrc:'port_level_curated', jwc:false, asOf:'2026-09-18', note:'North Sea hub.' },
+  'Balboa': { pri:1.07, tier:'Moderate', rank:2886, dwellH:21, dwellSrc:'unctad_2021_country_median', jwc:false, asOf:'2026-09-18', note:'Panama Canal Pacific approach.' },
+  'Colon': { pri:1.20, tier:'Moderate', rank:2018, dwellH:21, dwellSrc:'unctad_2021_country_median', jwc:false, asOf:'2026-09-18', note:'Panama Canal Atlantic approach. PRI record: Puerto Colon (2 km).' },
+  'Istanbul': { pri:0.85, tier:'Moderate', rank:3587, dwellH:48, dwellSrc:'port_level_curated', jwc:false, asOf:'2026-09-18', note:'Bosphorus.' },
+  'Odessa': { pri:1.71, tier:'Moderate', rank:497, dwellH:90, dwellSrc:'lpi_formula_fallback', jwc:true, asOf:'2026-09-18', note:'Ukraine. Active war zone. PRI record: Odesa (1 km).' },
+  'Novorossiysk': { pri:1.48, tier:'Moderate', rank:863, dwellH:60, dwellSrc:'port_level_curated', jwc:true, asOf:'2026-09-18', note:'Russia, Black Sea. Sanctions exposure.' },
+  'Salalah': { pri:1.06, tier:'Moderate', rank:2950, dwellH:78, dwellSrc:'lpi_formula_fallback', jwc:true, asOf:'2026-09-18', note:'Oman. Gulf of Aden adjacency. PRI record: Mina Raysut (3 km).' },
+  'Yanbu': { pri:1.25, tier:'Moderate', rank:1680, dwellH:78, dwellSrc:'lpi_formula_fallback', jwc:false, asOf:'2026-10-05', note:'Red Sea export outlet for the East-West pipeline. Houthi blockade of Bab el-Mandeb declared 20 July 2026; war risk reported at about 3% of vessel value. Current JWC listing not checked: confirm before relying on this flag.' },
+  'Ulsan': { pri:1.00, tier:'Moderate', rank:3193, dwellH:17, dwellSrc:'unctad_2021_country_median', jwc:false, asOf:'2026-10-05', note:'South Korea. Discharge port in the Yanbu analysis.' },
+  'Ain Sukhna': { pri:0.98, tier:'Moderate', rank:3302, dwellH:90, dwellSrc:'lpi_formula_fallback', jwc:false, asOf:'2026-10-05', note:'Red Sea end of the SUMED pipeline. PRI record: Ain Sukhna Terminal (2 km).' },
+  'Sidi Kerir': { pri:1.44, tier:'Moderate', rank:961, dwellH:90, dwellSrc:'lpi_formula_fallback', jwc:false, asOf:'2026-10-05', note:'Mediterranean end of the SUMED pipeline. PRI record: Sidi Kerir (Kurayr) (5 km).' },
 };
 const PORT_RISK = (window.NARROWS_CORRIDORS && window.NARROWS_CORRIDORS.PORT_RISK) || PORT_RISK_FALLBACK;
-function priRisk(score){ return score>=6?'high':score>=3?'med':'low'; }
+// PRI tiers (Critical>=3.0, High>=2.5, Elevated>=2.0, else Moderate) drive the chip colour.
+function priRisk(tier){ return (tier==='Critical'||tier==='High')?'high':tier==='Elevated'?'med':'low'; }
 function priChip(portName){
   const p=PORT_RISK[portName]; if(!p) return `<span class="port-risk low">${portName}</span>`;
-  const cls=p.jwc?'jwc':priRisk(p.pri);
-  const label=p.jwc?'JWC':'PRI '+p.pri.toFixed(1);
-  return `<span class="port-risk ${cls}" title="${p.note}">${portName} · ${label}</span>`;
+  const cls=p.jwc?'jwc':priRisk(p.tier);
+  const label=(p.jwc?'JWC · ':'')+'PRI '+p.pri.toFixed(2)+' '+p.tier;
+  return `<span class="port-risk ${cls}" title="${p.note} PRI rank ${p.rank} of 3,774. Event note as of ${p.asOf}.">${portName} · ${label}</span>`;
 }
 
 // Corridor exposure weights: sourced from NARROWS-RATES.js.
@@ -1184,17 +1199,27 @@ const VESSELS = [
    jwc_flag:'divert',jwc_text:'Standard route transits Red Sea JWC Listed Area (Bab-el-Mandeb approach). Port Said approach normal. Djibouti bunker stop is JWC listed area exposure on diversion route.',
    note:'Dual corridor exposure: Suez (canal grounding / political closure risk) and Bab-el-Mandeb (conflict / restriction risk) are both on the standard route. Djibouti bunker stop is flagged: JWC listed area even when diverting Cape.'},
   {imo:'9100013',name:'MV Yanbu Relay',cls:'suezmax',cls_label:'Suezmax',
-   corridors:{suez:1.0},cargo_type:'Saudi crude (Yanbu loading)',cargo_value:68e6,cii:'D',flag:'Marshall Islands',
-   route:'Yanbu → Ain Sukhna → Suez → Gibraltar → Cape of Good Hope → Ulsan',waypoints:['Yanbu','Port Said'],
+   corridors:{suez:1.0,malacca:1.0},cargo_type:'Saudi crude (Yanbu loading)',leg_route:'yanbu_ulsan_long',leg_alt_route:'yanbu_ulsan_short',cargo_value:100e6,cii:'D',flag:'Marshall Islands',
+   route:'Yanbu → Suez → Gibraltar → Cape of Good Hope → Malacca → Ulsan',waypoints:['Port Said','Singapore'],
    diversion:'SUMED pipeline transfer (Ain Sukhna to Sidi Kerir, reload in the Mediterranean)',div_days:3,div_cost:null,status:'On Suez + Cape routing (Bab-el-Mandeb closed)',
    jwc_flag:'listed',jwc_text:'Loads in the Red Sea JWC Listed Area. War risk at Yanbu was reported at about 3% of hull value in late September 2026 (under 1% in July), roughly $3M per voyage against $100k before the conflict (Insurance Journal, 25 Sep 2026). Does not pass Bab-el-Mandeb.',
-   note:'Illustrative case of a Bab-el-Mandeb bypass. Hormuz is avoided by loading at Yanbu, and Bab-el-Mandeb is avoided by going north: Suezmax-size so a laden vessel can transit Suez (a laden VLCC cannot, and partially lightens or transfers via SUMED). Adds roughly 30 days versus the Bab route to Asia (about 24 to about 54 days to Korea). Single points of failure on this one voyage: the East-West pipeline feeding Yanbu (shut 11-12 September 2026 after drone attacks), the Suez Canal, and the Red Sea war-risk zone. SUMED is the alternative but ran near capacity in August (about 1.9 mb/d); transfer cost and delay are not published, so div_cost is left blank. Weights, cargo value and CII rating are illustrative, not observed.'}
+   note:'Illustrative case of a Bab-el-Mandeb bypass. Hormuz is avoided by loading at Yanbu, and Bab-el-Mandeb is avoided by going north: Suezmax-size so a laden vessel can transit Suez (a laden VLCC cannot, and partially lightens or transfers via SUMED). Routing graph: 15,811 nm via Suez, Gibraltar, the Cape and Malacca versus 7,095 nm via Bab-el-Mandeb, about 47 versus about 21 days at 14 knots (press reports put it at about 54 versus about 24 days). CAPE models only the Suez and Malacca legs; Gibraltar, the Cape of Good Hope and the pipeline have no CAPE corridor. Single points of failure on this one voyage: the East-West pipeline feeding Yanbu (shut 11-12 September 2026 after drone attacks), the Suez Canal, and the Red Sea war-risk zone. SUMED is the alternative but ran near capacity in August (about 1.9 mb/d); transfer cost and delay are not published, so div_cost is left blank. Weights, cargo value and CII rating are illustrative, not observed.'}
 ];
 
 /* ═══════════════════════════════
    CALCULATIONS
 ═══════════════════════════════ */
+// Route-based line: used when the vessel has a route and the engine loaded.
+function usesLegs(v){ return A.model!=='fleet' && window.NARROWS_LEGS && (v.leg_route||v.legs); }
+function legScenario(corr, dur, sev){
+  return { durationDays:dur, corridors:{ [corr]: Math.min(100, sev*A.wr) } };
+}
 function vcVar(v, corr, dur, sev) {
+  if (usesLegs(v)) {
+    if (!window.NARROWS_LEGS.usesCorridor(v, corr)) return 0;
+    const r = window.NARROWS_LEGS.routeVar(v, legScenario(corr,dur,sev), PORT_RISK);
+    return r ? r.var : 0;
+  }
   const w = v.corridors[corr];
   if (!w) return 0;
   return v.cargo_value * (RATES[v.cls][corr]||0) * w * (dur/30) * (sev/100) * A.wr;
@@ -1207,10 +1232,8 @@ function grossVaR(vessels, corr, dur, sev) {
 function byCorr(vessels, dur, sev) {
   const out = {};
   for (const v of vessels)
-    for (const [c,w] of Object.entries(v.corridors)) {
-      const r = RATES[v.cls][c]||0;
-      out[c] = (out[c]||0) + v.cargo_value*r*w*(dur/30)*(sev/100)*A.wr;
-    }
+    for (const c of Object.keys(v.corridors))
+      out[c] = (out[c]||0) + vcVar(v,c,dur,sev);
   return out;
 }
 
@@ -1291,6 +1314,31 @@ function renderHero() {
 /* ═══════════════════════════════
    RENDER: VESSEL CARDS
 ═══════════════════════════════ */
+/* Route-based detail: shows how the vessel's own route drives its number. */
+function legPanel(v){
+  if(!usesLegs(v)) return '';
+  const L=window.NARROWS_LEGS, sc=legScenario(S.corridor,S.duration,S.severity);
+  const r=L.routeVar(v,sc,PORT_RISK); if(!r) return '';
+  const tpl=L.ROUTES[v.leg_route]||{label:'Custom route'};
+  const alt=v.leg_alt_route?L.routeVar({cargo_value:v.cargo_value,leg_route:v.leg_alt_route},sc,PORT_RISK):null;
+  const altTpl=v.leg_alt_route?L.ROUTES[v.leg_alt_route]:null;
+  const fleetW=v.corridors[S.corridor];
+  const fleetLine=fleetW?v.cargo_value*(RATES[v.cls][S.corridor]||0)*fleetW*(S.duration/30)*(S.severity/100)*A.wr:0;
+  const nm=k=>(CORR[k]&&CORR[k].short)||(k.charAt(0).toUpperCase()+k.slice(1).replace(/_/g,' '));
+  const rows=r.legs.map(l=>`<tr><td>${l.kind==='port'?l.label+' (port call)':nm(l.label)}</td><td class="num">${l.zoneDays.toFixed(1)}d</td><td class="num">${(l.share*100).toFixed(0)}%</td><td class="num">${l.severity.toFixed(0)}%</td><td class="num">${(l.hit*100).toFixed(1)}%</td></tr>`).join('');
+  return `
+    <div class="vcol" style="grid-column:1/-1;border-top:var(--rule);padding:14px 20px">
+      <div class="vcol-head" style="margin-bottom:6px">Route-based exposure &middot; ${tpl.label}</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Trade cycle ${r.cycleDays.toFixed(0)} days. Share caught = (scenario days + days in or near the passage) / cycle, capped at 100%. Only the selected corridor is disrupted, so legs on other corridors show 0%.</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="text-align:left;color:var(--text-muted)"><th>Leg</th><th class="num">Days in zone</th><th class="num">Share caught</th><th class="num">Severity</th><th class="num">Loss share</th></tr></thead><tbody>${rows}</tbody></table>
+      <div style="margin-top:8px;font-size:12px;line-height:1.6">
+        Route-based VaR <b>${fM(r.var)}</b> (${(r.fraction*100).toFixed(1)}% of cargo, cannot exceed cargo value).
+        ${fleetLine?` Fleet-average line for comparison: ${fM(fleetLine)}${fleetLine>v.cargo_value?' (exceeds cargo value)':''}.`:''}
+        ${alt?` Same cargo on the alternative route (${altTpl.label}): <b>${fM(alt.var)}</b>${alt.var===0?' (not exposed to this corridor)':''}, cycle ${alt.cycleDays.toFixed(0)} days.`:''}
+      </div>
+    </div>`;
+}
+
 function renderCards() {
   const vessels = activeVessels();
   const c = CORR[S.corridor];
@@ -1357,6 +1405,7 @@ function renderCards() {
           <div class="vrow"><span class="vk">JWC status</span><span class="vv">${fcHtml}</span></div>
           ${v.owner?`<div class="vrow"><span class="vk">Owner / operator</span><span class="vv">${v.owner}</span></div>`:''}
         </div>
+        ${legPanel(v)}
         ${v.waypoints&&v.waypoints.length?`
         <div class="vcol" style="grid-column:1/-1;border-top:var(--rule);padding:14px 20px">
           <div class="vcol-head" style="margin-bottom:10px">Port stops &middot; PRI &amp; JWC flags</div>
@@ -1762,6 +1811,7 @@ document.getElementById('wrSlider').addEventListener('input',e=>{
   document.getElementById('wrNum').value = parseFloat(e.target.value).toFixed(2);
   syncAssm();
 });
+document.getElementById('modelSel').addEventListener('change',e=>{ A.model=e.target.value; renderAll(); });
 document.getElementById('wrNum').addEventListener('input',e=>{
   const v = Math.min(3.0, Math.max(0.01, parseFloat(e.target.value)||1.0));
   e.target.value = v.toFixed(2);
