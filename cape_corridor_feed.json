@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated_at": "2026-10-15T08:06:46.593761+00:00",
+    "generated_at": "2026-10-15T09:19:59.129216+00:00",
     "source_file": "simulator_data.json",
     "source_generated": "2026-10-15",
     "source_model_year": 2024,
@@ -398,22 +398,22 @@
           "avg_detour_days": 0.0
         },
         {
-          "country": "Sri Lanka",
-          "iso": "LKA",
-          "dep": 0.658,
-          "v30": 6657534.0,
-          "annual_usd": 81000000.0,
+          "country": "New Zealand",
+          "iso": "NZL",
+          "dep": 0.438,
+          "v30": 9369863.0,
+          "annual_usd": 114000000.0,
           "tier": "T2",
           "tier_label": "Corroborated",
           "reroute_possible": false,
           "avg_detour_days": 0.0
         },
         {
-          "country": "Rep. of Korea",
-          "iso": "KOR",
-          "dep": 0.208,
-          "v30": 5753425.0,
-          "annual_usd": 70000000.0,
+          "country": "Sri Lanka",
+          "iso": "LKA",
+          "dep": 0.658,
+          "v30": 6657534.0,
+          "annual_usd": 81000000.0,
           "tier": "T2",
           "tier_label": "Corroborated",
           "reroute_possible": false,
