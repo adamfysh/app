@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "generated_at": "2026-10-05T10:00:47.902090+00:00",
+    "generated_at": "2026-10-15T08:06:46.593761+00:00",
     "source_file": "simulator_data.json",
-    "source_generated": "2026-10-05",
+    "source_generated": "2026-10-15",
     "source_model_year": 2024,
     "notes": [
       "v30 = annual VaR (varB, USD) scaled to a 30-day window: varB * 1e9 * (30/365).",
@@ -332,6 +332,17 @@
       ],
       "fertiliser": [
         {
+          "country": "Australia",
+          "iso": "AUS",
+          "dep": 0.389,
+          "v30": 64849315.0,
+          "annual_usd": 789000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": false,
+          "avg_detour_days": 0.0
+        },
+        {
           "country": "India",
           "iso": "IND",
           "dep": 0.266,
@@ -403,17 +414,6 @@
           "dep": 0.208,
           "v30": 5753425.0,
           "annual_usd": 70000000.0,
-          "tier": "T2",
-          "tier_label": "Corroborated",
-          "reroute_possible": false,
-          "avg_detour_days": 0.0
-        },
-        {
-          "country": "Philippines",
-          "iso": "PHL",
-          "dep": 0.102,
-          "v30": 3945205.0,
-          "annual_usd": 48000000.0,
           "tier": "T2",
           "tier_label": "Corroborated",
           "reroute_possible": false,
@@ -2201,17 +2201,6 @@
           "avg_detour_days": 6.0
         },
         {
-          "country": "Australia",
-          "iso": "AUS",
-          "dep": 0.097,
-          "v30": 16109589.0,
-          "annual_usd": 196000000.0,
-          "tier": "T2",
-          "tier_label": "Corroborated",
-          "reroute_possible": true,
-          "avg_detour_days": 2.6
-        },
-        {
           "country": "Indonesia",
           "iso": "IDN",
           "dep": 0.913,
@@ -2232,6 +2221,17 @@
           "tier_label": "Corroborated",
           "reroute_possible": true,
           "avg_detour_days": 3.9
+        },
+        {
+          "country": "Cambodia",
+          "iso": "KHM",
+          "dep": 0.828,
+          "v30": 10109589.0,
+          "annual_usd": 123000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
         }
       ],
       "apparel": [
@@ -4589,9 +4589,9 @@
         {
           "country": "Australia",
           "iso": "AUS",
-          "dep": 0.22,
-          "v30": 104054795.0,
-          "annual_usd": 1266000000.0,
+          "dep": 0.275,
+          "v30": 129945205.0,
+          "annual_usd": 1581000000.0,
           "tier": "T1",
           "tier_label": "Reported",
           "reroute_possible": true,
@@ -4599,6 +4599,17 @@
         }
       ],
       "refined": [
+        {
+          "country": "Australia",
+          "iso": "AUS",
+          "dep": 0.013,
+          "v30": 36000000.0,
+          "annual_usd": 438000000.0,
+          "tier": "T3",
+          "tier_label": "Estimated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
         {
           "country": "Rep. of Korea",
           "iso": "KOR",
@@ -4658,6 +4669,17 @@
         }
       ],
       "fertiliser": [
+        {
+          "country": "Australia",
+          "iso": "AUS",
+          "dep": 0.486,
+          "v30": 80958904.0,
+          "annual_usd": 985000000.0,
+          "tier": "T2",
+          "tier_label": "Corroborated",
+          "reroute_possible": true,
+          "avg_detour_days": 2.6
+        },
         {
           "country": "Rep. of Korea",
           "iso": "KOR",

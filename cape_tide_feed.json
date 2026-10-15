@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated_at": "2026-10-05T10:00:48.114604+00:00",
+    "generated_at": "2026-10-15T08:06:46.814639+00:00",
     "source_file": "product2_accumulation.json",
     "source_model_version": "product2_v1.0",
     "notes": [
@@ -12,14 +12,14 @@
   },
   "corridors": {
     "hormuz": {
-      "baseline": 21.15,
-      "peak": 24.8,
-      "horizon": 30.21,
-      "cascade": 24.8,
-      "pml": 3.27,
+      "baseline": 21.22,
+      "peak": 24.88,
+      "horizon": 30.31,
+      "cascade": 24.88,
+      "pml": 3.28,
       "peakMonth": "Jul",
       "cascadeRatio": 1.0,
-      "vesselsPeak": 457
+      "vesselsPeak": 469
     },
     "bab_el_mandeb": {
       "baseline": 22.76,
@@ -33,13 +33,13 @@
     },
     "malacca": {
       "baseline": 36.14,
-      "peak": 42.4,
-      "horizon": 51.89,
-      "cascade": 57.58,
+      "peak": 42.38,
+      "horizon": 51.88,
+      "cascade": 57.57,
       "pml": 5.89,
       "peakMonth": "Jul",
       "cascadeRatio": 1.36,
-      "vesselsPeak": 1152
+      "vesselsPeak": 1150
     },
     "panama": {
       "baseline": 18.09,
@@ -62,14 +62,14 @@
       "vesselsPeak": 885
     },
     "lombok": {
-      "baseline": 30.03,
-      "peak": 35.22,
-      "horizon": 38.39,
-      "cascade": 37.97,
-      "pml": 3.72,
+      "baseline": 30.1,
+      "peak": 35.32,
+      "horizon": 38.51,
+      "cascade": 38.09,
+      "pml": 3.74,
       "peakMonth": "Jun",
       "cascadeRatio": 1.08,
-      "vesselsPeak": 3103
+      "vesselsPeak": 3117
     },
     "bosphorus": {
       "baseline": 6.15,
