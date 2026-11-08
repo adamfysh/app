@@ -39,8 +39,8 @@
 window.NARROWS_RATES = Object.freeze({
 
   version:      '1.1',
-  last_updated: '2026-11-07',
-  source:       'Yahoo Finance auto-update 2026-11-07 (Brent 98.3 USD/bbl, BDI n/a) [DEGRADED]',
+  last_updated: '2026-11-08',
+  source:       'Yahoo Finance auto-update 2026-11-08 (Brent 98.3 USD/bbl, BDI n/a) [DEGRADED]',
 
   // ---------------------------------------------------------------------------
   // Vessel day rates
